@@ -6,3 +6,7 @@
 	path = scripts
 	url = https://github.com/biowdl/scripts
         branch = develop
+[submodule "QC"]
+	path = QC
+	url = https://github.com/biowdl/QC
+	branch = develop

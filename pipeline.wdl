@@ -19,3 +19,59 @@ version 1.0
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+
+import "sample.wdl" as sampleWorkflow
+import "structs.wdl" as structs
+import "tasks/biowdl.wdl" as biowdl
+import "tasks/common.wdl" as common
+import "tasks/multiqc.wdl" as multiqc
+
+workflow Pipeline {
+    input {
+        File sampleConfigFile
+        String outputDirectory = "."
+        File dockerImagesFile
+        Boolean runMultiQC = if (outputDir == ".") then false else true
+    }
+
+    call common.YamlToJson as convertDockerImagesFile {
+        input:
+            yaml = dockerImagesFile,
+            outputJson = outputDirectory + "/dockerImages.json"
+    }
+
+    Map[String, String] dockerImages = read_json(convertDockerImagesFile.json)
+
+    call biowdl.InputConverter as convertSampleConfig {
+        input:
+            samplesheet = sampleConfigFile,
+            outputFile = outputDirectory + "/samplesheet.json",
+            dockerImage = dockerImages["biowdl-input-converter"]
+    }
+
+    SampleConfig sampleConfig = read_json(convertSampleConfig.json)
+    Array[Sample] allSamples = sampleConfig.samples
+
+    scatter (sample in allSamples) {
+        call sampleWorkflow.SampleWorkflow as executeSampleWorkflow {
+            input:
+                sample = sample,
+                outputDirectory = outputDirectory + "/" + sample.id,
+                referenceGenome = referenceGenome,
+                dockerImages = dockerImages
+    }
+
+    if (runMultiQC) {
+        call multiqc.MultiQC as multiqcTask {
+            input:
+                dependencies = [], # Multiqc will only run if these files are created.
+                outDir = outputDir + "/multiqc",
+                analysisDirectory = outputDir,
+                dockerImage = dockerImages["multiqc"]
+        }
+    }
+
+    output {
+        Array[File] bamMetricsFiles = flatten(executeSampleWorkflow.metricsFiles)
+    }
+}
