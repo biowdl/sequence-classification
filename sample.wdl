@@ -35,19 +35,18 @@ workflow SampleWorkflow {
     scatter (readgroup in readgroups) {
         String readgroupName = "~{sample.id}-~{readgroup.lib_id}-~{readgroup.id}"
         String readgroupIdentifier = readgroup.lib_id + "-" + readgroup.id
-
         call qc.QC as qualityControl {
             input:
                 read1 = readgroup.R1,
                 read2 = readgroup.R2,
                 readgroupName = readgroupName,
-                outputDir = outputDir + "/" + readgroupIdentifier,
+                outputDir = outputDirectory + "/" + readgroupIdentifier,
                 dockerImages = dockerImages
         }
-
-    Array[Array[File]] allMetrics = [flatten(qc.reports)]
+    }
 
     output {
-        Array[File] metricsFiles = flatten(allMetrics)
+        Array[File] qcReports = flatten(qualityControl.reports)
+        Boolean finished = true
     }
 }

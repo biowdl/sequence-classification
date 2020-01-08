@@ -1,0 +1,5 @@
+{
+    "Pipeline.sampleConfigFile": "tests/samplesheets/integration.csv",
+    "Pipeline.dockerImagesFile": "dockerImages.yml",
+    "Pipeline.outputDirectory": "/exports/sasc/jboom/centrifuge_test_4"
+}

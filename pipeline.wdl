@@ -31,7 +31,7 @@ workflow Pipeline {
         File sampleConfigFile
         String outputDirectory = "."
         File dockerImagesFile
-        Boolean runMultiQC = if (outputDir == ".") then false else true
+        Boolean runMultiQC = if (outputDirectory == ".") then false else true # Only run multiQC if the user specified an outputDirectory.
     }
 
     call common.YamlToJson as convertDockerImagesFile {
@@ -57,21 +57,22 @@ workflow Pipeline {
             input:
                 sample = sample,
                 outputDirectory = outputDirectory + "/" + sample.id,
-                referenceGenome = referenceGenome,
                 dockerImages = dockerImages
+        }
     }
 
     if (runMultiQC) {
         call multiqc.MultiQC as multiqcTask {
             input:
+                finished = executeSampleWorkflow.finished,
                 dependencies = [], # Multiqc will only run if these files are created.
-                outDir = outputDir + "/multiqc",
-                analysisDirectory = outputDir,
+                outDir = outputDirectory + "/multiqc",
+                analysisDirectory = outputDirectory,
                 dockerImage = dockerImages["multiqc"]
         }
     }
 
     output {
-        Array[File] bamMetricsFiles = flatten(executeSampleWorkflow.metricsFiles)
+        Array[File] qcReports = flatten(executeSampleWorkflow.qcReports)
     }
 }

@@ -1,0 +1,22 @@
+samples:
+- id: Ancestor
+  libraries:
+  - id: lib1
+    readgroups:
+    - id: rg1
+      reads:
+        R1: tests/data/ancestor_R1.fastq
+        R1_md5: cc2208b220936d796832aec48e1e1e98
+        R2: tests/data/ancestor_R2.fastq
+        R2_md5: 4d16552435178d798821ef0126ff3658
+samples:
+- id: Evolved
+  libraries:
+  - id: lib1
+    readgroups:
+    - id: rg1
+      reads:
+        R1: tests/data/evolved_R1.fastq
+        R1_md5: 2bc6d0b74ff35ce4717cceb1facd3c84
+        R2: tests/data/evolved_R2.fastq
+        R2_md5: d2d2f86b2aeafcd109f087f498c3252e

@@ -24,6 +24,7 @@ struct Readgroup {
     String id
     String lib_id
     File R1
+    File? R2
 }
 
 struct Sample {

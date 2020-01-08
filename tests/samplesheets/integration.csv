@@ -1,0 +1,3 @@
+"sample","library","readgroup","R1","R1_md5","R2","R2_md5"
+"Ancestor","lib1","rg1","tests/data/ancestor_R1.fastq","cc2208b220936d796832aec48e1e1e98","tests/data/ancestor_R2.fastq","4d16552435178d798821ef0126ff3658"
+"Evolved","lib1","rg1","tests/data/evolved_R1.fastq","2bc6d0b74ff35ce4717cceb1facd3c84","tests/data/evolved_R2.fastq","d2d2f86b2aeafcd109f087f498c3252e"
