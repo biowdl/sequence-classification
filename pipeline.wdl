@@ -31,7 +31,7 @@ workflow Pipeline {
         File sampleConfigFile
         String outputDirectory = "."
         File dockerImagesFile
-        Boolean runMultiQC = if (outputDirectory == ".") then false else true # Only run multiQC if the user specified an outputDirectory.
+        Boolean runMultiQC = if (outputDirectory == ".") then false else true
     }
 
     call common.YamlToJson as convertDockerImagesFile {
@@ -56,6 +56,7 @@ workflow Pipeline {
         call sampleWorkflow.SampleWorkflow as executeSampleWorkflow {
             input:
                 sample = sample,
+                indexPrefix = "/exports/sasc/jboom/sequence-classification/tests/data/centrifuge_test_index",
                 outputDirectory = outputDirectory + "/" + sample.id,
                 dockerImages = dockerImages
         }
@@ -65,7 +66,7 @@ workflow Pipeline {
         call multiqc.MultiQC as multiqcTask {
             input:
                 finished = executeSampleWorkflow.finished,
-                dependencies = [], # Multiqc will only run if these files are created.
+                dependencies = [],
                 outDir = outputDirectory + "/multiqc",
                 analysisDirectory = outputDirectory,
                 dockerImage = dockerImages["multiqc"]
@@ -73,6 +74,10 @@ workflow Pipeline {
     }
 
     output {
-        Array[File] qcReports = flatten(executeSampleWorkflow.qcReports)
+        Array[File] outputQCreports = flatten(executeSampleWorkflow.qcReports)
+        Array[File] outputCentrifugeMetrics = executeSampleWorkflow.outputCentrifugeMetrics
+        Array[File] outputCentrifugeClassification = executeSampleWorkflow.outputCentrifugeClassification
+        Array[File] outputCentrifugeReport = executeSampleWorkflow.outputCentrifugeReport
+        File? outputMultiQCreport = multiqcTask.multiqcReport
     }
 }

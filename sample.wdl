@@ -22,10 +22,12 @@ version 1.0
 
 import "structs.wdl" as structs
 import "QC/QC.wdl" as qc
+import "/exports/sasc/jboom/centrifuge.wdl" as centrifuge
 
 workflow SampleWorkflow {
     input {
         Sample sample
+        String indexPrefix
         String outputDirectory = "."
         Map[String, String] dockerImages
     }
@@ -45,8 +47,20 @@ workflow SampleWorkflow {
         }
     }
 
+    call centrifuge.Classify as executeCentrifuge {
+        input:
+            outputPrefix = outputDirectory,
+            indexPrefix = indexPrefix,
+            read1 = qualityControl.qcRead1,
+            read2 = select_all(qualityControl.qcRead2),
+            dockerImage = dockerImages["centrifuge"]
+    }
+
     output {
         Array[File] qcReports = flatten(qualityControl.reports)
+        File outputCentrifugeMetrics = executeCentrifuge.outputMetrics
+        File outputCentrifugeClassification = executeCentrifuge.outputClassification
+        File outputCentrifugeReport = executeCentrifuge.outputReport
         Boolean finished = true
     }
 }
