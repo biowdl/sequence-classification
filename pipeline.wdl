@@ -56,7 +56,6 @@ workflow Pipeline {
         call sampleWorkflow.SampleWorkflow as executeSampleWorkflow {
             input:
                 sample = sample,
-                indexPrefix = "/exports/sasc/jboom/sequence-classification/tests/data/centrifuge_test_index",
                 outputDirectory = outputDirectory + "/" + sample.id,
                 dockerImages = dockerImages
         }

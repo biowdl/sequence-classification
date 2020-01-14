@@ -22,7 +22,7 @@ version 1.0
 
 import "structs.wdl" as structs
 import "QC/QC.wdl" as qc
-import "/exports/sasc/jboom/centrifuge.wdl" as centrifuge
+import "/exports/sasc/jboom/tasks/centrifuge.wdl" as centrifuge
 
 workflow SampleWorkflow {
     input {

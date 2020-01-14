@@ -1,4 +1,0 @@
-cc2208b220936d796832aec48e1e1e98  ancestor_R1.fastq
-4d16552435178d798821ef0126ff3658  ancestor_R2.fastq
-2bc6d0b74ff35ce4717cceb1facd3c84  evolved_R1.fastq
-d2d2f86b2aeafcd109f087f498c3252e  evolved_R2.fastq
