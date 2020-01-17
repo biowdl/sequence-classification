@@ -1,6 +1,6 @@
 {
     "Pipeline.sampleConfigFile": "tests/samplesheets/integration.csv",
     "Pipeline.dockerImagesFile": "dockerImages.yml",
-    "Pipeline.executeSampleWorkflow.indexPrefix": "/exports/sasc/jboom/sequence-classification/tests/data/centrifuge_test_index",
+    "Pipeline.executeSampleWorkflow.indexPrefix": "tests/data/norovirus",
     "Pipeline.outputDirectory": "/exports/sasc/jboom/centrifuge_test_14"
 }
