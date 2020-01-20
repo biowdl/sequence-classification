@@ -1,0 +1,2 @@
+"sample","library","readgroup","R1","R1_md5","R2","R2_md5"
+"Norovirus_PairedEnd","lib1","rg1","tests/data/norovirus.pairedEnd.R1.fastq","573c964845d8e40ead66462804637619","tests/data/norovirus.pairedEnd.R2.fastq","a3642a7293fe00a9e52a65b1458531f8"

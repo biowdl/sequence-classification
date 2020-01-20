@@ -28,3 +28,4 @@
 * Generate test data:
   * [dwgsim](https://github.com/nh13/DWGSIM) -S 2 reference_sequences.fna norovirus
   * head -n 20000 (file) > (new_file)
+  * tail -n 20000 (file) > (new_file) (for second single end file only)

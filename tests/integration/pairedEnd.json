@@ -1,0 +1,5 @@
+{
+    "Pipeline.sampleConfigFile": "tests/samplesheets/pairedEnd.csv",
+    "Pipeline.dockerImagesFile": "dockerImages.yml",
+    "Pipeline.executeSampleWorkflow.indexPrefix": "tests/data/norovirus"
+}
