@@ -1,11 +1,21 @@
 samples:
-- id: Norovirus_PairedEnd
+- id: Norovirus_PairedEnd_1
   libraries:
   - id: lib1
     readgroups:
     - id: rg1
       reads:
-        R1: tests/data/norovirus.pairedEnd.R1.fastq
-        R1_md5: 573c964845d8e40ead66462804637619
-        R2: tests/data/norovirus.pairedEnd.R2.fastq
-        R2_md5: a3642a7293fe00a9e52a65b1458531f8
+        R1: tests/data/norovirus.pairedEnd.1.R1.fastq
+        R1_md5: d762b53bcfefabca560c6fc14df3c82a
+        R2: tests/data/norovirus.pairedEnd.1.R2.fastq
+        R2_md5: 61b8b1a896cae8e06c2befaba38f5d0b
+- id: Norovirus_PairedEnd_2
+  libraries:
+  - id: lib1
+    readgroups:
+    - id: rg1
+      reads:
+        R1: tests/data/norovirus.pairedEnd.2.R1.fastq
+        R1_md5: bca02be453c96689ab0cf9e81d4bd29a
+        R2: tests/data/norovirus.pairedEnd.2.R2.fastq
+        R2_md5: c2837fe11aa676077bf1a274bda40aaa

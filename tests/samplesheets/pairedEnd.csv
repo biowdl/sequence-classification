@@ -1,2 +1,3 @@
 "sample","library","readgroup","R1","R1_md5","R2","R2_md5"
-"Norovirus_PairedEnd","lib1","rg1","tests/data/norovirus.pairedEnd.R1.fastq","573c964845d8e40ead66462804637619","tests/data/norovirus.pairedEnd.R2.fastq","a3642a7293fe00a9e52a65b1458531f8"
+"Norovirus_PairedEnd_1","lib1","rg1","tests/data/norovirus.pairedEnd.1.R1.fastq","d762b53bcfefabca560c6fc14df3c82a","tests/data/norovirus.pairedEnd.1.R2.fastq","61b8b1a896cae8e06c2befaba38f5d0b"
+"Norovirus_PairedEnd_2","lib1","rg1","tests/data/norovirus.pairedEnd.2.R1.fastq","bca02be453c96689ab0cf9e81d4bd29a","tests/data/norovirus.pairedEnd.2.R2.fastq","c2837fe11aa676077bf1a274bda40aaa"
