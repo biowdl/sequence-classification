@@ -27,7 +27,7 @@ import "tasks/centrifuge.wdl" as centrifuge
 workflow SampleWorkflow {
     input {
         Sample sample
-        String indexPrefix
+        Array[File]+ centrifugeIndex
         String outputDirectory = "."
         Map[String, String] dockerImages
     }
@@ -50,7 +50,7 @@ workflow SampleWorkflow {
     call centrifuge.Classify as executeCentrifuge {
         input:
             outputPrefix = outputDirectory + "/" + sample.id,
-            indexPrefix = indexPrefix,
+            indexFiles = centrifugeIndex,
             read1 = qualityControl.qcRead1,
             read2 = select_all(qualityControl.qcRead2),
             dockerImage = dockerImages["centrifuge"]
