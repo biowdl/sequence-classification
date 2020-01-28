@@ -1,6 +1,6 @@
 # sequence-classification
 
-This repository contains the [Biowdl](https://github.com/biowdl) pipeline usable for processing metagenomics data sets using [Centrifuge](https://github.com/infphilo/sequence-classification).
+This repository contains the [Biowdl](https://github.com/biowdl) pipeline usable for processing metagenomics data sets using [Centrifuge](https://github.com/infphilo/centrifuge).
 
 ## Documentation
 

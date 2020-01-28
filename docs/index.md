@@ -3,6 +3,9 @@ layout: default
 title: Home
 ---
 
+This pipeline uses Centrifuge for novel microbial classification and enables rapid,
+accurate, and sensitive labeling of reads and quantification of species.
+
 This pipeline is part of [BioWDL](https://biowdl.github.io/)
 developed by the SASC team at [Leiden University Medical Center](https://www.lumc.nl/).
 
@@ -23,6 +26,10 @@ Womtool as described in the
 
 ```json
 {
+    "Pipeline.sampleConfigFile": "A sample configuration file (see below).",
+    "Pipeline.outputDirectory": "The path to the output directory.",
+    "Pipeline.dockerImagesFile": "A file listing the used docker images.",
+    "Pipeline.executeSampleWorkflow.centrifugeIndex": "The files of the Centrifuge index for the reference genomes."
 }
 ```
 
@@ -40,8 +47,51 @@ information check out the [biowdl-input-converter readthedocs page](
 https://biowdl-input-converter.readthedocs.io).
 
 ##### CSV format
+The sample configuration can be given as a csv file with the following 
+columns: sample, library, readgroup, R1, R1_md5, R2, R2_md5.
+
+column name | function
+---|---
+sample | sample ID
+library | library ID. These are the libraries that are sequenced. Usually there is only one library per sample
+readgroup | readgroup ID. Usually a library is sequenced on multiple lanes in the sequencer, which gives multiple fastq files (referred to as readgroups). Each readgroup pair should have an ID.
+R1| The fastq file containing the first reads of the read pairs.
+R1_md5 | Optional: md5sum for the R1 file.
+R2| Optional: The fastq file containing the reverse reads.
+R2_md5| Optional: md5sum for the R2 file.
+
+The easiest way to create a samplesheet is to use a spreadsheet program
+such as LibreOffice Calc or Microsoft Excel, and create a table:
+
+sample | library | read | R1 | R1_md5 | R2 | R2_md5
+-------|---------|------|----|--------|----|-------
+<sampleId>|<libId>|<rgId>|<Path to first FastQ file.>|<MD5 checksum string.>||
+<sampleId>|<libId>|<rgId>|<Path to first FastQ file.>|<MD5 checksum string.>||
+
+NOTE: R1_md5, R2 and R2_md5 are optional do not have to be filled. And additional fields may be added (eg. for documentation purposes), these will be ignored by the pipeline.
+
+After creating the table in a spreadsheet program it can be saved in 
+csv format.
 
 ##### YAML format
+The sample configuration can also be a YML file which adheres to the following
+structure:
+
+```yml
+samples:
+  - id: <sampleId>
+    libraries:
+      - id: <libId>
+        readgroups:
+          - id: <rgId>
+            reads:
+              R1: <Path to first-end FastQ file.>
+              R1_md5: <Path to MD5 checksum file of first-end FastQ file.>
+              R2: <Path to second-end FastQ file.>
+              R2_md5: <Path to MD5 checksum file of second-end FastQ file.>
+```
+Replace the text between `< >` with appropriate values. Multiple samples,
+libraries (per sample) and readgroups (per library) may be given.
 
 ### Dependency requirements and tool versions
 Biowdl pipelines use docker images to ensure  reproducibility. This
@@ -57,6 +107,8 @@ biowdl pipelines. The list of default images for this pipeline can be
 found in the default for the `dockerImages` input.
 
 ### Output
+The workflow will output trimmed reads from the QC pipeline, a centrifuge
+classification file, a alignment metrics file and a report file per sample.
 
 ## Contact
 <p>
