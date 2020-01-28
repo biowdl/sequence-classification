@@ -49,7 +49,7 @@ workflow SampleWorkflow {
 
     call centrifuge.Classify as executeCentrifuge {
         input:
-            outputPrefix = outputDirectory,
+            outputPrefix = outputDirectory + "/" + sample.id,
             indexPrefix = indexPrefix,
             read1 = qualityControl.qcRead1,
             read2 = select_all(qualityControl.qcRead2),
