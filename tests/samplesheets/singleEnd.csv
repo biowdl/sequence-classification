@@ -1,3 +1,3 @@
-"sample","library","readgroup","R1","R1_md5","R2","R2_md5"
-"Norovirus_SingleEnd_1","lib1","rg1","tests/data/norovirus.singleEnd.1.fastq","4dd261059d50d3a849e42bbc8694a143",,
-"Norovirus_SingleEnd_2","lib1","rg1","tests/data/norovirus.singleEnd.2.fastq","9f274c37c6e7e461e5d2e5701044de3e",,
+sample,library,readgroup,R1,R1_md5,R2,R2_md5
+Norovirus_SingleEnd_1,lib1,rg1,tests/data/norovirus.pairedEnd.1.R1.fastq.gz,6eb1ca6ff6e64b26a17560471d447e31,,
+Norovirus_SingleEnd_2,lib1,rg1,tests/data/norovirus.pairedEnd.2.R1.fastq.gz,3cfd3be96dbf55f95a4b0e6645408178,,

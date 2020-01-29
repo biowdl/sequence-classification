@@ -5,13 +5,13 @@ samples:
     readgroups:
     - id: rg1
       reads:
-        R1: tests/data/norovirus.singleEnd.1.fastq
-        R1_md5: 4dd261059d50d3a849e42bbc8694a143
+        R1: tests/data/norovirus.pairedEnd.1.R1.fastq.gz
+        R1_md5: 6eb1ca6ff6e64b26a17560471d447e31
 - id: Norovirus_SingleEnd_2
   libraries:
   - id: lib1
     readgroups:
     - id: rg1
       reads:
-        R1: tests/data/norovirus.singleEnd.2.fastq
-        R1_md5: 9f274c37c6e7e461e5d2e5701044de3e
+        R1: tests/data/norovirus.pairedEnd.2.R1.fastq.gz
+        R1_md5: 3cfd3be96dbf55f95a4b0e6645408178
