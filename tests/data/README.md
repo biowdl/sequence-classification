@@ -27,9 +27,6 @@
 
 * Generate test data:
   * [dwgsim](https://github.com/nh13/DWGSIM) reference_sequences.fna norovirus
-  * Single end data:
-    * head -n 20000 (norovirus.bfast.fastq) > norovirus.singleEnd.1.fastq
-    * tail -n 20000 (norovirus.bfast.fastq) > norovirus.singleEnd.2.fastq
   * Paired end data:
     * head -n 20000 (norovirus.bwa.read1.fastq) > norovirus.pairedEnd.1.R1.fastq
     * head -n 20000 (norovirus.bwa.read2.fastq) > norovirus.pairedEnd.1.R2.fastq
