@@ -63,4 +63,12 @@ workflow SampleWorkflow {
         File outputCentrifugeReport = executeCentrifuge.outputReport
         Boolean finished = true
     }
+
+    parameter_meta {
+        # inputs
+        sample: {description: "The sample data.", category: "required"}
+        centrifugeIndex: {description: "The files of the index for the reference genomes.", category: "required"}
+        outputDirectory: {description: "The directory to which the outputs will be written.", category: "common"}
+        dockerImages: {description: "The docker image used for this workflow. Changing this may result in errors which the developers may choose not to address.", category: "advanced"}
+    }
 }

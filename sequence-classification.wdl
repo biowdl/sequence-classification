@@ -79,4 +79,11 @@ workflow Pipeline {
         Array[File] outputCentrifugeReport = executeSampleWorkflow.outputCentrifugeReport
         File? outputMultiQCreport = multiqcTask.multiqcReport
     }
+    parameter_meta {
+        # inputs
+        sampleConfigFile: {description: "Samplesheet describing input fasta/fastq files.", category: "required"}
+        outputDirectory: {description: "The directory to which the outputs will be written.", category: "common"}
+        dockerImagesFile: {description: "The docker image used for this workflow. Changing this may result in errors which the developers may choose not to address.", category: "required"}
+        runMultiQC: {description: "Whether or not MultiQC should be run.", category: "advanced"}
+    }
 }
