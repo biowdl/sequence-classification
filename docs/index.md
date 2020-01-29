@@ -23,6 +23,7 @@ described below, but additional inputs are available.
 A template containing all possible inputs can be generated using
 Womtool as described in the
 [WOMtool documentation](http://cromwell.readthedocs.io/en/stable/WOMtool/).
+For an overview of all available inputs, see [this page](./inputs.html).
 
 ```json
 {
@@ -115,7 +116,7 @@ classification file, a alignment metrics file and a report file per sample.
   <!-- Obscure e-mail address for spammers -->
 For any questions about running this pipeline and feature request (such as
 adding additional tools and options), please use the
-<a href='https://github.com/biowdl/TALON-WDL/issues'>github issue tracker</a>
+<a href='https://github.com/biowdl/sequence-classification/issues'>github issue tracker</a>
 or contact the SASC team directly at: 
 <a href='&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#97;&#115;&#99;&#64;&#108;&#117;&#109;&#99;&#46;&#110;&#108;'>
 &#115;&#97;&#115;&#99;&#64;&#108;&#117;&#109;&#99;&#46;&#110;&#108;</a>.
