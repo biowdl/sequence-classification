@@ -13,7 +13,7 @@ This pipeline is part of [Biowdl](https://github.com/biowdl) developed by the SA
 <p>
   <!-- Obscure e-mail address for spammers -->
 For any question related to these workflows, please use the
-<a href="https://github.com/biowdl/TALON-WDL/issues">github issue tracker</a>
+<a href="https://github.com/biowdl/sequence-classification/issues">github issue tracker</a>
 or contact the SASC team directly at: 
 <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#97;&#115;&#99;&#64;&#108;&#117;&#109;&#99;&#46;&#110;&#108;">
 &#115;&#97;&#115;&#99;&#64;&#108;&#117;&#109;&#99;&#46;&#110;&#108;</a>.
