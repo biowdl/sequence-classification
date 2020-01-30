@@ -10,5 +10,5 @@ that users understand how the changes affect the new version.
 
 version develop
 ---------------------------
-+ Fix documentation documents.
++ Update documentation documents.
 + Setup the Centrifuge pipeline.
