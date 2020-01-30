@@ -10,5 +10,6 @@ that users understand how the changes affect the new version.
 
 version develop
 ---------------------------
++ Update parameter_meta on pipeline WDL files.
 + Update documentation documents.
 + Setup the Centrifuge pipeline.
