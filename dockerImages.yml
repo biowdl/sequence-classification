@@ -28,7 +28,7 @@
 # Tools are sorted alphabetically for ease of use.
 
 biowdl-input-converter: "quay.io/biocontainers/biowdl-input-converter:0.2.1--py_0"
-centrifuge: "quay.io/biocontainers/centrifuge:1.0.3--py27pl5.22.0_3"
+centrifuge: "quay.io/biocontainers/centrifuge:1.0.4_beta--he513fc3_5 "
 cutadapt: "quay.io/biocontainers/cutadapt:2.4--py37h14c3975_0"
 fastqc: "quay.io/biocontainers/fastqc:0.11.7--4"
 multiqc: "quay.io/biocontainers/multiqc:1.7--py_1"
