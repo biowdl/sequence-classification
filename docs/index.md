@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 
-This pipeline uses Centrifuge for novel microbial classification and enables rapid,
+This pipeline uses Centrifuge for microbial classification and enables rapid,
 accurate, and sensitive labeling of reads and quantification of species.
 
 This pipeline is part of [BioWDL](https://biowdl.github.io/)
@@ -73,26 +73,6 @@ NOTE: R1_md5, R2 and R2_md5 are optional do not have to be filled. And additiona
 
 After creating the table in a spreadsheet program it can be saved in 
 csv format.
-
-##### YAML format
-The sample configuration can also be a YML file which adheres to the following
-structure:
-
-```yml
-samples:
-  - id: <sampleId>
-    libraries:
-      - id: <libId>
-        readgroups:
-          - id: <rgId>
-            reads:
-              R1: <Path to first-end FastQ file.>
-              R1_md5: <Path to MD5 checksum file of first-end FastQ file.>
-              R2: <Path to second-end FastQ file.>
-              R2_md5: <Path to MD5 checksum file of second-end FastQ file.>
-```
-Replace the text between `< >` with appropriate values. Multiple samples,
-libraries (per sample) and readgroups (per library) may be given.
 
 ### Dependency requirements and tool versions
 Biowdl pipelines use docker images to ensure  reproducibility. This

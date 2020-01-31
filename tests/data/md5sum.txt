@@ -1,4 +1,4 @@
-6eb1ca6ff6e64b26a17560471d447e31  norovirus.pairedEnd.1.R1.fastq.gz
-b3d13ffe6215f2e8bcacd5782f17b11b  norovirus.pairedEnd.1.R2.fastq.gz
-3cfd3be96dbf55f95a4b0e6645408178  norovirus.pairedEnd.2.R1.fastq.gz
-a5ab5cf661b09bffdfd9bc15cce7b006  norovirus.pairedEnd.2.R2.fastq.gz
+1ff9f164f633933046b725ed7116354c  norovirus.pairedEnd.1.R1.fastq.gz
+f18ae76ff14b557ea4b0fc6a787b5d12  norovirus.pairedEnd.1.R2.fastq.gz
+8d8d01381a35787711ee47bf7dde55b0  norovirus.pairedEnd.2.R1.fastq.gz
+a829f3334994bbd0411dbebe6ac62223  norovirus.pairedEnd.2.R2.fastq.gz
