@@ -74,9 +74,9 @@ workflow Pipeline {
 
     output {
         Array[File] outputQCreports = flatten(executeSampleWorkflow.qcReports)
-        Array[File] outputCentrifugeMetrics = executeSampleWorkflow.outputCentrifugeMetrics
-        Array[File] outputCentrifugeClassification = executeSampleWorkflow.outputCentrifugeClassification
-        Array[File] outputCentrifugeReport = executeSampleWorkflow.outputCentrifugeReport
+        Array[File] outputCentrifugeMetrics = executeSampleWorkflow.centrifugeMetrics
+        Array[File] outputCentrifugeClassification = executeSampleWorkflow.centrifugeClassification
+        Array[File] outputCentrifugeReport = executeSampleWorkflow.centrifugeReport
         File? outputMultiQCreport = multiqcTask.multiqcReport
     }
     parameter_meta {
@@ -85,5 +85,12 @@ workflow Pipeline {
         outputDirectory: {description: "The directory to which the outputs will be written.", category: "common"}
         dockerImagesFile: {description: "The docker image used for this workflow. Changing this may result in errors which the developers may choose not to address.", category: "required"}
         runMultiQC: {description: "Whether or not MultiQC should be run.", category: "advanced"}
+
+        # outputs
+        outputQCreports: {description: "The QC workflow output files."}
+        outputCentrifugeMetrics: {description: "File with Centrifuge metrics."}
+        outputCentrifugeClassification: {description: "File with the classification results."}
+        outputCentrifugeReport: {description: "File with a classification summary."}
+        outputMultiQCreport: {description: "The MultiQC output file."}
     }
 }

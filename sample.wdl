@@ -58,9 +58,9 @@ workflow SampleWorkflow {
 
     output {
         Array[File] qcReports = flatten(qualityControl.reports)
-        File outputCentrifugeMetrics = executeCentrifuge.outputMetrics
-        File outputCentrifugeClassification = executeCentrifuge.outputClassification
-        File outputCentrifugeReport = executeCentrifuge.outputReport
+        File centrifugeMetrics = executeCentrifuge.outputMetrics
+        File centrifugeClassification = executeCentrifuge.outputClassification
+        File centrifugeReport = executeCentrifuge.outputReport
         Boolean finished = true
     }
 
@@ -70,5 +70,12 @@ workflow SampleWorkflow {
         centrifugeIndex: {description: "The files of the index for the reference genomes.", category: "required"}
         outputDirectory: {description: "The directory to which the outputs will be written.", category: "common"}
         dockerImages: {description: "The docker image used for this workflow. Changing this may result in errors which the developers may choose not to address.", category: "advanced"}
+
+        # outputs
+        qcReports: {description: "The QC workflow output files."}
+        centrifugeMetrics: {description: "File with Centrifuge metrics."}
+        centrifugeClassification: {description: "File with the classification results."}
+        centrifugeReport: {description: "File with a classification summary."}
+        finished: {description: "Check for detecting if sample workflow has finished."}
     }
 }
