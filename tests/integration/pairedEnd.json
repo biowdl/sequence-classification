@@ -1,0 +1,10 @@
+{
+    "Pipeline.sampleConfigFile": "tests/samplesheets/pairedEnd.csv",
+    "Pipeline.dockerImagesFile": "dockerImages.yml",
+    "Pipeline.executeSampleWorkflow.centrifugeIndex": [
+        "tests/data/index/norovirus.1.cf",
+        "tests/data/index/norovirus.2.cf",
+        "tests/data/index/norovirus.3.cf",
+        "tests/data/index/norovirus.4.cf"
+    ]
+}
