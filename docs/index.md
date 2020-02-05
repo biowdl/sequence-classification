@@ -89,7 +89,8 @@ found in the default for the `dockerImages` input.
 
 ### Output
 The workflow will output trimmed reads from the QC pipeline, a centrifuge
-classification file, a alignment metrics file and a report file per sample.
+classification file, a alignment metrics file, a report file per sample and
+a krona plot per sample.
 
 ## Contact
 <p>
