@@ -77,6 +77,7 @@ workflow Pipeline {
         Array[File] outputCentrifugeMetrics = executeSampleWorkflow.centrifugeMetrics
         Array[File] outputCentrifugeClassification = executeSampleWorkflow.centrifugeClassification
         Array[File] outputCentrifugeReport = executeSampleWorkflow.centrifugeReport
+        Array[File] outputKronaPlot = executeSampleWorkflow.kronaPlot
         File? outputMultiQCreport = multiqcTask.multiqcReport
     }
     parameter_meta {
@@ -91,6 +92,7 @@ workflow Pipeline {
         outputCentrifugeMetrics: {description: "File with Centrifuge metrics."}
         outputCentrifugeClassification: {description: "File with the classification results."}
         outputCentrifugeReport: {description: "File with a classification summary."}
+        outputKronaPlot: {description: "Krona taxonomy plot html file."}
         outputMultiQCreport: {description: "The MultiQC output file."}
     }
 }

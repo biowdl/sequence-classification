@@ -116,6 +116,11 @@
         <i>Int &mdash; Default: 4</i><br />
         The number of threads to be used.
 </p>
+<p name="Pipeline.executeSampleWorkflow.executeKrona.memory">
+        <b>Pipeline.executeSampleWorkflow.executeKrona.memory</b><br />
+        <i>String &mdash; Default: "4G"</i><br />
+        The amount of memory available to the job.
+</p>
 <p name="Pipeline.executeSampleWorkflow.qualityControl.Cutadapt.bwa">
         <b>Pipeline.executeSampleWorkflow.qualityControl.Cutadapt.bwa</b><br />
         <i>Boolean? &mdash; Default: None</i><br />

@@ -9,9 +9,11 @@
     - path: "test-output/Norovirus_PairedEnd_1/Norovirus_PairedEnd_1_alignment_metrics.tsv"
     - path: "test-output/Norovirus_PairedEnd_1/Norovirus_PairedEnd_1_classification.tsv"
     - path: "test-output/Norovirus_PairedEnd_1/Norovirus_PairedEnd_1_output_report.tsv"
+    - path: "test-output/Norovirus_PairedEnd_1/Norovirus_PairedEnd_1_krona.html"
     - path: "test-output/Norovirus_PairedEnd_2/Norovirus_PairedEnd_2_alignment_metrics.tsv"
     - path: "test-output/Norovirus_PairedEnd_2/Norovirus_PairedEnd_2_classification.tsv"
     - path: "test-output/Norovirus_PairedEnd_2/Norovirus_PairedEnd_2_output_report.tsv"
+    - path: "test-output/Norovirus_PairedEnd_2/Norovirus_PairedEnd_2_krona.html"
 
 - name: singleEnd
   tags:
@@ -24,6 +26,8 @@
     - path: "test-output/Norovirus_SingleEnd_1/Norovirus_SingleEnd_1_alignment_metrics.tsv"
     - path: "test-output/Norovirus_SingleEnd_1/Norovirus_SingleEnd_1_classification.tsv"
     - path: "test-output/Norovirus_SingleEnd_1/Norovirus_SingleEnd_1_output_report.tsv"
+    - path: "test-output/Norovirus_SingleEnd_1/Norovirus_SingleEnd_1_krona.html"
     - path: "test-output/Norovirus_SingleEnd_2/Norovirus_SingleEnd_2_alignment_metrics.tsv"
     - path: "test-output/Norovirus_SingleEnd_2/Norovirus_SingleEnd_2_classification.tsv"
     - path: "test-output/Norovirus_SingleEnd_2/Norovirus_SingleEnd_2_output_report.tsv"
+    - path: "test-output/Norovirus_SingleEnd_2/Norovirus_SingleEnd_2_krona.html"

@@ -56,11 +56,19 @@ workflow SampleWorkflow {
             dockerImage = dockerImages["centrifuge"]
     }
 
+    call centrifuge.KTimportTaxonomy as executeKrona {
+        input:
+            inputFile = executeCentrifuge.outputClassification,
+            outputPrefix = outputDirectory + "/" + sample.id,
+            dockerImage = dockerImages["krona"]
+    }
+
     output {
         Array[File] qcReports = flatten(qualityControl.reports)
         File centrifugeMetrics = executeCentrifuge.outputMetrics
         File centrifugeClassification = executeCentrifuge.outputClassification
         File centrifugeReport = executeCentrifuge.outputReport
+        File kronaPlot = executeKrona.outputKronaPlot
         Boolean finished = true
     }
 
@@ -76,6 +84,7 @@ workflow SampleWorkflow {
         centrifugeMetrics: {description: "File with Centrifuge metrics."}
         centrifugeClassification: {description: "File with the classification results."}
         centrifugeReport: {description: "File with a classification summary."}
+        kronaPlot: {description: "Krona taxonomy plot html file."}
         finished: {description: "Check for detecting if sample workflow has finished."}
     }
 }
