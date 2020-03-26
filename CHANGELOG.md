@@ -10,5 +10,7 @@ that users understand how the changes affect the new version.
 
 version develop
 ---------------------------
++ Remove unused docker image.
++ Add cromwell test config.
 + Add Krona plot.
 + Setup the Centrifuge pipeline.
