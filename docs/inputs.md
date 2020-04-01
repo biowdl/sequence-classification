@@ -131,9 +131,14 @@
         <i>Boolean? &mdash; Default: None</i><br />
         Equivalent to cutadapt's --colorspace flag.
 </p>
+<p name="Pipeline.executeSampleWorkflow.qualityControl.Cutadapt.compressionLevel">
+        <b>Pipeline.executeSampleWorkflow.qualityControl.Cutadapt.compressionLevel</b><br />
+        <i>Int &mdash; Default: 1</i><br />
+        The compression level if gzipped output is used.
+</p>
 <p name="Pipeline.executeSampleWorkflow.qualityControl.Cutadapt.cores">
         <b>Pipeline.executeSampleWorkflow.qualityControl.Cutadapt.cores</b><br />
-        <i>Int &mdash; Default: 1</i><br />
+        <i>Int &mdash; Default: 4</i><br />
         The number of cores to use.
 </p>
 <p name="Pipeline.executeSampleWorkflow.qualityControl.Cutadapt.cut">
@@ -341,11 +346,6 @@
         <i>String? &mdash; Default: None</i><br />
         Equivalent to cutadapt's --wildcard-file option.
 </p>
-<p name="Pipeline.executeSampleWorkflow.qualityControl.Cutadapt.Z">
-        <b>Pipeline.executeSampleWorkflow.qualityControl.Cutadapt.Z</b><br />
-        <i>Boolean &mdash; Default: true</i><br />
-        Equivalent to cutadapt's -Z flag.
-</p>
 <p name="Pipeline.executeSampleWorkflow.qualityControl.Cutadapt.zeroCap">
         <b>Pipeline.executeSampleWorkflow.qualityControl.Cutadapt.zeroCap</b><br />
         <i>Boolean? &mdash; Default: None</i><br />
@@ -390,6 +390,11 @@
         <b>Pipeline.executeSampleWorkflow.qualityControl.FastqcRead1.limits</b><br />
         <i>File? &mdash; Default: None</i><br />
         Equivalent to fastqc's --limits option.
+</p>
+<p name="Pipeline.executeSampleWorkflow.qualityControl.FastqcRead1.memory">
+        <b>Pipeline.executeSampleWorkflow.qualityControl.FastqcRead1.memory</b><br />
+        <i>String &mdash; Default: "4G"</i><br />
+        The amount of memory this job will use.
 </p>
 <p name="Pipeline.executeSampleWorkflow.qualityControl.FastqcRead1.minLength">
         <b>Pipeline.executeSampleWorkflow.qualityControl.FastqcRead1.minLength</b><br />
@@ -456,6 +461,11 @@
         <i>File? &mdash; Default: None</i><br />
         Equivalent to fastqc's --limits option.
 </p>
+<p name="Pipeline.executeSampleWorkflow.qualityControl.FastqcRead1After.memory">
+        <b>Pipeline.executeSampleWorkflow.qualityControl.FastqcRead1After.memory</b><br />
+        <i>String &mdash; Default: "4G"</i><br />
+        The amount of memory this job will use.
+</p>
 <p name="Pipeline.executeSampleWorkflow.qualityControl.FastqcRead1After.minLength">
         <b>Pipeline.executeSampleWorkflow.qualityControl.FastqcRead1After.minLength</b><br />
         <i>Int? &mdash; Default: None</i><br />
@@ -521,6 +531,11 @@
         <i>File? &mdash; Default: None</i><br />
         Equivalent to fastqc's --limits option.
 </p>
+<p name="Pipeline.executeSampleWorkflow.qualityControl.FastqcRead2.memory">
+        <b>Pipeline.executeSampleWorkflow.qualityControl.FastqcRead2.memory</b><br />
+        <i>String &mdash; Default: "4G"</i><br />
+        The amount of memory this job will use.
+</p>
 <p name="Pipeline.executeSampleWorkflow.qualityControl.FastqcRead2.minLength">
         <b>Pipeline.executeSampleWorkflow.qualityControl.FastqcRead2.minLength</b><br />
         <i>Int? &mdash; Default: None</i><br />
@@ -585,6 +600,11 @@
         <b>Pipeline.executeSampleWorkflow.qualityControl.FastqcRead2After.limits</b><br />
         <i>File? &mdash; Default: None</i><br />
         Equivalent to fastqc's --limits option.
+</p>
+<p name="Pipeline.executeSampleWorkflow.qualityControl.FastqcRead2After.memory">
+        <b>Pipeline.executeSampleWorkflow.qualityControl.FastqcRead2After.memory</b><br />
+        <i>String &mdash; Default: "4G"</i><br />
+        The amount of memory this job will use.
 </p>
 <p name="Pipeline.executeSampleWorkflow.qualityControl.FastqcRead2After.minLength">
         <b>Pipeline.executeSampleWorkflow.qualityControl.FastqcRead2After.minLength</b><br />
