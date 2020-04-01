@@ -1,10 +1,10 @@
-- name: pairedEnd
+- name: paired-end
   tags:
     - integration
     - no_docker_conf
   command: >-
-    cromwell run -o tests/cromwell_options.json
-    -i tests/integration/pairedEnd.json sequence-classification.wdl
+    cromwell run -o tests/cromwell.options.json
+    -i tests/integration/paired.end.json sequence-classification.wdl
   files:
     - path: "test-output/Norovirus_PairedEnd_1/Norovirus_PairedEnd_1_alignment_metrics.tsv"
     - path: "test-output/Norovirus_PairedEnd_1/Norovirus_PairedEnd_1_classification.tsv"
@@ -15,13 +15,13 @@
     - path: "test-output/Norovirus_PairedEnd_2/Norovirus_PairedEnd_2_output_report.tsv"
     - path: "test-output/Norovirus_PairedEnd_2/Norovirus_PairedEnd_2_krona.html"
 
-- name: singleEnd
+- name: single-end
   tags:
     - integration
     - no_docker_conf
   command: >-
-    cromwell run -o tests/cromwell_options.json
-    -i tests/integration/singleEnd.json sequence-classification.wdl
+    cromwell run -o tests/cromwell.options.json
+    -i tests/integration/single.end.json sequence-classification.wdl
   files:
     - path: "test-output/Norovirus_SingleEnd_1/Norovirus_SingleEnd_1_alignment_metrics.tsv"
     - path: "test-output/Norovirus_SingleEnd_1/Norovirus_SingleEnd_1_classification.tsv"
