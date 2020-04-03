@@ -66,13 +66,30 @@ such as LibreOffice Calc or Microsoft Excel, and create a table:
 
 sample | library | read | R1 | R1_md5 | R2 | R2_md5
 -------|---------|------|----|--------|----|-------
-<sampleId>|<libId>|<rgId>|<Path to first FastQ file.>|<MD5 checksum string.>||
-<sampleId>|<libId>|<rgId>|<Path to first FastQ file.>|<MD5 checksum string.>||
+<sampleId>|<libId>|<rgId>|<Path to first FastQ file.>|<MD5 checksum string.>
+<sampleId>|<libId>|<rgId>|<Path to first FastQ file.>|<MD5 checksum string.>
 
 NOTE: R1_md5, R2 and R2_md5 are optional do not have to be filled. And additional fields may be added (eg. for documentation purposes), these will be ignored by the pipeline.
 
 After creating the table in a spreadsheet program it can be saved in 
 csv format.
+
+#### Example
+The following is an example of what an inputs JSON might look like:
+
+```json
+{
+    "Pipeline.sampleConfigFile": "tests/samplesheets/paired.end.csv",
+    "Pipeline.outputDirectory": "tests/test-output,
+    "Pipeline.dockerImagesFile": "dockerImages.yml",
+    "Pipeline.executeSampleWorkflow.centrifugeIndex": [
+        "tests/data/index/norovirus.1.cf",
+        "tests/data/index/norovirus.2.cf",
+        "tests/data/index/norovirus.3.cf",
+        "tests/data/index/norovirus.4.cf"
+    ]
+}
+```
 
 ### Dependency requirements and tool versions
 Biowdl pipelines use docker images to ensure  reproducibility. This

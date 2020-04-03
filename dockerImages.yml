@@ -29,8 +29,7 @@
 
 biowdl-input-converter: "quay.io/biocontainers/biowdl-input-converter:0.2.1--py_0"
 centrifuge: "quay.io/biocontainers/centrifuge:1.0.4_beta--he513fc3_5"
-cutadapt: "quay.io/biocontainers/cutadapt:2.4--py37h14c3975_0"
-fastqc: "quay.io/biocontainers/fastqc:0.11.7--4"
+cutadapt: "quay.io/biocontainers/cutadapt:2.8--py37h516909a_0"
+fastqc: "quay.io/biocontainers/fastqc:0.11.9--0"
 krona: "biocontainers/krona:v2.7.1_cv1"
-multiqc: "quay.io/biocontainers/multiqc:1.7--py_1"
-pyyaml: "biowdl/pyyaml:3.13-py37-slim"
+multiqc: "quay.io/biocontainers/multiqc:1.8--py_2"
