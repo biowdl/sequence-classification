@@ -54,7 +54,7 @@ columns: sample, library, readgroup, R1, R1_md5, R2, R2_md5.
 column name | function
 ---|---
 sample | sample ID
-library | library ID. These are the libraries that are sequenced. Usually there is only one library per sample
+library | library ID. These are the libraries that are sequenced. Usually there is only one library per sample.
 readgroup | readgroup ID. Usually a library is sequenced on multiple lanes in the sequencer, which gives multiple fastq files (referred to as readgroups). Each readgroup pair should have an ID.
 R1| The fastq file containing the first reads of the read pairs.
 R1_md5 | Optional: md5sum for the R1 file.
@@ -69,7 +69,9 @@ sample | library | read | R1 | R1_md5 | R2 | R2_md5
 Sample1|lib1|rg1|tests/data/norovirus.paired.end.1.R1.fastq.gz|1ff9f164f633933046b725ed7116354c|tests/data/norovirus.pairedEnd.1.R2.fastq.gz|f18ae76ff14b557ea4b0fc6a787b5d12
 Sample2|lib1|rg1|tests/data/norovirus.paired.end.2.R1.fastq.gz|8d8d01381a35787711ee47bf7dde55b0|tests/data/norovirus.pairedEnd.2.R2.fastq.gz|a829f3334994bbd0411dbebe6ac62223
 
-NOTE: R1_md5, R2 and R2_md5 are optional do not have to be filled. And additional fields may be added (eg. for documentation purposes), these will be ignored by the pipeline.
+NOTE: R1_md5, R2 and R2_md5 are optional do not have to be filled. And
+additional fields may be added (eg. for documentation purposes), these will be
+ignored by the pipeline.
 
 After creating the table in a spreadsheet program it can be saved in 
 csv format.
