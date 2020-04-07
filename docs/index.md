@@ -66,8 +66,8 @@ such as LibreOffice Calc or Microsoft Excel, and create a table:
 
 sample | library | read | R1 | R1_md5 | R2 | R2_md5
 -------|---------|------|----|--------|----|-------
-<sampleId>|<libId>|<rgId>|<Path to first FastQ file.>|<MD5 checksum string.>
-<sampleId>|<libId>|<rgId>|<Path to first FastQ file.>|<MD5 checksum string.>
+Sample1|lib1|rg1|tests/data/norovirus.paired.end.1.R1.fastq.gz|1ff9f164f633933046b725ed7116354c|tests/data/norovirus.pairedEnd.1.R2.fastq.gz|f18ae76ff14b557ea4b0fc6a787b5d12
+Sample2|lib1|rg1|tests/data/norovirus.paired.end.2.R1.fastq.gz|8d8d01381a35787711ee47bf7dde55b0|tests/data/norovirus.pairedEnd.2.R2.fastq.gz|a829f3334994bbd0411dbebe6ac62223
 
 NOTE: R1_md5, R2 and R2_md5 are optional do not have to be filled. And additional fields may be added (eg. for documentation purposes), these will be ignored by the pipeline.
 
@@ -80,7 +80,7 @@ The following is an example of what an inputs JSON might look like:
 ```json
 {
     "Pipeline.sampleConfigFile": "tests/samplesheets/paired.end.csv",
-    "Pipeline.outputDirectory": "tests/test-output,
+    "Pipeline.outputDirectory": "tests/test-output",
     "Pipeline.dockerImagesFile": "dockerImages.yml",
     "Pipeline.executeSampleWorkflow.centrifugeIndex": [
         "tests/data/index/norovirus.1.cf",
