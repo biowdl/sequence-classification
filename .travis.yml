@@ -37,11 +37,6 @@ after_failure:
 
 matrix:
   include:
-    - env:
-      - TEST="paired-end"
-    - env:
-      - TEST="single-end"
-    # Below is for testing if all files are valid and if all submodules are up to date.
     - env: TEST="Womtool validate and submodule up to date"
       stage: lint
       install:
@@ -49,3 +44,7 @@ matrix:
       script: bash scripts/biowdl_lint.sh
       after_failure:
         - echo "Linting failed"
+    - env:
+      - TEST="paired-end"
+    - env:
+      - TEST="single-end"

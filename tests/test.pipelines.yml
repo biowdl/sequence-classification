@@ -1,33 +1,31 @@
-- name: paired-end
-  tags:
-    - integration
-    - no_docker_conf
-  command: >-
-    cromwell run -o tests/cromwell.options.json
-    -i tests/integration/paired.end.json sequence-classification.wdl
-  files:
-    - path: "test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_alignment_metrics.tsv"
-    - path: "test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_classification.tsv"
-    - path: "test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_output_report.tsv"
-    - path: "test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_krona.html"
-    - path: "test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_alignment_metrics.tsv"
-    - path: "test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_classification.tsv"
-    - path: "test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_output_report.tsv"
-    - path: "test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_krona.html"
-
 - name: single-end
   tags:
     - integration
-    - no_docker_conf
   command: >-
     cromwell run -o tests/cromwell.options.json
     -i tests/integration/single.end.json sequence-classification.wdl
   files:
-    - path: "test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_alignment_metrics.tsv"
-    - path: "test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_classification.tsv"
-    - path: "test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_output_report.tsv"
-    - path: "test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_krona.html"
-    - path: "test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_alignment_metrics.tsv"
-    - path: "test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_classification.tsv"
-    - path: "test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_output_report.tsv"
-    - path: "test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_krona.html"
+    - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_alignment_metrics.tsv
+    - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_classification.tsv
+    - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_output_report.tsv
+    - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_krona.html
+    - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_alignment_metrics.tsv
+    - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_classification.tsv
+    - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_output_report.tsv
+    - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_krona.html
+
+- name: paired-end
+  tags:
+    - integration
+  command: >-
+    cromwell run -o tests/cromwell.options.json
+    -i tests/integration/paired.end.json sequence-classification.wdl
+  files:
+    - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_alignment_metrics.tsv
+    - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_classification.tsv
+    - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_output_report.tsv
+    - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_krona.html
+    - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_alignment_metrics.tsv
+    - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_classification.tsv
+    - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_output_report.tsv
+    - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_krona.html
