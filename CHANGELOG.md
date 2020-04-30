@@ -10,6 +10,7 @@ that users understand how the changes affect the new version.
 
 version develop
 ---------------------------
++ Renamed workflow from `pipeline` to `Classification`.
 + Removed Jenkinsfile from repo.
 + Update documentation with more specific example of sample sheet CSV file.
 + Update CutAdapt to 2.8.
