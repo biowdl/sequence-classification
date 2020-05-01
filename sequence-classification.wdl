@@ -26,7 +26,7 @@ import "tasks/biowdl.wdl" as biowdl
 import "tasks/common.wdl" as common
 import "tasks/multiqc.wdl" as multiqc
 
-workflow Pipeline {
+workflow Classification {
     input {
         File sampleConfigFile
         String outputDirectory = "."
