@@ -31,7 +31,6 @@ workflow Classification {
         File sampleConfigFile
         String outputDirectory = "."
         File dockerImagesFile
-        Boolean runMultiQC = if (outputDirectory == ".") then false else true
     }
 
     call common.YamlToJson as convertDockerImagesFile {
@@ -61,15 +60,11 @@ workflow Classification {
         }
     }
 
-    if (runMultiQC) {
-        call multiqc.MultiQC as multiqcTask {
-            input:
-                finished = executeSampleWorkflow.finished,
-                dependencies = [],
-                outDir = outputDirectory + "/multiqc",
-                analysisDirectory = outputDirectory,
-                dockerImage = dockerImages["multiqc"]
-        }
+    call multiqc.MultiQC as multiqcTask {
+        input:
+            reports = flatten(executeSampleWorkflow.qcReports)
+            outDir = outputDirectory + "/multiqc",
+            dockerImage = dockerImages["multiqc"]
     }
 
     output {
@@ -78,14 +73,13 @@ workflow Classification {
         Array[File] outputCentrifugeClassification = executeSampleWorkflow.centrifugeClassification
         Array[File] outputCentrifugeReport = executeSampleWorkflow.centrifugeReport
         Array[File] outputKronaPlot = executeSampleWorkflow.kronaPlot
-        File? outputMultiQCreport = multiqcTask.multiqcReport
+        File outputMultiQCreport = multiqcTask.multiqcReport
     }
     parameter_meta {
         # inputs
         sampleConfigFile: {description: "Samplesheet describing input fasta/fastq files.", category: "required"}
         outputDirectory: {description: "The directory to which the outputs will be written.", category: "common"}
         dockerImagesFile: {description: "The docker image used for this workflow. Changing this may result in errors which the developers may choose not to address.", category: "required"}
-        runMultiQC: {description: "Whether or not MultiQC should be run.", category: "advanced"}
 
         # outputs
         outputQCreports: {description: "The QC workflow output files."}
