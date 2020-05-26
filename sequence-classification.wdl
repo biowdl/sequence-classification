@@ -62,7 +62,7 @@ workflow Classification {
 
     call multiqc.MultiQC as multiqcTask {
         input:
-            reports = flatten(executeSampleWorkflow.qcReports)
+            reports = flatten(executeSampleWorkflow.qcReports),
             outDir = outputDirectory + "/multiqc",
             dockerImage = dockerImages["multiqc"]
     }
