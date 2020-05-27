@@ -69,7 +69,6 @@ workflow SampleWorkflow {
         File centrifugeClassification = executeCentrifuge.outputClassification
         File centrifugeReport = executeCentrifuge.outputReport
         File kronaPlot = executeKrona.outputKronaPlot
-        Boolean finished = true
     }
 
     parameter_meta {
@@ -85,6 +84,5 @@ workflow SampleWorkflow {
         centrifugeClassification: {description: "File with the classification results."}
         centrifugeReport: {description: "File with a classification summary."}
         kronaPlot: {description: "Krona taxonomy plot html file."}
-        finished: {description: "Check for detecting if sample workflow has finished."}
     }
 }
