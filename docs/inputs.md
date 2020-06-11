@@ -91,6 +91,16 @@
         <i>String &mdash; Default: "quay.io/biocontainers/biowdl-input-converter:0.2.1--py_0"</i><br />
         The docker image used for this task. Changing this may result in errors which the developers may choose not to address.
 </p>
+<p name="Classification.convertDockerImagesFile.memory">
+        <b>Classification.convertDockerImagesFile.memory</b><br />
+        <i>String &mdash; Default: "128M"</i><br />
+        The maximum amount of memory the job will need.
+</p>
+<p name="Classification.convertDockerImagesFile.timeMinutes">
+        <b>Classification.convertDockerImagesFile.timeMinutes</b><br />
+        <i>Int &mdash; Default: 1</i><br />
+        The maximum amount of time the job will run in minutes.
+</p>
 <p name="Classification.convertSampleConfig.checkFileMd5sums">
         <b>Classification.convertSampleConfig.checkFileMd5sums</b><br />
         <i>Boolean &mdash; Default: false</i><br />
@@ -106,6 +116,11 @@
         <i>Boolean &mdash; Default: true</i><br />
         Whether or not the existance of the files mentioned in the samplesheet should be checked.
 </p>
+<p name="Classification.convertSampleConfig.timeMinutes">
+        <b>Classification.convertSampleConfig.timeMinutes</b><br />
+        <i>Int &mdash; Default: 1</i><br />
+        The maximum amount of time the job will run in minutes.
+</p>
 <p name="Classification.executeSampleWorkflow.executeCentrifuge.memory">
         <b>Classification.executeSampleWorkflow.executeCentrifuge.memory</b><br />
         <i>String &mdash; Default: "16G"</i><br />
@@ -120,6 +135,11 @@
         <b>Classification.executeSampleWorkflow.executeKrona.memory</b><br />
         <i>String &mdash; Default: "4G"</i><br />
         The amount of memory available to the job.
+</p>
+<p name="Classification.executeSampleWorkflow.executeKrona.timeMinutes">
+        <b>Classification.executeSampleWorkflow.executeKrona.timeMinutes</b><br />
+        <i>Int &mdash; Default: 1</i><br />
+        The maximum amount of time the job will run in minutes.
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.Cutadapt.bwa">
         <b>Classification.executeSampleWorkflow.qualityControl.Cutadapt.bwa</b><br />
@@ -223,7 +243,7 @@
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.Cutadapt.memory">
         <b>Classification.executeSampleWorkflow.qualityControl.Cutadapt.memory</b><br />
-        <i>String &mdash; Default: "4G"</i><br />
+        <i>String &mdash; Default: "~{300 + 100 * cores}M"</i><br />
         The amount of memory this job will use.
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.Cutadapt.minimumLength">
@@ -300,6 +320,11 @@
         <b>Classification.executeSampleWorkflow.qualityControl.Cutadapt.suffix</b><br />
         <i>String? &mdash; Default: None</i><br />
         Equivalent to cutadapt's --suffix option.
+</p>
+<p name="Classification.executeSampleWorkflow.qualityControl.Cutadapt.timeMinutes">
+        <b>Classification.executeSampleWorkflow.qualityControl.Cutadapt.timeMinutes</b><br />
+        <i>Int &mdash; Default: 1 + ceil((size([read1, read2],"G") * 12.0 / cores))</i><br />
+        The maximum amount of time the job will run in minutes.
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.Cutadapt.times">
         <b>Classification.executeSampleWorkflow.qualityControl.Cutadapt.times</b><br />
@@ -393,7 +418,7 @@
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1.memory">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead1.memory</b><br />
-        <i>String &mdash; Default: "4G"</i><br />
+        <i>String &mdash; Default: "~{250 + 250 * threads}M"</i><br />
         The amount of memory this job will use.
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1.minLength">
@@ -420,6 +445,11 @@
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead1.threads</b><br />
         <i>Int &mdash; Default: 1</i><br />
         The number of cores to use.
+</p>
+<p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1.timeMinutes">
+        <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead1.timeMinutes</b><br />
+        <i>Int &mdash; Default: 1 + ceil(size(seqFile,"G")) * 4</i><br />
+        The maximum amount of time the job will run in minutes.
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1After.adapters">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead1After.adapters</b><br />
@@ -463,7 +493,7 @@
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1After.memory">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead1After.memory</b><br />
-        <i>String &mdash; Default: "4G"</i><br />
+        <i>String &mdash; Default: "~{250 + 250 * threads}M"</i><br />
         The amount of memory this job will use.
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1After.minLength">
@@ -490,6 +520,11 @@
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead1After.threads</b><br />
         <i>Int &mdash; Default: 1</i><br />
         The number of cores to use.
+</p>
+<p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1After.timeMinutes">
+        <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead1After.timeMinutes</b><br />
+        <i>Int &mdash; Default: 1 + ceil(size(seqFile,"G")) * 4</i><br />
+        The maximum amount of time the job will run in minutes.
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2.adapters">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead2.adapters</b><br />
@@ -533,7 +568,7 @@
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2.memory">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead2.memory</b><br />
-        <i>String &mdash; Default: "4G"</i><br />
+        <i>String &mdash; Default: "~{250 + 250 * threads}M"</i><br />
         The amount of memory this job will use.
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2.minLength">
@@ -560,6 +595,11 @@
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead2.threads</b><br />
         <i>Int &mdash; Default: 1</i><br />
         The number of cores to use.
+</p>
+<p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2.timeMinutes">
+        <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead2.timeMinutes</b><br />
+        <i>Int &mdash; Default: 1 + ceil(size(seqFile,"G")) * 4</i><br />
+        The maximum amount of time the job will run in minutes.
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2After.adapters">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead2After.adapters</b><br />
@@ -603,7 +643,7 @@
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2After.memory">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead2After.memory</b><br />
-        <i>String &mdash; Default: "4G"</i><br />
+        <i>String &mdash; Default: "~{250 + 250 * threads}M"</i><br />
         The amount of memory this job will use.
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2After.minLength">
@@ -631,6 +671,11 @@
         <i>Int &mdash; Default: 1</i><br />
         The number of cores to use.
 </p>
+<p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2After.timeMinutes">
+        <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead2After.timeMinutes</b><br />
+        <i>Int &mdash; Default: 1 + ceil(size(seqFile,"G")) * 4</i><br />
+        The maximum amount of time the job will run in minutes.
+</p>
 <p name="Classification.executeSampleWorkflow.qualityControl.runAdapterClipping">
         <b>Classification.executeSampleWorkflow.qualityControl.runAdapterClipping</b><br />
         <i>Boolean &mdash; Default: defined(adapterForward) || defined(adapterReverse) || length(select_first([contaminations, []])) > 0</i><br />
@@ -650,11 +695,6 @@
         <b>Classification.multiqcTask.config</b><br />
         <i>File? &mdash; Default: None</i><br />
         Equivalent to MultiQC's `--config` option.
-</p>
-<p name="Classification.multiqcTask.dataDir">
-        <b>Classification.multiqcTask.dataDir</b><br />
-        <i>Boolean &mdash; Default: false</i><br />
-        Equivalent to MultiQC's `--data-dir` flag.
 </p>
 <p name="Classification.multiqcTask.dataFormat">
         <b>Classification.multiqcTask.dataFormat</b><br />
@@ -716,11 +756,6 @@
         <i>String? &mdash; Default: None</i><br />
         Equivalent to MultiQC's `--ignore-samples` option.
 </p>
-<p name="Classification.multiqcTask.ignoreSymlinks">
-        <b>Classification.multiqcTask.ignoreSymlinks</b><br />
-        <i>Boolean &mdash; Default: false</i><br />
-        Equivalent to MultiQC's `--ignore-symlinks` flag.
-</p>
 <p name="Classification.multiqcTask.interactive">
         <b>Classification.multiqcTask.interactive</b><br />
         <i>Boolean &mdash; Default: true</i><br />
@@ -746,11 +781,6 @@
         <i>Array[String]+? &mdash; Default: None</i><br />
         Equivalent to MultiQC's `--module` option.
 </p>
-<p name="Classification.multiqcTask.noDataDir">
-        <b>Classification.multiqcTask.noDataDir</b><br />
-        <i>Boolean &mdash; Default: false</i><br />
-        Equivalent to MultiQC's `--no-data-dir` flag.
-</p>
 <p name="Classification.multiqcTask.pdf">
         <b>Classification.multiqcTask.pdf</b><br />
         <i>Boolean &mdash; Default: false</i><br />
@@ -771,6 +801,11 @@
         <i>String? &mdash; Default: None</i><br />
         Equivalent to MultiQC's `--template` option.
 </p>
+<p name="Classification.multiqcTask.timeMinutes">
+        <b>Classification.multiqcTask.timeMinutes</b><br />
+        <i>Int &mdash; Default: 120</i><br />
+        The maximum amount of time the job will run in minutes.
+</p>
 <p name="Classification.multiqcTask.title">
         <b>Classification.multiqcTask.title</b><br />
         <i>String? &mdash; Default: None</i><br />
@@ -778,13 +813,8 @@
 </p>
 <p name="Classification.multiqcTask.zipDataDir">
         <b>Classification.multiqcTask.zipDataDir</b><br />
-        <i>Boolean &mdash; Default: false</i><br />
+        <i>Boolean &mdash; Default: true</i><br />
         Equivalent to MultiQC's `--zip-data-dir` flag.
-</p>
-<p name="Classification.runMultiQC">
-        <b>Classification.runMultiQC</b><br />
-        <i>Boolean &mdash; Default: if outputDirectory == "." then false else true</i><br />
-        Whether or not MultiQC should be run.
 </p>
 </details>
 
