@@ -56,6 +56,14 @@ workflow SampleWorkflow {
             dockerImage = dockerImages["centrifuge"]
     }
 
+    call centrifuge.Kreport as executeKreport {
+        input:
+            centrifugeClassification = executeCentrifuge.outputClassification,
+            outputPrefix = outputDirectory + "/" + sample.id,
+            indexFiles = centrifugeIndex,
+            dockerImage = dockerImages["centrifuge"]
+    }
+
     call centrifuge.KTimportTaxonomy as executeKrona {
         input:
             inputFile = executeCentrifuge.outputClassification,
@@ -68,6 +76,7 @@ workflow SampleWorkflow {
         File centrifugeMetrics = executeCentrifuge.outputMetrics
         File centrifugeClassification = executeCentrifuge.outputClassification
         File centrifugeReport = executeCentrifuge.outputReport
+        File centrifugeKreport = executeKreport.outputKreport
         File kronaPlot = executeKrona.outputKronaPlot
     }
 
@@ -83,6 +92,7 @@ workflow SampleWorkflow {
         centrifugeMetrics: {description: "File with Centrifuge metrics."}
         centrifugeClassification: {description: "File with the classification results."}
         centrifugeReport: {description: "File with a classification summary."}
+        centrifugeKreport: {description: "File with kraken style report(s)."}
         kronaPlot: {description: "Krona taxonomy plot html file."}
     }
 }

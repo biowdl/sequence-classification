@@ -1,33 +1,83 @@
-- name: single-end
+- name: single.end
   tags:
     - integration
   command: >-
     cromwell run -o tests/cromwell.options.json
     -i tests/integration/single.end.json sequence-classification.wdl
   files:
+    - path: test-output/multiqc/multiqc_data.zip
+    - path: test-output/multiqc/multiqc_report.html
+    - path: test-output/Norovirus-Paired-End-1/lib1-rg1/cutadapt_norovirus.paired.end.1.R1_fastqc.html
+    - path: test-output/Norovirus-Paired-End-1/lib1-rg1/cutadapt_norovirus.paired.end.1.R1_fastqc.zip
+    - path: test-output/Norovirus-Paired-End-1/lib1-rg1/cutadapt_norovirus.paired.end.1.R2_fastqc.html
+      should_exist: false
+    - path: test-output/Norovirus-Paired-End-1/lib1-rg1/cutadapt_norovirus.paired.end.1.R2_fastqc.zip
+      should_exist: false
+    - path: test-output/Norovirus-Paired-End-1/lib1-rg1/Norovirus-Paired-End-1-lib1-rg1_cutadapt_report.txt
+    - path: test-output/Norovirus-Paired-End-1/lib1-rg1/norovirus.paired.end.1.R1_fastqc.html
+    - path: test-output/Norovirus-Paired-End-1/lib1-rg1/norovirus.paired.end.1.R1_fastqc.zip
+    - path: test-output/Norovirus-Paired-End-1/lib1-rg1/norovirus.paired.end.1.R2_fastqc.html
+      should_exist: false
+    - path: test-output/Norovirus-Paired-End-1/lib1-rg1/norovirus.paired.end.1.R2_fastqc.zip
+      should_exist: false
     - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_alignment_metrics.tsv
     - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_classification.tsv
-    - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_output_report.tsv
+    - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_kreport.tsv
     - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_krona.html
+    - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_output_report.tsv
+    - path: test-output/Norovirus-Paired-End-2/lib1-rg1/cutadapt_norovirus.paired.end.2.R1_fastqc.html
+    - path: test-output/Norovirus-Paired-End-2/lib1-rg1/cutadapt_norovirus.paired.end.2.R1_fastqc.zip
+    - path: test-output/Norovirus-Paired-End-2/lib1-rg1/cutadapt_norovirus.paired.end.2.R2_fastqc.html
+      should_exist: false
+    - path: test-output/Norovirus-Paired-End-2/lib1-rg1/cutadapt_norovirus.paired.end.2.R2_fastqc.zip
+      should_exist: false
+    - path: test-output/Norovirus-Paired-End-2/lib1-rg1/Norovirus-Paired-End-2-lib1-rg1_cutadapt_report.txt
+    - path: test-output/Norovirus-Paired-End-2/lib1-rg1/norovirus.paired.end.2.R1_fastqc.html
+    - path: test-output/Norovirus-Paired-End-2/lib1-rg1/norovirus.paired.end.2.R1_fastqc.zip
+    - path: test-output/Norovirus-Paired-End-2/lib1-rg1/norovirus.paired.end.2.R2_fastqc.html
+      should_exist: false
+    - path: test-output/Norovirus-Paired-End-2/lib1-rg1/norovirus.paired.end.2.R2_fastqc.zip
+      should_exist: false
     - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_alignment_metrics.tsv
     - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_classification.tsv
-    - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_output_report.tsv
+    - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_kreport.tsv
     - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_krona.html
-    - path: test-output/multiqc/multiqc_report.html
+    - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_output_report.tsv
 
-- name: paired-end
+- name: paired.end
   tags:
     - integration
   command: >-
     cromwell run -o tests/cromwell.options.json
     -i tests/integration/paired.end.json sequence-classification.wdl
   files:
+    - path: test-output/multiqc/multiqc_data.zip
+    - path: test-output/multiqc/multiqc_report.html
+    - path: test-output/Norovirus-Paired-End-1/lib1-rg1/cutadapt_norovirus.paired.end.1.R1_fastqc.html
+    - path: test-output/Norovirus-Paired-End-1/lib1-rg1/cutadapt_norovirus.paired.end.1.R1_fastqc.zip
+    - path: test-output/Norovirus-Paired-End-1/lib1-rg1/cutadapt_norovirus.paired.end.1.R2_fastqc.html
+    - path: test-output/Norovirus-Paired-End-1/lib1-rg1/cutadapt_norovirus.paired.end.1.R2_fastqc.zip
+    - path: test-output/Norovirus-Paired-End-1/lib1-rg1/Norovirus-Paired-End-1-lib1-rg1_cutadapt_report.txt
+    - path: test-output/Norovirus-Paired-End-1/lib1-rg1/norovirus.paired.end.1.R1_fastqc.html
+    - path: test-output/Norovirus-Paired-End-1/lib1-rg1/norovirus.paired.end.1.R1_fastqc.zip
+    - path: test-output/Norovirus-Paired-End-1/lib1-rg1/norovirus.paired.end.1.R2_fastqc.html
+    - path: test-output/Norovirus-Paired-End-1/lib1-rg1/norovirus.paired.end.1.R2_fastqc.zip
     - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_alignment_metrics.tsv
     - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_classification.tsv
-    - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_output_report.tsv
+    - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_kreport.tsv
     - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_krona.html
+    - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_output_report.tsv
+    - path: test-output/Norovirus-Paired-End-2/lib1-rg1/cutadapt_norovirus.paired.end.2.R1_fastqc.html
+    - path: test-output/Norovirus-Paired-End-2/lib1-rg1/cutadapt_norovirus.paired.end.2.R1_fastqc.zip
+    - path: test-output/Norovirus-Paired-End-2/lib1-rg1/cutadapt_norovirus.paired.end.2.R2_fastqc.html
+    - path: test-output/Norovirus-Paired-End-2/lib1-rg1/cutadapt_norovirus.paired.end.2.R2_fastqc.zip
+    - path: test-output/Norovirus-Paired-End-2/lib1-rg1/Norovirus-Paired-End-2-lib1-rg1_cutadapt_report.txt
+    - path: test-output/Norovirus-Paired-End-2/lib1-rg1/norovirus.paired.end.2.R1_fastqc.html
+    - path: test-output/Norovirus-Paired-End-2/lib1-rg1/norovirus.paired.end.2.R1_fastqc.zip
+    - path: test-output/Norovirus-Paired-End-2/lib1-rg1/norovirus.paired.end.2.R2_fastqc.html
+    - path: test-output/Norovirus-Paired-End-2/lib1-rg1/norovirus.paired.end.2.R2_fastqc.zip
     - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_alignment_metrics.tsv
     - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_classification.tsv
-    - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_output_report.tsv
+    - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_kreport.tsv
     - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_krona.html
-    - path: test-output/multiqc/multiqc_report.html
+    - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_output_report.tsv

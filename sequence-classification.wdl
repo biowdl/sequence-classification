@@ -64,6 +64,7 @@ workflow Classification {
         input:
             reports = flatten(executeSampleWorkflow.qcReports),
             outDir = outputDirectory + "/multiqc",
+            dataDir = true,
             dockerImage = dockerImages["multiqc"]
     }
 
@@ -72,8 +73,10 @@ workflow Classification {
         Array[File] outputCentrifugeMetrics = executeSampleWorkflow.centrifugeMetrics
         Array[File] outputCentrifugeClassification = executeSampleWorkflow.centrifugeClassification
         Array[File] outputCentrifugeReport = executeSampleWorkflow.centrifugeReport
+        Array[File] outputcentrifugeKreport = executeSampleWorkflow.centrifugeKreport
         Array[File] outputKronaPlot = executeSampleWorkflow.kronaPlot
-        File outputMultiQCreport = multiqcTask.multiqcReport
+        File outputMultiqcReport = multiqcTask.multiqcReport
+        File? outputMultiqcReportZip = multiqcTask.multiqcDataDirZip
     }
     parameter_meta {
         # inputs
@@ -86,7 +89,9 @@ workflow Classification {
         outputCentrifugeMetrics: {description: "File with Centrifuge metrics."}
         outputCentrifugeClassification: {description: "File with the classification results."}
         outputCentrifugeReport: {description: "File with a classification summary."}
+        outputcentrifugeKreport: {description: "File with kraken style report(s)."}
         outputKronaPlot: {description: "Krona taxonomy plot html file."}
-        outputMultiQCreport: {description: "The MultiQC output file."}
+        outputMultiqcReport: {description: "The MultiQC output file."}
+        outputMultiqcReportZip: {description: "The MultiQC data zip file."}
     }
 }
