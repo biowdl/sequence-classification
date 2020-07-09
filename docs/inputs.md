@@ -131,6 +131,41 @@
         <i>Int &mdash; Default: 4</i><br />
         The number of threads to be used.
 </p>
+<p name="Classification.executeSampleWorkflow.executeKreport.isCountTable">
+        <b>Classification.executeSampleWorkflow.executeKreport.isCountTable</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        The format of the file is taxID<tab>COUNT.
+</p>
+<p name="Classification.executeSampleWorkflow.executeKreport.memory">
+        <b>Classification.executeSampleWorkflow.executeKreport.memory</b><br />
+        <i>String &mdash; Default: "4G"</i><br />
+        The amount of memory available to the job.
+</p>
+<p name="Classification.executeSampleWorkflow.executeKreport.minimumLength">
+        <b>Classification.executeSampleWorkflow.executeKreport.minimumLength</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Require a minimum alignment length to the read.
+</p>
+<p name="Classification.executeSampleWorkflow.executeKreport.minimumScore">
+        <b>Classification.executeSampleWorkflow.executeKreport.minimumScore</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Require a minimum score for reads to be counted.
+</p>
+<p name="Classification.executeSampleWorkflow.executeKreport.noLCA">
+        <b>Classification.executeSampleWorkflow.executeKreport.noLCA</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Do not report the LCA of multiple assignments, but report count fractions at the taxa.
+</p>
+<p name="Classification.executeSampleWorkflow.executeKreport.showZeros">
+        <b>Classification.executeSampleWorkflow.executeKreport.showZeros</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Show clades that have zero reads.
+</p>
+<p name="Classification.executeSampleWorkflow.executeKreport.timeMinutes">
+        <b>Classification.executeSampleWorkflow.executeKreport.timeMinutes</b><br />
+        <i>Int &mdash; Default: 10</i><br />
+        The maximum amount of time the job will run in minutes.
+</p>
 <p name="Classification.executeSampleWorkflow.executeKrona.memory">
         <b>Classification.executeSampleWorkflow.executeKrona.memory</b><br />
         <i>String &mdash; Default: "4G"</i><br />
@@ -376,6 +411,11 @@
         <i>Boolean? &mdash; Default: None</i><br />
         Equivalent to cutadapt's --zero-cap flag.
 </p>
+<p name="Classification.executeSampleWorkflow.qualityControl.extractFastqcZip">
+        <b>Classification.executeSampleWorkflow.qualityControl.extractFastqcZip</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Whether to extract Fastqc's report zip files
+</p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1.adapters">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead1.adapters</b><br />
         <i>File? &mdash; Default: None</i><br />
@@ -396,15 +436,15 @@
         <i>String? &mdash; Default: None</i><br />
         Equivalent to fastqc's --dir option.
 </p>
-<p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1.extract">
-        <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead1.extract</b><br />
-        <i>Boolean &mdash; Default: false</i><br />
-        Equivalent to fastqc's --extract flag.
-</p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1.format">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead1.format</b><br />
         <i>String? &mdash; Default: None</i><br />
         Equivalent to fastqc's --format option.
+</p>
+<p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1.javaXmx">
+        <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead1.javaXmx</b><br />
+        <i>String &mdash; Default: "1750M"</i><br />
+        The maximum memory available to the program. Should be lower than `memory` to accommodate JVM overhead.
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1.kmers">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead1.kmers</b><br />
@@ -418,7 +458,7 @@
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1.memory">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead1.memory</b><br />
-        <i>String &mdash; Default: "~{250 + 250 * threads}M"</i><br />
+        <i>String &mdash; Default: "2G"</i><br />
         The amount of memory this job will use.
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1.minLength">
@@ -471,15 +511,15 @@
         <i>String? &mdash; Default: None</i><br />
         Equivalent to fastqc's --dir option.
 </p>
-<p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1After.extract">
-        <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead1After.extract</b><br />
-        <i>Boolean &mdash; Default: false</i><br />
-        Equivalent to fastqc's --extract flag.
-</p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1After.format">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead1After.format</b><br />
         <i>String? &mdash; Default: None</i><br />
         Equivalent to fastqc's --format option.
+</p>
+<p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1After.javaXmx">
+        <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead1After.javaXmx</b><br />
+        <i>String &mdash; Default: "1750M"</i><br />
+        The maximum memory available to the program. Should be lower than `memory` to accommodate JVM overhead.
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1After.kmers">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead1After.kmers</b><br />
@@ -493,7 +533,7 @@
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1After.memory">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead1After.memory</b><br />
-        <i>String &mdash; Default: "~{250 + 250 * threads}M"</i><br />
+        <i>String &mdash; Default: "2G"</i><br />
         The amount of memory this job will use.
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead1After.minLength">
@@ -546,15 +586,15 @@
         <i>String? &mdash; Default: None</i><br />
         Equivalent to fastqc's --dir option.
 </p>
-<p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2.extract">
-        <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead2.extract</b><br />
-        <i>Boolean &mdash; Default: false</i><br />
-        Equivalent to fastqc's --extract flag.
-</p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2.format">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead2.format</b><br />
         <i>String? &mdash; Default: None</i><br />
         Equivalent to fastqc's --format option.
+</p>
+<p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2.javaXmx">
+        <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead2.javaXmx</b><br />
+        <i>String &mdash; Default: "1750M"</i><br />
+        The maximum memory available to the program. Should be lower than `memory` to accommodate JVM overhead.
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2.kmers">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead2.kmers</b><br />
@@ -568,7 +608,7 @@
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2.memory">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead2.memory</b><br />
-        <i>String &mdash; Default: "~{250 + 250 * threads}M"</i><br />
+        <i>String &mdash; Default: "2G"</i><br />
         The amount of memory this job will use.
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2.minLength">
@@ -621,15 +661,15 @@
         <i>String? &mdash; Default: None</i><br />
         Equivalent to fastqc's --dir option.
 </p>
-<p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2After.extract">
-        <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead2After.extract</b><br />
-        <i>Boolean &mdash; Default: false</i><br />
-        Equivalent to fastqc's --extract flag.
-</p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2After.format">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead2After.format</b><br />
         <i>String? &mdash; Default: None</i><br />
         Equivalent to fastqc's --format option.
+</p>
+<p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2After.javaXmx">
+        <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead2After.javaXmx</b><br />
+        <i>String &mdash; Default: "1750M"</i><br />
+        The maximum memory available to the program. Should be lower than `memory` to accommodate JVM overhead.
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2After.kmers">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead2After.kmers</b><br />
@@ -643,7 +683,7 @@
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2After.memory">
         <b>Classification.executeSampleWorkflow.qualityControl.FastqcRead2After.memory</b><br />
-        <i>String &mdash; Default: "~{250 + 250 * threads}M"</i><br />
+        <i>String &mdash; Default: "2G"</i><br />
         The amount of memory this job will use.
 </p>
 <p name="Classification.executeSampleWorkflow.qualityControl.FastqcRead2After.minLength">
@@ -773,7 +813,7 @@
 </p>
 <p name="Classification.multiqcTask.memory">
         <b>Classification.multiqcTask.memory</b><br />
-        <i>String &mdash; Default: "4G"</i><br />
+        <i>String? &mdash; Default: None</i><br />
         The amount of memory this job will use.
 </p>
 <p name="Classification.multiqcTask.module">
@@ -803,7 +843,7 @@
 </p>
 <p name="Classification.multiqcTask.timeMinutes">
         <b>Classification.multiqcTask.timeMinutes</b><br />
-        <i>Int &mdash; Default: 120</i><br />
+        <i>Int &mdash; Default: 2 + ceil((size(reports,"G") * 8))</i><br />
         The maximum amount of time the job will run in minutes.
 </p>
 <p name="Classification.multiqcTask.title">
