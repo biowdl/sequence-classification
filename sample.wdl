@@ -79,7 +79,7 @@ workflow SampleWorkflow {
         File centrifugeClassification = centrifuge.outputClassification
         File centrifugeReport = centrifuge.outputReport
         File centrifugeKreport = kReport.outputKreport
-        File kronaPlot = krona.outputkrona
+        File kronaPlot = krona.outputKronaPlot
     }
 
     parameter_meta {
