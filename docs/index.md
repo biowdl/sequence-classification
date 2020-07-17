@@ -31,7 +31,7 @@ For an overview of all available inputs, see [this page](./inputs.html).
     "Classification.sampleConfigFile": "A sample configuration file (see below).",
     "Classification.outputDirectory": "The path to the output directory.",
     "Classification.dockerImagesFile": "A file listing the used docker images.",
-    "Classification.executeSampleWorkflow.centrifugeIndex": "The files of the Centrifuge index for the reference genomes."
+    "Classification.sampleWorkflow.centrifugeIndex": "The files of the Centrifuge index for the reference genomes."
 }
 ```
 
@@ -85,7 +85,7 @@ The following is an example of what an inputs JSON might look like:
     "Classification.sampleConfigFile": "tests/samplesheets/paired.end.csv",
     "Classification.outputDirectory": "tests/test-output",
     "Classification.dockerImagesFile": "dockerImages.yml",
-    "Classification.executeSampleWorkflow.centrifugeIndex": [
+    "Classification.sampleWorkflow.centrifugeIndex": [
         "tests/data/index/norovirus.1.cf",
         "tests/data/index/norovirus.2.cf",
         "tests/data/index/norovirus.3.cf",
