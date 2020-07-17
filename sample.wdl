@@ -66,7 +66,7 @@ workflow SampleWorkflow {
             dockerImage = dockerImages["centrifuge"]
     }
 
-    call centrifuge.KTimportTaxonomy as kronaPlot {
+    call centrifuge.KTimportTaxonomy as krona {
         input:
             inputFile = centrifuge.outputClassification,
             outputPrefix = outputDirectory + "/" + sample.id,
@@ -79,7 +79,7 @@ workflow SampleWorkflow {
         File centrifugeClassification = centrifuge.outputClassification
         File centrifugeReport = centrifuge.outputReport
         File centrifugeKreport = kReport.outputKreport
-        File kronaPlot = kronaPlot.outputKronaPlot
+        File kronaPlot = krona.outputkrona
     }
 
     parameter_meta {
