@@ -74,11 +74,11 @@ workflow SampleWorkflow {
     }
 
     output {
-        Array[File] qcReports = flatten(qualityControl.reports)
+        Array[File] qualityReports = flatten(qualityControl.reports)
         File centrifugeMetrics = centrifuge.outputMetrics
         File centrifugeClassification = centrifuge.outputClassification
         File centrifugeReport = centrifuge.outputReport
-        File centrifugeKreport = kReport.outputKreport
+        File centrifugeKReport = kReport.outputKreport
         File kronaPlot = krona.outputKronaPlot
     }
 
@@ -90,11 +90,11 @@ workflow SampleWorkflow {
         dockerImages: {description: "The docker image used for this workflow. Changing this may result in errors which the developers may choose not to address.", category: "advanced"}
 
         # outputs
-        qcReports: {description: "The QC workflow output files."}
-        centrifugeMetrics: {description: "File with Centrifuge metrics."}
-        centrifugeClassification: {description: "File with the classification results."}
-        centrifugeReport: {description: "File with a classification summary."}
-        centrifugeKreport: {description: "File with kraken style report(s)."}
-        kronaPlot: {description: "Krona taxonomy plot html file."}
+        qualityReports: {description: "The QC workflow file(s)."}
+        centrifugeMetrics: {description: "File(s) with centrifuge metrics."}
+        centrifugeClassification: {description: "File(s) with the classification results."}
+        centrifugeReport: {description: "File(s) with a classification summary."}
+        centrifugeKReport: {description: "File(s) with kraken style report(s)."}
+        kronaPlot: {description: "Krona taxonomy plot file(s)."}
     }
 }
