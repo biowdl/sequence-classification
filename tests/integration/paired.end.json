@@ -1,7 +1,7 @@
 {
     "Classification.sampleConfigFile": "tests/samplesheets/paired.end.csv",
     "Classification.dockerImagesFile": "dockerImages.yml",
-    "Classification.executeSampleWorkflow.centrifugeIndex": [
+    "Classification.sampleWorkflow.centrifugeIndex": [
         "tests/data/index/norovirus.1.cf",
         "tests/data/index/norovirus.2.cf",
         "tests/data/index/norovirus.3.cf",

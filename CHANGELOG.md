@@ -10,6 +10,9 @@ that users understand how the changes affect the new version.
 
 version develop
 ---------------------------
++ Add `meta {allowNestedInputs: true}` to the workflows, to allow for the use
+  of nested inputs.
++ Remove `execute` from the naming structure for calls of tasks and workflows.
 + Add centrifuge Kreport to the pipeline.
 + Make the MultiQC task suitable for use with a `final_workflow_outputs_dir` 
   so it can be used on all of Cromwell's supported backends.

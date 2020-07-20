@@ -32,6 +32,8 @@ workflow SampleWorkflow {
         Map[String, String] dockerImages
     }
 
+    meta {allowNestedInputs: true}
+
     Array[Readgroup] readgroups = sample.readgroups
 
     scatter (readgroup in readgroups) {
@@ -47,7 +49,7 @@ workflow SampleWorkflow {
         }
     }
 
-    call centrifuge.Classify as executeCentrifuge {
+    call centrifuge.Classify as centrifuge {
         input:
             outputPrefix = outputDirectory + "/" + sample.id,
             indexFiles = centrifugeIndex,
@@ -56,28 +58,28 @@ workflow SampleWorkflow {
             dockerImage = dockerImages["centrifuge"]
     }
 
-    call centrifuge.Kreport as executeKreport {
+    call centrifuge.Kreport as kReport {
         input:
-            centrifugeClassification = executeCentrifuge.outputClassification,
+            centrifugeClassification = centrifuge.outputClassification,
             outputPrefix = outputDirectory + "/" + sample.id,
             indexFiles = centrifugeIndex,
             dockerImage = dockerImages["centrifuge"]
     }
 
-    call centrifuge.KTimportTaxonomy as executeKrona {
+    call centrifuge.KTimportTaxonomy as krona {
         input:
-            inputFile = executeCentrifuge.outputClassification,
+            inputFile = centrifuge.outputClassification,
             outputPrefix = outputDirectory + "/" + sample.id,
             dockerImage = dockerImages["krona"]
     }
 
     output {
         Array[File] qcReports = flatten(qualityControl.reports)
-        File centrifugeMetrics = executeCentrifuge.outputMetrics
-        File centrifugeClassification = executeCentrifuge.outputClassification
-        File centrifugeReport = executeCentrifuge.outputReport
-        File centrifugeKreport = executeKreport.outputKreport
-        File kronaPlot = executeKrona.outputKronaPlot
+        File centrifugeMetrics = centrifuge.outputMetrics
+        File centrifugeClassification = centrifuge.outputClassification
+        File centrifugeReport = centrifuge.outputReport
+        File centrifugeKreport = kReport.outputKreport
+        File kronaPlot = krona.outputKronaPlot
     }
 
     parameter_meta {

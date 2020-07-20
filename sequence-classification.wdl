@@ -33,6 +33,8 @@ workflow Classification {
         File dockerImagesFile
     }
 
+    meta {allowNestedInputs: true}
+
     call common.YamlToJson as convertDockerImagesFile {
         input:
             yaml = dockerImagesFile,
@@ -52,7 +54,7 @@ workflow Classification {
     Array[Sample] allSamples = sampleConfig.samples
 
     scatter (sample in allSamples) {
-        call sampleWorkflow.SampleWorkflow as executeSampleWorkflow {
+        call sampleWorkflow.SampleWorkflow as sampleWorkflow {
             input:
                 sample = sample,
                 outputDirectory = outputDirectory + "/" + sample.id,
@@ -62,22 +64,23 @@ workflow Classification {
 
     call multiqc.MultiQC as multiqcTask {
         input:
-            reports = flatten(executeSampleWorkflow.qcReports),
+            reports = flatten(sampleWorkflow.qcReports),
             outDir = outputDirectory + "/multiqc",
             dataDir = true,
             dockerImage = dockerImages["multiqc"]
     }
 
     output {
-        Array[File] outputQCreports = flatten(executeSampleWorkflow.qcReports)
-        Array[File] outputCentrifugeMetrics = executeSampleWorkflow.centrifugeMetrics
-        Array[File] outputCentrifugeClassification = executeSampleWorkflow.centrifugeClassification
-        Array[File] outputCentrifugeReport = executeSampleWorkflow.centrifugeReport
-        Array[File] outputcentrifugeKreport = executeSampleWorkflow.centrifugeKreport
-        Array[File] outputKronaPlot = executeSampleWorkflow.kronaPlot
+        Array[File] outputQCreports = flatten(sampleWorkflow.qcReports)
+        Array[File] outputCentrifugeMetrics = sampleWorkflow.centrifugeMetrics
+        Array[File] outputCentrifugeClassification = sampleWorkflow.centrifugeClassification
+        Array[File] outputCentrifugeReport = sampleWorkflow.centrifugeReport
+        Array[File] outputcentrifugeKreport = sampleWorkflow.centrifugeKreport
+        Array[File] outputKronaPlot = sampleWorkflow.kronaPlot
         File outputMultiqcReport = multiqcTask.multiqcReport
         File? outputMultiqcReportZip = multiqcTask.multiqcDataDirZip
     }
+
     parameter_meta {
         # inputs
         sampleConfigFile: {description: "Samplesheet describing input fasta/fastq files.", category: "required"}
