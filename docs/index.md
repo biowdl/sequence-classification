@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 
-This pipeline uses Centrifuge for microbial classification and enables rapid,
+This pipeline uses centrifuge for microbial classification and enables rapid,
 accurate, and sensitive labeling of reads and quantification of species.
 
 This pipeline is part of [BioWDL](https://biowdl.github.io/)
@@ -11,11 +11,15 @@ developed by the SASC team
 at [Leiden University Medical Center](https://www.lumc.nl/).
 
 ## Usage
-You can run the pipeline using
+You can run this pipelines using
 [Cromwell](http://cromwell.readthedocs.io/en/stable/):
 
 ```bash
-java -jar cromwell-<version>.jar run -i inputs.json sequence-classification.wdl
+java \
+    -jar cromwell-<version>.jar \
+    run \
+    -i inputs.json \
+    talon-wdl.wdl
 ```
 
 ### Inputs

@@ -80,6 +80,7 @@ workflow Classification {
         File outputMultiqcReport = multiqcTask.multiqcReport
         File? outputMultiqcReportZip = multiqcTask.multiqcDataDirZip
     }
+
     parameter_meta {
         # inputs
         sampleConfigFile: {description: "Samplesheet describing input fasta/fastq files.", category: "required"}
