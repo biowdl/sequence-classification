@@ -71,7 +71,7 @@ workflow Classification {
     }
 
     output {
-        Array[File] qualityReports = flatten(sampleWorkflow.qualityReports)
+        Array[File] workflowReports = flatten(sampleWorkflow.workflowReports)
         Array[File] centrifugeMetrics = sampleWorkflow.centrifugeMetrics
         Array[File] centrifugeClassification = sampleWorkflow.centrifugeClassification
         Array[File] centrifugeReport = sampleWorkflow.centrifugeReport
@@ -88,7 +88,7 @@ workflow Classification {
         dockerImagesFile: {description: "The docker image used for this workflow. Changing this may result in errors which the developers may choose not to address.", category: "required"}
 
         # outputs
-        qualityReports: {description: "The QC workflow file(s)."}
+        workflowReports: {description: "The qc workflow file(s)."}
         centrifugeMetrics: {description: "File(s) with centrifuge metrics."}
         centrifugeClassification: {description: "File(s) with the classification results."}
         centrifugeReport: {description: "File(s) with a classification summary."}

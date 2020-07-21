@@ -74,7 +74,7 @@ workflow SampleWorkflow {
     }
 
     output {
-        Array[File] qualityReports = flatten(qualityControl.reports)
+        Array[File] workflowReports = flatten(qualityControl.reports)
         File centrifugeMetrics = centrifuge.outputMetrics
         File centrifugeClassification = centrifuge.outputClassification
         File centrifugeReport = centrifuge.outputReport
@@ -90,7 +90,7 @@ workflow SampleWorkflow {
         dockerImages: {description: "The docker image used for this workflow. Changing this may result in errors which the developers may choose not to address.", category: "advanced"}
 
         # outputs
-        qualityReports: {description: "The QC workflow file(s)."}
+        workflowReports: {description: "The qc workflow file(s)."}
         centrifugeMetrics: {description: "File(s) with centrifuge metrics."}
         centrifugeClassification: {description: "File(s) with the classification results."}
         centrifugeReport: {description: "File(s) with a classification summary."}
