@@ -10,22 +10,23 @@ that users understand how the changes affect the new version.
 
 version develop
 ---------------------------
++ Rename workflow outputs to shorter names.
 + Add `meta {allowNestedInputs: true}` to the workflows, to allow for the use
   of nested inputs.
 + Remove `execute` from the naming structure for calls of tasks and workflows.
-+ Add centrifuge Kreport to the pipeline.
-+ Make the MultiQC task suitable for use with a `final_workflow_outputs_dir` 
-  so it can be used on all of Cromwell's supported backends.
++ Add centrifuge kreport to the pipeline.
++ Make the multiqc task suitable for use with a `final_workflow_outputs_dir` 
+  so it can be used on all of cromwell's supported backends.
 + Tasks were updated to contain the `time_minutes` runtime attribute and
   associated `timeMinutes` input, describing the maximum time the task will
   take to run.
 + Renamed workflow from `pipeline` to `Classification`.
-+ Removed Jenkinsfile from repo.
-+ Update documentation with more specific example of sample sheet CSV file.
-+ Update CutAdapt to 2.8.
-+ Update MultiQC to 1.8.
-+ Update FastQC to 0.11.9.
++ Removed jenkinsfile from repo.
++ Update documentation with more specific example of sample sheet csv file.
++ Update cutadapt to 2.8.
++ Update multiqc to 1.8.
++ Update fastqc to 0.11.9.
 + Remove unused docker image.
 + Add cromwell test config.
-+ Add Krona plot.
-+ Setup the Centrifuge pipeline.
++ Add krona plot.
++ Setup the centrifuge pipeline.

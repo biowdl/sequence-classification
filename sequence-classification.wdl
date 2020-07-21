@@ -64,21 +64,21 @@ workflow Classification {
 
     call multiqc.MultiQC as multiqcTask {
         input:
-            reports = flatten(sampleWorkflow.qcReports),
+            reports = flatten(sampleWorkflow.workflowReports),
             outDir = outputDirectory + "/multiqc",
             dataDir = true,
             dockerImage = dockerImages["multiqc"]
     }
 
     output {
-        Array[File] outputQCreports = flatten(sampleWorkflow.qcReports)
-        Array[File] outputCentrifugeMetrics = sampleWorkflow.centrifugeMetrics
-        Array[File] outputCentrifugeClassification = sampleWorkflow.centrifugeClassification
-        Array[File] outputCentrifugeReport = sampleWorkflow.centrifugeReport
-        Array[File] outputcentrifugeKreport = sampleWorkflow.centrifugeKreport
-        Array[File] outputKronaPlot = sampleWorkflow.kronaPlot
-        File outputMultiqcReport = multiqcTask.multiqcReport
-        File? outputMultiqcReportZip = multiqcTask.multiqcDataDirZip
+        Array[File] workflowReports = flatten(sampleWorkflow.workflowReports)
+        Array[File] centrifugeMetrics = sampleWorkflow.centrifugeMetrics
+        Array[File] centrifugeClassification = sampleWorkflow.centrifugeClassification
+        Array[File] centrifugeReport = sampleWorkflow.centrifugeReport
+        Array[File] centrifugeKReport = sampleWorkflow.centrifugeKReport
+        Array[File] kronaPlot = sampleWorkflow.kronaPlot
+        File multiqcReport = multiqcTask.multiqcReport
+        File? multiqcZip = multiqcTask.multiqcDataDirZip
     }
 
     parameter_meta {
@@ -88,13 +88,13 @@ workflow Classification {
         dockerImagesFile: {description: "The docker image used for this workflow. Changing this may result in errors which the developers may choose not to address.", category: "required"}
 
         # outputs
-        outputQCreports: {description: "The QC workflow output files."}
-        outputCentrifugeMetrics: {description: "File with Centrifuge metrics."}
-        outputCentrifugeClassification: {description: "File with the classification results."}
-        outputCentrifugeReport: {description: "File with a classification summary."}
-        outputcentrifugeKreport: {description: "File with kraken style report(s)."}
-        outputKronaPlot: {description: "Krona taxonomy plot html file."}
-        outputMultiqcReport: {description: "The MultiQC output file."}
-        outputMultiqcReportZip: {description: "The MultiQC data zip file."}
+        workflowReports: {description: "The qc workflow file(s)."}
+        centrifugeMetrics: {description: "File(s) with centrifuge metrics."}
+        centrifugeClassification: {description: "File(s) with the classification results."}
+        centrifugeReport: {description: "File(s) with a classification summary."}
+        centrifugeKReport: {description: "File(s) with kraken style report(s)."}
+        kronaPlot: {description: "Krona taxonomy plot file(s)."}
+        multiqcReport: {description: "The multiqc file(s)."}
+        multiqcZip: {description: "The multiqc data zip file(s)."}
     }
 }

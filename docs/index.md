@@ -35,7 +35,7 @@ For an overview of all available inputs, see [this page](./inputs.html).
     "Classification.sampleConfigFile": "A sample configuration file (see below).",
     "Classification.outputDirectory": "The path to the output directory.",
     "Classification.dockerImagesFile": "A file listing the used docker images.",
-    "Classification.sampleWorkflow.centrifugeIndex": "The files of the Centrifuge index for the reference genomes."
+    "Classification.sampleWorkflow.centrifugeIndex": "The files of the centrifuge index for the reference genomes."
 }
 ```
 
