@@ -58,9 +58,9 @@ workflow SampleWorkflow {
             dockerImage = dockerImages["centrifuge"]
     }
 
-    call centrifuge.Kreport as kReport {
+    call centrifuge.KReport as kReport {
         input:
-            centrifugeClassification = centrifuge.outputClassification,
+            classification = centrifuge.classification,
             outputPrefix = outputDirectory + "/" + sample.id,
             indexFiles = centrifugeIndex,
             dockerImage = dockerImages["centrifuge"]
@@ -68,18 +68,18 @@ workflow SampleWorkflow {
 
     call centrifuge.KTimportTaxonomy as krona {
         input:
-            inputFile = centrifuge.outputClassification,
+            inputFile = centrifuge.classification,
             outputPrefix = outputDirectory + "/" + sample.id,
             dockerImage = dockerImages["krona"]
     }
 
     output {
         Array[File] workflowReports = flatten(qualityControl.reports)
-        File centrifugeMetrics = centrifuge.outputMetrics
-        File centrifugeClassification = centrifuge.outputClassification
-        File centrifugeReport = centrifuge.outputReport
-        File centrifugeKReport = kReport.outputKreport
-        File kronaPlot = krona.outputKronaPlot
+        File centrifugeMetrics = centrifuge.metrics
+        File centrifugeClassification = centrifuge.classification
+        File centrifugeReport = centrifuge.report
+        File centrifugeKReport = kReport.KReport
+        File kronaPlot = krona.kronaPlot
     }
 
     parameter_meta {
