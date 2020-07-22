@@ -28,7 +28,7 @@
 <p name="Classification.sampleWorkflow.centrifuge.phred64">
         <b>Classification.sampleWorkflow.centrifuge.phred64</b><br />
         <i>Boolean &mdash; Default: false</i><br />
-        If set to true, Phred+64 encoding is used.
+        If set to true, phred+64 encoding is used.
 </p>
 <p name="Classification.sampleWorkflow.centrifugeIndex">
         <b>Classification.sampleWorkflow.centrifugeIndex</b><br />
@@ -289,7 +289,7 @@
 <p name="Classification.sampleWorkflow.kReport.noLCA">
         <b>Classification.sampleWorkflow.kReport.noLCA</b><br />
         <i>Boolean &mdash; Default: false</i><br />
-        Do not report the LCA of multiple assignments, but report count fractions at the taxa.
+        Do not report the lca of multiple assignments, but report count fractions at the taxa.
 </p>
 <p name="Classification.sampleWorkflow.kReport.showZeros">
         <b>Classification.sampleWorkflow.kReport.showZeros</b><br />
