@@ -3,18 +3,23 @@ layout: default
 title: Home
 ---
 
-This pipeline uses Centrifuge for microbial classification and enables rapid,
+This pipeline uses centrifuge for microbial classification and enables rapid,
 accurate, and sensitive labeling of reads and quantification of species.
 
 This pipeline is part of [BioWDL](https://biowdl.github.io/)
-developed by the SASC team at [Leiden University Medical Center](https://www.lumc.nl/).
+developed by the SASC team
+at [Leiden University Medical Center](https://www.lumc.nl/).
 
 ## Usage
-You can run the pipeline using
+You can run this pipeline using
 [Cromwell](http://cromwell.readthedocs.io/en/stable/):
 
 ```bash
-java -jar cromwell-<version>.jar run -i inputs.json sequence-classification.wdl
+java \
+    -jar cromwell-<version>.jar \
+    run \
+    -i inputs.json \
+    talon-wdl.wdl
 ```
 
 ### Inputs
@@ -27,10 +32,10 @@ For an overview of all available inputs, see [this page](./inputs.html).
 
 ```json
 {
-    "Pipeline.sampleConfigFile": "A sample configuration file (see below).",
-    "Pipeline.outputDirectory": "The path to the output directory.",
-    "Pipeline.dockerImagesFile": "A file listing the used docker images.",
-    "Pipeline.executeSampleWorkflow.centrifugeIndex": "The files of the Centrifuge index for the reference genomes."
+    "Classification.sampleConfigFile": "A sample configuration file (see below).",
+    "Classification.outputDirectory": "The path to the output directory.",
+    "Classification.dockerImagesFile": "A file listing the used docker images.",
+    "Classification.sampleWorkflow.centrifugeIndex": "The files of the centrifuge index for the reference genomes."
 }
 ```
 
@@ -81,10 +86,10 @@ The following is an example of what an inputs JSON might look like:
 
 ```json
 {
-    "Pipeline.sampleConfigFile": "tests/samplesheets/paired.end.csv",
-    "Pipeline.outputDirectory": "tests/test-output",
-    "Pipeline.dockerImagesFile": "dockerImages.yml",
-    "Pipeline.executeSampleWorkflow.centrifugeIndex": [
+    "Classification.sampleConfigFile": "tests/samplesheets/paired.end.csv",
+    "Classification.outputDirectory": "tests/test-output",
+    "Classification.dockerImagesFile": "dockerImages.yml",
+    "Classification.sampleWorkflow.centrifugeIndex": [
         "tests/data/index/norovirus.1.cf",
         "tests/data/index/norovirus.2.cf",
         "tests/data/index/norovirus.3.cf",
