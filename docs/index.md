@@ -14,12 +14,24 @@ at [Leiden University Medical Center](https://www.lumc.nl/).
 You can run this pipeline using
 [Cromwell](http://cromwell.readthedocs.io/en/stable/):
 
+First download the latest version of the pipeline wdl file(s) and 
+from the
+[releases page](https://github.com/biowdl/sequence-classification/releases).
+
 ```bash
 java \
     -jar cromwell-<version>.jar \
     run \
+    -o options.json \
     -i inputs.json \
-    talon-wdl.wdl
+    sequence-classification.wdl
+```
+
+Where `options.json` contains the following json:
+```json
+{
+    "final_workflow_log_dir": "/path/to/logs/folder"
+}
 ```
 
 ### Inputs
@@ -87,14 +99,14 @@ The following is an example of what an inputs JSON might look like:
 ```json
 {
     "Classification.sampleConfigFile": "tests/samplesheets/paired.end.csv",
-    "Classification.outputDirectory": "tests/test-output",
     "Classification.dockerImagesFile": "dockerImages.yml",
     "Classification.sampleWorkflow.centrifugeIndex": [
         "tests/data/index/norovirus.1.cf",
         "tests/data/index/norovirus.2.cf",
         "tests/data/index/norovirus.3.cf",
         "tests/data/index/norovirus.4.cf"
-    ]
+    ],
+    "Classification.outputDirectory": "tests/test-output"
 }
 ```
 

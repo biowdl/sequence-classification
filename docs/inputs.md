@@ -1,889 +1,870 @@
----
-layout: default
-title: "Inputs: Classification"
----
-
-# Inputs for Classification
-
-The following is an overview of all available inputs in
-Classification.
+# Classification
 
 
-## Required inputs
-<dl>
-<dt id="Classification.dockerImagesFile"><a href="#Classification.dockerImagesFile">Classification.dockerImagesFile</a></dt>
-<dd>
-    <i>File </i><br />
-    The docker image used for this workflow. Changing this may result in errors which the developers may choose not to address.
-</dd>
-<dt id="Classification.sampleConfigFile"><a href="#Classification.sampleConfigFile">Classification.sampleConfigFile</a></dt>
-<dd>
-    <i>File </i><br />
-    Samplesheet describing input fasta/fastq files.
-</dd>
-<dt id="Classification.sampleWorkflow.centrifuge.inputFormat"><a href="#Classification.sampleWorkflow.centrifuge.inputFormat">Classification.sampleWorkflow.centrifuge.inputFormat</a></dt>
-<dd>
-    <i>String </i><i>&mdash; Default:</i> <code>"fastq"</code><br />
-    The format of the read file(s).
-</dd>
-<dt id="Classification.sampleWorkflow.centrifuge.minHitLength"><a href="#Classification.sampleWorkflow.centrifuge.minHitLength">Classification.sampleWorkflow.centrifuge.minHitLength</a></dt>
-<dd>
-    <i>Int </i><i>&mdash; Default:</i> <code>22</code><br />
-    Minimum length of partial hits.
-</dd>
-<dt id="Classification.sampleWorkflow.centrifuge.phred64"><a href="#Classification.sampleWorkflow.centrifuge.phred64">Classification.sampleWorkflow.centrifuge.phred64</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    If set to true, phred+64 encoding is used.
-</dd>
-<dt id="Classification.sampleWorkflow.centrifugeIndex"><a href="#Classification.sampleWorkflow.centrifugeIndex">Classification.sampleWorkflow.centrifugeIndex</a></dt>
-<dd>
-    <i>Array[File]+ </i><br />
-    The files of the index for the reference genomes.
-</dd>
-</dl>
+## Inputs
 
-## Other common inputs
-<dl>
-<dt id="Classification.outputDirectory"><a href="#Classification.outputDirectory">Classification.outputDirectory</a></dt>
-<dd>
-    <i>String </i><i>&mdash; Default:</i> <code>"."</code><br />
-    The directory to which the outputs will be written.
-</dd>
-<dt id="Classification.sampleWorkflow.centrifuge.excludeTaxIDs"><a href="#Classification.sampleWorkflow.centrifuge.excludeTaxIDs">Classification.sampleWorkflow.centrifuge.excludeTaxIDs</a></dt>
-<dd>
-    <i>String? </i><br />
-    A comma-separated list of taxonomic IDs that will be excluded in classification procedure.
-</dd>
-<dt id="Classification.sampleWorkflow.centrifuge.hostTaxIDs"><a href="#Classification.sampleWorkflow.centrifuge.hostTaxIDs">Classification.sampleWorkflow.centrifuge.hostTaxIDs</a></dt>
-<dd>
-    <i>String? </i><br />
-    A comma-separated list of taxonomic IDs that will be preferred in classification procedure.
-</dd>
-<dt id="Classification.sampleWorkflow.centrifuge.reportMaxDistinct"><a href="#Classification.sampleWorkflow.centrifuge.reportMaxDistinct">Classification.sampleWorkflow.centrifuge.reportMaxDistinct</a></dt>
-<dd>
-    <i>Int? </i><br />
-    It searches for at most <int> distinct, primary assignments for each read or pair.
-</dd>
-<dt id="Classification.sampleWorkflow.centrifuge.trim3"><a href="#Classification.sampleWorkflow.centrifuge.trim3">Classification.sampleWorkflow.centrifuge.trim3</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Trim <int> bases from 3' (right) end of each read before alignment.
-</dd>
-<dt id="Classification.sampleWorkflow.centrifuge.trim5"><a href="#Classification.sampleWorkflow.centrifuge.trim5">Classification.sampleWorkflow.centrifuge.trim5</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Trim <int> bases from 5' (left) end of each read before alignment.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.adapterForward"><a href="#Classification.sampleWorkflow.qualityControl.adapterForward">Classification.sampleWorkflow.qualityControl.adapterForward</a></dt>
-<dd>
-    <i>String? </i><i>&mdash; Default:</i> <code>"AGATCGGAAGAG"</code><br />
-    The adapter to be removed from the reads first or single end reads.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.adapterReverse"><a href="#Classification.sampleWorkflow.qualityControl.adapterReverse">Classification.sampleWorkflow.qualityControl.adapterReverse</a></dt>
-<dd>
-    <i>String? </i><i>&mdash; Default:</i> <code>"AGATCGGAAGAG"</code><br />
-    The adapter to be removed from the reads second end reads.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.contaminations"><a href="#Classification.sampleWorkflow.qualityControl.contaminations">Classification.sampleWorkflow.qualityControl.contaminations</a></dt>
-<dd>
-    <i>Array[String]+? </i><br />
-    Contaminants/adapters to be removed from the reads.
-</dd>
-</dl>
 
-## Advanced inputs
+### Required inputs
+<p name="Classification.dockerImagesFile">
+        <b>Classification.dockerImagesFile</b><br />
+        <i>File &mdash; Default: None</i><br />
+        The docker image used for this workflow. Changing this may result in errors which the developers may choose not to address.
+</p>
+<p name="Classification.sampleConfigFile">
+        <b>Classification.sampleConfigFile</b><br />
+        <i>File &mdash; Default: None</i><br />
+        Samplesheet describing input fasta/fastq files.
+</p>
+<p name="Classification.sampleWorkflow.centrifuge.inputFormat">
+        <b>Classification.sampleWorkflow.centrifuge.inputFormat</b><br />
+        <i>String &mdash; Default: "fastq"</i><br />
+        The format of the read file(s).
+</p>
+<p name="Classification.sampleWorkflow.centrifuge.minHitLength">
+        <b>Classification.sampleWorkflow.centrifuge.minHitLength</b><br />
+        <i>Int &mdash; Default: 22</i><br />
+        Minimum length of partial hits.
+</p>
+<p name="Classification.sampleWorkflow.centrifuge.phred64">
+        <b>Classification.sampleWorkflow.centrifuge.phred64</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        If set to true, phred+64 encoding is used.
+</p>
+<p name="Classification.sampleWorkflow.centrifugeIndex">
+        <b>Classification.sampleWorkflow.centrifugeIndex</b><br />
+        <i>Array[File]+ &mdash; Default: None</i><br />
+        The files of the index for the reference genomes.
+</p>
+
+### Other common inputs
+<p name="Classification.outputDirectory">
+        <b>Classification.outputDirectory</b><br />
+        <i>String &mdash; Default: "."</i><br />
+        The directory to which the outputs will be written.
+</p>
+<p name="Classification.sampleWorkflow.centrifuge.excludeTaxIDs">
+        <b>Classification.sampleWorkflow.centrifuge.excludeTaxIDs</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        A comma-separated list of taxonomic IDs that will be excluded in classification procedure.
+</p>
+<p name="Classification.sampleWorkflow.centrifuge.hostTaxIDs">
+        <b>Classification.sampleWorkflow.centrifuge.hostTaxIDs</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        A comma-separated list of taxonomic IDs that will be preferred in classification procedure.
+</p>
+<p name="Classification.sampleWorkflow.centrifuge.reportMaxDistinct">
+        <b>Classification.sampleWorkflow.centrifuge.reportMaxDistinct</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        It searches for at most <int> distinct, primary assignments for each read or pair.
+</p>
+<p name="Classification.sampleWorkflow.centrifuge.trim3">
+        <b>Classification.sampleWorkflow.centrifuge.trim3</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Trim <int> bases from 3' (right) end of each read before alignment.
+</p>
+<p name="Classification.sampleWorkflow.centrifuge.trim5">
+        <b>Classification.sampleWorkflow.centrifuge.trim5</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Trim <int> bases from 5' (left) end of each read before alignment.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.adapterForward">
+        <b>Classification.sampleWorkflow.qualityControl.adapterForward</b><br />
+        <i>String? &mdash; Default: "AGATCGGAAGAG"</i><br />
+        The adapter to be removed from the reads first or single end reads.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.adapterReverse">
+        <b>Classification.sampleWorkflow.qualityControl.adapterReverse</b><br />
+        <i>String? &mdash; Default: "AGATCGGAAGAG"</i><br />
+        The adapter to be removed from the reads second end reads.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.contaminations">
+        <b>Classification.sampleWorkflow.qualityControl.contaminations</b><br />
+        <i>Array[String]+? &mdash; Default: None</i><br />
+        Contaminants/adapters to be removed from the reads.
+</p>
+
+### Advanced inputs
 <details>
 <summary> Show/Hide </summary>
-<dl>
-<dt id="Classification.convertDockerImagesFile.dockerImage"><a href="#Classification.convertDockerImagesFile.dockerImage">Classification.convertDockerImagesFile.dockerImage</a></dt>
-<dd>
-    <i>String </i><i>&mdash; Default:</i> <code>"quay.io/biocontainers/biowdl-input-converter:0.2.1--py_0"</code><br />
-    The docker image used for this task. Changing this may result in errors which the developers may choose not to address.
-</dd>
-<dt id="Classification.convertDockerImagesFile.memory"><a href="#Classification.convertDockerImagesFile.memory">Classification.convertDockerImagesFile.memory</a></dt>
-<dd>
-    <i>String </i><i>&mdash; Default:</i> <code>"128M"</code><br />
-    The maximum amount of memory the job will need.
-</dd>
-<dt id="Classification.convertDockerImagesFile.timeMinutes"><a href="#Classification.convertDockerImagesFile.timeMinutes">Classification.convertDockerImagesFile.timeMinutes</a></dt>
-<dd>
-    <i>Int </i><i>&mdash; Default:</i> <code>1</code><br />
-    The maximum amount of time the job will run in minutes.
-</dd>
-<dt id="Classification.convertSampleConfig.checkFileMd5sums"><a href="#Classification.convertSampleConfig.checkFileMd5sums">Classification.convertSampleConfig.checkFileMd5sums</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Whether or not the MD5 sums of the files mentioned in the samplesheet should be checked.
-</dd>
-<dt id="Classification.convertSampleConfig.old"><a href="#Classification.convertSampleConfig.old">Classification.convertSampleConfig.old</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Whether or not the old samplesheet format should be used.
-</dd>
-<dt id="Classification.convertSampleConfig.skipFileCheck"><a href="#Classification.convertSampleConfig.skipFileCheck">Classification.convertSampleConfig.skipFileCheck</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>true</code><br />
-    Whether or not the existance of the files mentioned in the samplesheet should be checked.
-</dd>
-<dt id="Classification.convertSampleConfig.timeMinutes"><a href="#Classification.convertSampleConfig.timeMinutes">Classification.convertSampleConfig.timeMinutes</a></dt>
-<dd>
-    <i>Int </i><i>&mdash; Default:</i> <code>1</code><br />
-    The maximum amount of time the job will run in minutes.
-</dd>
-<dt id="Classification.multiqcTask.clConfig"><a href="#Classification.multiqcTask.clConfig">Classification.multiqcTask.clConfig</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to MultiQC's `--cl-config` option.
-</dd>
-<dt id="Classification.multiqcTask.comment"><a href="#Classification.multiqcTask.comment">Classification.multiqcTask.comment</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to MultiQC's `--comment` option.
-</dd>
-<dt id="Classification.multiqcTask.config"><a href="#Classification.multiqcTask.config">Classification.multiqcTask.config</a></dt>
-<dd>
-    <i>File? </i><br />
-    Equivalent to MultiQC's `--config` option.
-</dd>
-<dt id="Classification.multiqcTask.dataFormat"><a href="#Classification.multiqcTask.dataFormat">Classification.multiqcTask.dataFormat</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to MultiQC's `--data-format` option.
-</dd>
-<dt id="Classification.multiqcTask.dirs"><a href="#Classification.multiqcTask.dirs">Classification.multiqcTask.dirs</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to MultiQC's `--dirs` flag.
-</dd>
-<dt id="Classification.multiqcTask.dirsDepth"><a href="#Classification.multiqcTask.dirsDepth">Classification.multiqcTask.dirsDepth</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Equivalent to MultiQC's `--dirs-depth` option.
-</dd>
-<dt id="Classification.multiqcTask.exclude"><a href="#Classification.multiqcTask.exclude">Classification.multiqcTask.exclude</a></dt>
-<dd>
-    <i>Array[String]+? </i><br />
-    Equivalent to MultiQC's `--exclude` option.
-</dd>
-<dt id="Classification.multiqcTask.export"><a href="#Classification.multiqcTask.export">Classification.multiqcTask.export</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to MultiQC's `--export` flag.
-</dd>
-<dt id="Classification.multiqcTask.fileList"><a href="#Classification.multiqcTask.fileList">Classification.multiqcTask.fileList</a></dt>
-<dd>
-    <i>File? </i><br />
-    Equivalent to MultiQC's `--file-list` option.
-</dd>
-<dt id="Classification.multiqcTask.fileName"><a href="#Classification.multiqcTask.fileName">Classification.multiqcTask.fileName</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to MultiQC's `--filename` option.
-</dd>
-<dt id="Classification.multiqcTask.flat"><a href="#Classification.multiqcTask.flat">Classification.multiqcTask.flat</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to MultiQC's `--flat` flag.
-</dd>
-<dt id="Classification.multiqcTask.force"><a href="#Classification.multiqcTask.force">Classification.multiqcTask.force</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to MultiQC's `--force` flag.
-</dd>
-<dt id="Classification.multiqcTask.fullNames"><a href="#Classification.multiqcTask.fullNames">Classification.multiqcTask.fullNames</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to MultiQC's `--fullnames` flag.
-</dd>
-<dt id="Classification.multiqcTask.ignore"><a href="#Classification.multiqcTask.ignore">Classification.multiqcTask.ignore</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to MultiQC's `--ignore` option.
-</dd>
-<dt id="Classification.multiqcTask.ignoreSamples"><a href="#Classification.multiqcTask.ignoreSamples">Classification.multiqcTask.ignoreSamples</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to MultiQC's `--ignore-samples` option.
-</dd>
-<dt id="Classification.multiqcTask.interactive"><a href="#Classification.multiqcTask.interactive">Classification.multiqcTask.interactive</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>true</code><br />
-    Equivalent to MultiQC's `--interactive` flag.
-</dd>
-<dt id="Classification.multiqcTask.lint"><a href="#Classification.multiqcTask.lint">Classification.multiqcTask.lint</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to MultiQC's `--lint` flag.
-</dd>
-<dt id="Classification.multiqcTask.megaQCUpload"><a href="#Classification.multiqcTask.megaQCUpload">Classification.multiqcTask.megaQCUpload</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Opposite to MultiQC's `--no-megaqc-upload` flag.
-</dd>
-<dt id="Classification.multiqcTask.memory"><a href="#Classification.multiqcTask.memory">Classification.multiqcTask.memory</a></dt>
-<dd>
-    <i>String? </i><br />
-    The amount of memory this job will use.
-</dd>
-<dt id="Classification.multiqcTask.module"><a href="#Classification.multiqcTask.module">Classification.multiqcTask.module</a></dt>
-<dd>
-    <i>Array[String]+? </i><br />
-    Equivalent to MultiQC's `--module` option.
-</dd>
-<dt id="Classification.multiqcTask.pdf"><a href="#Classification.multiqcTask.pdf">Classification.multiqcTask.pdf</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to MultiQC's `--pdf` flag.
-</dd>
-<dt id="Classification.multiqcTask.sampleNames"><a href="#Classification.multiqcTask.sampleNames">Classification.multiqcTask.sampleNames</a></dt>
-<dd>
-    <i>File? </i><br />
-    Equivalent to MultiQC's `--sample-names` option.
-</dd>
-<dt id="Classification.multiqcTask.tag"><a href="#Classification.multiqcTask.tag">Classification.multiqcTask.tag</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to MultiQC's `--tag` option.
-</dd>
-<dt id="Classification.multiqcTask.template"><a href="#Classification.multiqcTask.template">Classification.multiqcTask.template</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to MultiQC's `--template` option.
-</dd>
-<dt id="Classification.multiqcTask.timeMinutes"><a href="#Classification.multiqcTask.timeMinutes">Classification.multiqcTask.timeMinutes</a></dt>
-<dd>
-    <i>Int </i><i>&mdash; Default:</i> <code>2 + ceil((size(reports,"G") * 8))</code><br />
-    The maximum amount of time the job will run in minutes.
-</dd>
-<dt id="Classification.multiqcTask.title"><a href="#Classification.multiqcTask.title">Classification.multiqcTask.title</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to MultiQC's `--title` option.
-</dd>
-<dt id="Classification.multiqcTask.zipDataDir"><a href="#Classification.multiqcTask.zipDataDir">Classification.multiqcTask.zipDataDir</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>true</code><br />
-    Equivalent to MultiQC's `--zip-data-dir` flag.
-</dd>
-<dt id="Classification.sampleWorkflow.centrifuge.memory"><a href="#Classification.sampleWorkflow.centrifuge.memory">Classification.sampleWorkflow.centrifuge.memory</a></dt>
-<dd>
-    <i>String </i><i>&mdash; Default:</i> <code>"16G"</code><br />
-    The amount of memory available to the job.
-</dd>
-<dt id="Classification.sampleWorkflow.centrifuge.threads"><a href="#Classification.sampleWorkflow.centrifuge.threads">Classification.sampleWorkflow.centrifuge.threads</a></dt>
-<dd>
-    <i>Int </i><i>&mdash; Default:</i> <code>4</code><br />
-    The number of threads to be used.
-</dd>
-<dt id="Classification.sampleWorkflow.kReport.isCountTable"><a href="#Classification.sampleWorkflow.kReport.isCountTable">Classification.sampleWorkflow.kReport.isCountTable</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    The format of the file is taxID<tab>COUNT.
-</dd>
-<dt id="Classification.sampleWorkflow.kReport.memory"><a href="#Classification.sampleWorkflow.kReport.memory">Classification.sampleWorkflow.kReport.memory</a></dt>
-<dd>
-    <i>String </i><i>&mdash; Default:</i> <code>"4G"</code><br />
-    The amount of memory available to the job.
-</dd>
-<dt id="Classification.sampleWorkflow.kReport.minimumLength"><a href="#Classification.sampleWorkflow.kReport.minimumLength">Classification.sampleWorkflow.kReport.minimumLength</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Require a minimum alignment length to the read.
-</dd>
-<dt id="Classification.sampleWorkflow.kReport.minimumScore"><a href="#Classification.sampleWorkflow.kReport.minimumScore">Classification.sampleWorkflow.kReport.minimumScore</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Require a minimum score for reads to be counted.
-</dd>
-<dt id="Classification.sampleWorkflow.kReport.noLCA"><a href="#Classification.sampleWorkflow.kReport.noLCA">Classification.sampleWorkflow.kReport.noLCA</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Do not report the lca of multiple assignments, but report count fractions at the taxa.
-</dd>
-<dt id="Classification.sampleWorkflow.kReport.showZeros"><a href="#Classification.sampleWorkflow.kReport.showZeros">Classification.sampleWorkflow.kReport.showZeros</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Show clades that have zero reads.
-</dd>
-<dt id="Classification.sampleWorkflow.kReport.timeMinutes"><a href="#Classification.sampleWorkflow.kReport.timeMinutes">Classification.sampleWorkflow.kReport.timeMinutes</a></dt>
-<dd>
-    <i>Int </i><i>&mdash; Default:</i> <code>10</code><br />
-    The maximum amount of time the job will run in minutes.
-</dd>
-<dt id="Classification.sampleWorkflow.krona.memory"><a href="#Classification.sampleWorkflow.krona.memory">Classification.sampleWorkflow.krona.memory</a></dt>
-<dd>
-    <i>String </i><i>&mdash; Default:</i> <code>"4G"</code><br />
-    The amount of memory available to the job.
-</dd>
-<dt id="Classification.sampleWorkflow.krona.timeMinutes"><a href="#Classification.sampleWorkflow.krona.timeMinutes">Classification.sampleWorkflow.krona.timeMinutes</a></dt>
-<dd>
-    <i>Int </i><i>&mdash; Default:</i> <code>1</code><br />
-    The maximum amount of time the job will run in minutes.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.bwa"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.bwa">Classification.sampleWorkflow.qualityControl.Cutadapt.bwa</a></dt>
-<dd>
-    <i>Boolean? </i><br />
-    Equivalent to cutadapt's --bwa flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.colorspace"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.colorspace">Classification.sampleWorkflow.qualityControl.Cutadapt.colorspace</a></dt>
-<dd>
-    <i>Boolean? </i><br />
-    Equivalent to cutadapt's --colorspace flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.compressionLevel"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.compressionLevel">Classification.sampleWorkflow.qualityControl.Cutadapt.compressionLevel</a></dt>
-<dd>
-    <i>Int </i><i>&mdash; Default:</i> <code>1</code><br />
-    The compression level if gzipped output is used.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.cores"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.cores">Classification.sampleWorkflow.qualityControl.Cutadapt.cores</a></dt>
-<dd>
-    <i>Int </i><i>&mdash; Default:</i> <code>4</code><br />
-    The number of cores to use.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.cut"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.cut">Classification.sampleWorkflow.qualityControl.Cutadapt.cut</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Equivalent to cutadapt's --cut option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.discardTrimmed"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.discardTrimmed">Classification.sampleWorkflow.qualityControl.Cutadapt.discardTrimmed</a></dt>
-<dd>
-    <i>Boolean? </i><br />
-    Equivalent to cutadapt's --quality-cutoff option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.discardUntrimmed"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.discardUntrimmed">Classification.sampleWorkflow.qualityControl.Cutadapt.discardUntrimmed</a></dt>
-<dd>
-    <i>Boolean? </i><br />
-    Equivalent to cutadapt's --discard-untrimmed option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.doubleEncode"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.doubleEncode">Classification.sampleWorkflow.qualityControl.Cutadapt.doubleEncode</a></dt>
-<dd>
-    <i>Boolean? </i><br />
-    Equivalent to cutadapt's --double-encode flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.errorRate"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.errorRate">Classification.sampleWorkflow.qualityControl.Cutadapt.errorRate</a></dt>
-<dd>
-    <i>Float? </i><br />
-    Equivalent to cutadapt's --error-rate option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.front"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.front">Classification.sampleWorkflow.qualityControl.Cutadapt.front</a></dt>
-<dd>
-    <i>Array[String] </i><i>&mdash; Default:</i> <code>[]</code><br />
-    A list of 5' ligated adapter sequences to be cut from the given first or single end fastq file.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.frontRead2"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.frontRead2">Classification.sampleWorkflow.qualityControl.Cutadapt.frontRead2</a></dt>
-<dd>
-    <i>Array[String] </i><i>&mdash; Default:</i> <code>[]</code><br />
-    A list of 5' ligated adapter sequences to be cut from the given second end fastq file.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.infoFilePath"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.infoFilePath">Classification.sampleWorkflow.qualityControl.Cutadapt.infoFilePath</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to cutadapt's --info-file option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.interleaved"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.interleaved">Classification.sampleWorkflow.qualityControl.Cutadapt.interleaved</a></dt>
-<dd>
-    <i>Boolean? </i><br />
-    Equivalent to cutadapt's --interleaved flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.length"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.length">Classification.sampleWorkflow.qualityControl.Cutadapt.length</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Equivalent to cutadapt's --length option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.lengthTag"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.lengthTag">Classification.sampleWorkflow.qualityControl.Cutadapt.lengthTag</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to cutadapt's --length-tag option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.maq"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.maq">Classification.sampleWorkflow.qualityControl.Cutadapt.maq</a></dt>
-<dd>
-    <i>Boolean? </i><br />
-    Equivalent to cutadapt's --maq flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.maskAdapter"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.maskAdapter">Classification.sampleWorkflow.qualityControl.Cutadapt.maskAdapter</a></dt>
-<dd>
-    <i>Boolean? </i><br />
-    Equivalent to cutadapt's --mask-adapter flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.matchReadWildcards"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.matchReadWildcards">Classification.sampleWorkflow.qualityControl.Cutadapt.matchReadWildcards</a></dt>
-<dd>
-    <i>Boolean? </i><br />
-    Equivalent to cutadapt's --match-read-wildcards flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.maximumLength"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.maximumLength">Classification.sampleWorkflow.qualityControl.Cutadapt.maximumLength</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Equivalent to cutadapt's --maximum-length option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.maxN"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.maxN">Classification.sampleWorkflow.qualityControl.Cutadapt.maxN</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Equivalent to cutadapt's --max-n option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.memory"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.memory">Classification.sampleWorkflow.qualityControl.Cutadapt.memory</a></dt>
-<dd>
-    <i>String </i><i>&mdash; Default:</i> <code>"~{300 + 100 * cores}M"</code><br />
-    The amount of memory this job will use.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.minimumLength"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.minimumLength">Classification.sampleWorkflow.qualityControl.Cutadapt.minimumLength</a></dt>
-<dd>
-    <i>Int? </i><i>&mdash; Default:</i> <code>2</code><br />
-    Equivalent to cutadapt's --minimum-length option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.nextseqTrim"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.nextseqTrim">Classification.sampleWorkflow.qualityControl.Cutadapt.nextseqTrim</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to cutadapt's --nextseq-trim option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.noIndels"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.noIndels">Classification.sampleWorkflow.qualityControl.Cutadapt.noIndels</a></dt>
-<dd>
-    <i>Boolean? </i><br />
-    Equivalent to cutadapt's --no-indels flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.noMatchAdapterWildcards"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.noMatchAdapterWildcards">Classification.sampleWorkflow.qualityControl.Cutadapt.noMatchAdapterWildcards</a></dt>
-<dd>
-    <i>Boolean? </i><br />
-    Equivalent to cutadapt's --no-match-adapter-wildcards flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.noTrim"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.noTrim">Classification.sampleWorkflow.qualityControl.Cutadapt.noTrim</a></dt>
-<dd>
-    <i>Boolean? </i><br />
-    Equivalent to cutadapt's --no-trim flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.noZeroCap"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.noZeroCap">Classification.sampleWorkflow.qualityControl.Cutadapt.noZeroCap</a></dt>
-<dd>
-    <i>Boolean? </i><br />
-    Equivalent to cutadapt's --no-zero-cap flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.overlap"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.overlap">Classification.sampleWorkflow.qualityControl.Cutadapt.overlap</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Equivalent to cutadapt's --overlap option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.pairFilter"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.pairFilter">Classification.sampleWorkflow.qualityControl.Cutadapt.pairFilter</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to cutadapt's --pair-filter option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.prefix"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.prefix">Classification.sampleWorkflow.qualityControl.Cutadapt.prefix</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to cutadapt's --prefix option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.qualityBase"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.qualityBase">Classification.sampleWorkflow.qualityControl.Cutadapt.qualityBase</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Equivalent to cutadapt's --quality-base option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.qualityCutoff"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.qualityCutoff">Classification.sampleWorkflow.qualityControl.Cutadapt.qualityCutoff</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to cutadapt's --quality-cutoff option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.restFilePath"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.restFilePath">Classification.sampleWorkflow.qualityControl.Cutadapt.restFilePath</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to cutadapt's --rest-file option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.stripF3"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.stripF3">Classification.sampleWorkflow.qualityControl.Cutadapt.stripF3</a></dt>
-<dd>
-    <i>Boolean? </i><br />
-    Equivalent to cutadapt's --strip-f3 flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.stripSuffix"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.stripSuffix">Classification.sampleWorkflow.qualityControl.Cutadapt.stripSuffix</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to cutadapt's --strip-suffix option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.suffix"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.suffix">Classification.sampleWorkflow.qualityControl.Cutadapt.suffix</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to cutadapt's --suffix option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.timeMinutes"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.timeMinutes">Classification.sampleWorkflow.qualityControl.Cutadapt.timeMinutes</a></dt>
-<dd>
-    <i>Int </i><i>&mdash; Default:</i> <code>1 + ceil((size([read1, read2],"G") * 12.0 / cores))</code><br />
-    The maximum amount of time the job will run in minutes.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.times"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.times">Classification.sampleWorkflow.qualityControl.Cutadapt.times</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Equivalent to cutadapt's --times option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.tooLongOutputPath"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.tooLongOutputPath">Classification.sampleWorkflow.qualityControl.Cutadapt.tooLongOutputPath</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to cutadapt's --too-long-output option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.tooLongPairedOutputPath"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.tooLongPairedOutputPath">Classification.sampleWorkflow.qualityControl.Cutadapt.tooLongPairedOutputPath</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to cutadapt's --too-long-paired-output option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.tooShortOutputPath"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.tooShortOutputPath">Classification.sampleWorkflow.qualityControl.Cutadapt.tooShortOutputPath</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to cutadapt's --too-short-output option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.tooShortPairedOutputPath"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.tooShortPairedOutputPath">Classification.sampleWorkflow.qualityControl.Cutadapt.tooShortPairedOutputPath</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to cutadapt's --too-short-paired-output option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.trimN"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.trimN">Classification.sampleWorkflow.qualityControl.Cutadapt.trimN</a></dt>
-<dd>
-    <i>Boolean? </i><br />
-    Equivalent to cutadapt's --trim-n flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.untrimmedOutputPath"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.untrimmedOutputPath">Classification.sampleWorkflow.qualityControl.Cutadapt.untrimmedOutputPath</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to cutadapt's --untrimmed-output option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.untrimmedPairedOutputPath"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.untrimmedPairedOutputPath">Classification.sampleWorkflow.qualityControl.Cutadapt.untrimmedPairedOutputPath</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to cutadapt's --untrimmed-paired-output option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.wildcardFilePath"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.wildcardFilePath">Classification.sampleWorkflow.qualityControl.Cutadapt.wildcardFilePath</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to cutadapt's --wildcard-file option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.Cutadapt.zeroCap"><a href="#Classification.sampleWorkflow.qualityControl.Cutadapt.zeroCap">Classification.sampleWorkflow.qualityControl.Cutadapt.zeroCap</a></dt>
-<dd>
-    <i>Boolean? </i><br />
-    Equivalent to cutadapt's --zero-cap flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.extractFastqcZip"><a href="#Classification.sampleWorkflow.qualityControl.extractFastqcZip">Classification.sampleWorkflow.qualityControl.extractFastqcZip</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Whether to extract Fastqc's report zip files
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1.adapters"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1.adapters">Classification.sampleWorkflow.qualityControl.FastqcRead1.adapters</a></dt>
-<dd>
-    <i>File? </i><br />
-    Equivalent to fastqc's --adapters option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1.casava"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1.casava">Classification.sampleWorkflow.qualityControl.FastqcRead1.casava</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to fastqc's --casava flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1.contaminants"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1.contaminants">Classification.sampleWorkflow.qualityControl.FastqcRead1.contaminants</a></dt>
-<dd>
-    <i>File? </i><br />
-    Equivalent to fastqc's --contaminants option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1.dir"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1.dir">Classification.sampleWorkflow.qualityControl.FastqcRead1.dir</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to fastqc's --dir option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1.format"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1.format">Classification.sampleWorkflow.qualityControl.FastqcRead1.format</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to fastqc's --format option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1.javaXmx"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1.javaXmx">Classification.sampleWorkflow.qualityControl.FastqcRead1.javaXmx</a></dt>
-<dd>
-    <i>String </i><i>&mdash; Default:</i> <code>"1750M"</code><br />
-    The maximum memory available to the program. Should be lower than `memory` to accommodate JVM overhead.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1.kmers"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1.kmers">Classification.sampleWorkflow.qualityControl.FastqcRead1.kmers</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Equivalent to fastqc's --kmers option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1.limits"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1.limits">Classification.sampleWorkflow.qualityControl.FastqcRead1.limits</a></dt>
-<dd>
-    <i>File? </i><br />
-    Equivalent to fastqc's --limits option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1.memory"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1.memory">Classification.sampleWorkflow.qualityControl.FastqcRead1.memory</a></dt>
-<dd>
-    <i>String </i><i>&mdash; Default:</i> <code>"2G"</code><br />
-    The amount of memory this job will use.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1.minLength"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1.minLength">Classification.sampleWorkflow.qualityControl.FastqcRead1.minLength</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Equivalent to fastqc's --min_length option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1.nano"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1.nano">Classification.sampleWorkflow.qualityControl.FastqcRead1.nano</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to fastqc's --nano flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1.noFilter"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1.noFilter">Classification.sampleWorkflow.qualityControl.FastqcRead1.noFilter</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to fastqc's --nofilter flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1.nogroup"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1.nogroup">Classification.sampleWorkflow.qualityControl.FastqcRead1.nogroup</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to fastqc's --nogroup flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1.threads"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1.threads">Classification.sampleWorkflow.qualityControl.FastqcRead1.threads</a></dt>
-<dd>
-    <i>Int </i><i>&mdash; Default:</i> <code>1</code><br />
-    The number of cores to use.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1.timeMinutes"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1.timeMinutes">Classification.sampleWorkflow.qualityControl.FastqcRead1.timeMinutes</a></dt>
-<dd>
-    <i>Int </i><i>&mdash; Default:</i> <code>1 + ceil(size(seqFile,"G")) * 4</code><br />
-    The maximum amount of time the job will run in minutes.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1After.adapters"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1After.adapters">Classification.sampleWorkflow.qualityControl.FastqcRead1After.adapters</a></dt>
-<dd>
-    <i>File? </i><br />
-    Equivalent to fastqc's --adapters option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1After.casava"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1After.casava">Classification.sampleWorkflow.qualityControl.FastqcRead1After.casava</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to fastqc's --casava flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1After.contaminants"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1After.contaminants">Classification.sampleWorkflow.qualityControl.FastqcRead1After.contaminants</a></dt>
-<dd>
-    <i>File? </i><br />
-    Equivalent to fastqc's --contaminants option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1After.dir"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1After.dir">Classification.sampleWorkflow.qualityControl.FastqcRead1After.dir</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to fastqc's --dir option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1After.format"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1After.format">Classification.sampleWorkflow.qualityControl.FastqcRead1After.format</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to fastqc's --format option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1After.javaXmx"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1After.javaXmx">Classification.sampleWorkflow.qualityControl.FastqcRead1After.javaXmx</a></dt>
-<dd>
-    <i>String </i><i>&mdash; Default:</i> <code>"1750M"</code><br />
-    The maximum memory available to the program. Should be lower than `memory` to accommodate JVM overhead.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1After.kmers"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1After.kmers">Classification.sampleWorkflow.qualityControl.FastqcRead1After.kmers</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Equivalent to fastqc's --kmers option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1After.limits"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1After.limits">Classification.sampleWorkflow.qualityControl.FastqcRead1After.limits</a></dt>
-<dd>
-    <i>File? </i><br />
-    Equivalent to fastqc's --limits option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1After.memory"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1After.memory">Classification.sampleWorkflow.qualityControl.FastqcRead1After.memory</a></dt>
-<dd>
-    <i>String </i><i>&mdash; Default:</i> <code>"2G"</code><br />
-    The amount of memory this job will use.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1After.minLength"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1After.minLength">Classification.sampleWorkflow.qualityControl.FastqcRead1After.minLength</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Equivalent to fastqc's --min_length option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1After.nano"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1After.nano">Classification.sampleWorkflow.qualityControl.FastqcRead1After.nano</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to fastqc's --nano flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1After.noFilter"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1After.noFilter">Classification.sampleWorkflow.qualityControl.FastqcRead1After.noFilter</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to fastqc's --nofilter flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1After.nogroup"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1After.nogroup">Classification.sampleWorkflow.qualityControl.FastqcRead1After.nogroup</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to fastqc's --nogroup flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1After.threads"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1After.threads">Classification.sampleWorkflow.qualityControl.FastqcRead1After.threads</a></dt>
-<dd>
-    <i>Int </i><i>&mdash; Default:</i> <code>1</code><br />
-    The number of cores to use.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead1After.timeMinutes"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead1After.timeMinutes">Classification.sampleWorkflow.qualityControl.FastqcRead1After.timeMinutes</a></dt>
-<dd>
-    <i>Int </i><i>&mdash; Default:</i> <code>1 + ceil(size(seqFile,"G")) * 4</code><br />
-    The maximum amount of time the job will run in minutes.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2.adapters"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2.adapters">Classification.sampleWorkflow.qualityControl.FastqcRead2.adapters</a></dt>
-<dd>
-    <i>File? </i><br />
-    Equivalent to fastqc's --adapters option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2.casava"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2.casava">Classification.sampleWorkflow.qualityControl.FastqcRead2.casava</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to fastqc's --casava flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2.contaminants"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2.contaminants">Classification.sampleWorkflow.qualityControl.FastqcRead2.contaminants</a></dt>
-<dd>
-    <i>File? </i><br />
-    Equivalent to fastqc's --contaminants option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2.dir"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2.dir">Classification.sampleWorkflow.qualityControl.FastqcRead2.dir</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to fastqc's --dir option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2.format"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2.format">Classification.sampleWorkflow.qualityControl.FastqcRead2.format</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to fastqc's --format option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2.javaXmx"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2.javaXmx">Classification.sampleWorkflow.qualityControl.FastqcRead2.javaXmx</a></dt>
-<dd>
-    <i>String </i><i>&mdash; Default:</i> <code>"1750M"</code><br />
-    The maximum memory available to the program. Should be lower than `memory` to accommodate JVM overhead.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2.kmers"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2.kmers">Classification.sampleWorkflow.qualityControl.FastqcRead2.kmers</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Equivalent to fastqc's --kmers option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2.limits"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2.limits">Classification.sampleWorkflow.qualityControl.FastqcRead2.limits</a></dt>
-<dd>
-    <i>File? </i><br />
-    Equivalent to fastqc's --limits option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2.memory"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2.memory">Classification.sampleWorkflow.qualityControl.FastqcRead2.memory</a></dt>
-<dd>
-    <i>String </i><i>&mdash; Default:</i> <code>"2G"</code><br />
-    The amount of memory this job will use.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2.minLength"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2.minLength">Classification.sampleWorkflow.qualityControl.FastqcRead2.minLength</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Equivalent to fastqc's --min_length option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2.nano"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2.nano">Classification.sampleWorkflow.qualityControl.FastqcRead2.nano</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to fastqc's --nano flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2.noFilter"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2.noFilter">Classification.sampleWorkflow.qualityControl.FastqcRead2.noFilter</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to fastqc's --nofilter flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2.nogroup"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2.nogroup">Classification.sampleWorkflow.qualityControl.FastqcRead2.nogroup</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to fastqc's --nogroup flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2.threads"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2.threads">Classification.sampleWorkflow.qualityControl.FastqcRead2.threads</a></dt>
-<dd>
-    <i>Int </i><i>&mdash; Default:</i> <code>1</code><br />
-    The number of cores to use.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2.timeMinutes"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2.timeMinutes">Classification.sampleWorkflow.qualityControl.FastqcRead2.timeMinutes</a></dt>
-<dd>
-    <i>Int </i><i>&mdash; Default:</i> <code>1 + ceil(size(seqFile,"G")) * 4</code><br />
-    The maximum amount of time the job will run in minutes.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2After.adapters"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2After.adapters">Classification.sampleWorkflow.qualityControl.FastqcRead2After.adapters</a></dt>
-<dd>
-    <i>File? </i><br />
-    Equivalent to fastqc's --adapters option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2After.casava"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2After.casava">Classification.sampleWorkflow.qualityControl.FastqcRead2After.casava</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to fastqc's --casava flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2After.contaminants"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2After.contaminants">Classification.sampleWorkflow.qualityControl.FastqcRead2After.contaminants</a></dt>
-<dd>
-    <i>File? </i><br />
-    Equivalent to fastqc's --contaminants option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2After.dir"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2After.dir">Classification.sampleWorkflow.qualityControl.FastqcRead2After.dir</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to fastqc's --dir option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2After.format"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2After.format">Classification.sampleWorkflow.qualityControl.FastqcRead2After.format</a></dt>
-<dd>
-    <i>String? </i><br />
-    Equivalent to fastqc's --format option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2After.javaXmx"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2After.javaXmx">Classification.sampleWorkflow.qualityControl.FastqcRead2After.javaXmx</a></dt>
-<dd>
-    <i>String </i><i>&mdash; Default:</i> <code>"1750M"</code><br />
-    The maximum memory available to the program. Should be lower than `memory` to accommodate JVM overhead.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2After.kmers"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2After.kmers">Classification.sampleWorkflow.qualityControl.FastqcRead2After.kmers</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Equivalent to fastqc's --kmers option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2After.limits"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2After.limits">Classification.sampleWorkflow.qualityControl.FastqcRead2After.limits</a></dt>
-<dd>
-    <i>File? </i><br />
-    Equivalent to fastqc's --limits option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2After.memory"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2After.memory">Classification.sampleWorkflow.qualityControl.FastqcRead2After.memory</a></dt>
-<dd>
-    <i>String </i><i>&mdash; Default:</i> <code>"2G"</code><br />
-    The amount of memory this job will use.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2After.minLength"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2After.minLength">Classification.sampleWorkflow.qualityControl.FastqcRead2After.minLength</a></dt>
-<dd>
-    <i>Int? </i><br />
-    Equivalent to fastqc's --min_length option.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2After.nano"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2After.nano">Classification.sampleWorkflow.qualityControl.FastqcRead2After.nano</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to fastqc's --nano flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2After.noFilter"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2After.noFilter">Classification.sampleWorkflow.qualityControl.FastqcRead2After.noFilter</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to fastqc's --nofilter flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2After.nogroup"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2After.nogroup">Classification.sampleWorkflow.qualityControl.FastqcRead2After.nogroup</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>false</code><br />
-    Equivalent to fastqc's --nogroup flag.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2After.threads"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2After.threads">Classification.sampleWorkflow.qualityControl.FastqcRead2After.threads</a></dt>
-<dd>
-    <i>Int </i><i>&mdash; Default:</i> <code>1</code><br />
-    The number of cores to use.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.FastqcRead2After.timeMinutes"><a href="#Classification.sampleWorkflow.qualityControl.FastqcRead2After.timeMinutes">Classification.sampleWorkflow.qualityControl.FastqcRead2After.timeMinutes</a></dt>
-<dd>
-    <i>Int </i><i>&mdash; Default:</i> <code>1 + ceil(size(seqFile,"G")) * 4</code><br />
-    The maximum amount of time the job will run in minutes.
-</dd>
-<dt id="Classification.sampleWorkflow.qualityControl.runAdapterClipping"><a href="#Classification.sampleWorkflow.qualityControl.runAdapterClipping">Classification.sampleWorkflow.qualityControl.runAdapterClipping</a></dt>
-<dd>
-    <i>Boolean </i><i>&mdash; Default:</i> <code>defined(adapterForward) || defined(adapterReverse) || length(select_first([contaminations, []])) > 0</code><br />
-    Whether or not adapters should be removed from the reads.
-</dd>
-</dl>
+<p name="Classification.convertDockerImagesFile.dockerImage">
+        <b>Classification.convertDockerImagesFile.dockerImage</b><br />
+        <i>String &mdash; Default: "quay.io/biocontainers/biowdl-input-converter:0.2.1--py_0"</i><br />
+        The docker image used for this task. Changing this may result in errors which the developers may choose not to address.
+</p>
+<p name="Classification.convertDockerImagesFile.memory">
+        <b>Classification.convertDockerImagesFile.memory</b><br />
+        <i>String &mdash; Default: "128M"</i><br />
+        The maximum amount of memory the job will need.
+</p>
+<p name="Classification.convertDockerImagesFile.timeMinutes">
+        <b>Classification.convertDockerImagesFile.timeMinutes</b><br />
+        <i>Int &mdash; Default: 1</i><br />
+        The maximum amount of time the job will run in minutes.
+</p>
+<p name="Classification.convertSampleConfig.checkFileMd5sums">
+        <b>Classification.convertSampleConfig.checkFileMd5sums</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Whether or not the MD5 sums of the files mentioned in the samplesheet should be checked.
+</p>
+<p name="Classification.convertSampleConfig.old">
+        <b>Classification.convertSampleConfig.old</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Whether or not the old samplesheet format should be used.
+</p>
+<p name="Classification.convertSampleConfig.skipFileCheck">
+        <b>Classification.convertSampleConfig.skipFileCheck</b><br />
+        <i>Boolean &mdash; Default: true</i><br />
+        Whether or not the existance of the files mentioned in the samplesheet should be checked.
+</p>
+<p name="Classification.convertSampleConfig.timeMinutes">
+        <b>Classification.convertSampleConfig.timeMinutes</b><br />
+        <i>Int &mdash; Default: 1</i><br />
+        The maximum amount of time the job will run in minutes.
+</p>
+<p name="Classification.multiqcTask.clConfig">
+        <b>Classification.multiqcTask.clConfig</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to MultiQC's `--cl-config` option.
+</p>
+<p name="Classification.multiqcTask.comment">
+        <b>Classification.multiqcTask.comment</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to MultiQC's `--comment` option.
+</p>
+<p name="Classification.multiqcTask.config">
+        <b>Classification.multiqcTask.config</b><br />
+        <i>File? &mdash; Default: None</i><br />
+        Equivalent to MultiQC's `--config` option.
+</p>
+<p name="Classification.multiqcTask.dataFormat">
+        <b>Classification.multiqcTask.dataFormat</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to MultiQC's `--data-format` option.
+</p>
+<p name="Classification.multiqcTask.dirs">
+        <b>Classification.multiqcTask.dirs</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to MultiQC's `--dirs` flag.
+</p>
+<p name="Classification.multiqcTask.dirsDepth">
+        <b>Classification.multiqcTask.dirsDepth</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Equivalent to MultiQC's `--dirs-depth` option.
+</p>
+<p name="Classification.multiqcTask.exclude">
+        <b>Classification.multiqcTask.exclude</b><br />
+        <i>Array[String]+? &mdash; Default: None</i><br />
+        Equivalent to MultiQC's `--exclude` option.
+</p>
+<p name="Classification.multiqcTask.export">
+        <b>Classification.multiqcTask.export</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to MultiQC's `--export` flag.
+</p>
+<p name="Classification.multiqcTask.fileList">
+        <b>Classification.multiqcTask.fileList</b><br />
+        <i>File? &mdash; Default: None</i><br />
+        Equivalent to MultiQC's `--file-list` option.
+</p>
+<p name="Classification.multiqcTask.fileName">
+        <b>Classification.multiqcTask.fileName</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to MultiQC's `--filename` option.
+</p>
+<p name="Classification.multiqcTask.flat">
+        <b>Classification.multiqcTask.flat</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to MultiQC's `--flat` flag.
+</p>
+<p name="Classification.multiqcTask.force">
+        <b>Classification.multiqcTask.force</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to MultiQC's `--force` flag.
+</p>
+<p name="Classification.multiqcTask.fullNames">
+        <b>Classification.multiqcTask.fullNames</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to MultiQC's `--fullnames` flag.
+</p>
+<p name="Classification.multiqcTask.ignore">
+        <b>Classification.multiqcTask.ignore</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to MultiQC's `--ignore` option.
+</p>
+<p name="Classification.multiqcTask.ignoreSamples">
+        <b>Classification.multiqcTask.ignoreSamples</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to MultiQC's `--ignore-samples` option.
+</p>
+<p name="Classification.multiqcTask.interactive">
+        <b>Classification.multiqcTask.interactive</b><br />
+        <i>Boolean &mdash; Default: true</i><br />
+        Equivalent to MultiQC's `--interactive` flag.
+</p>
+<p name="Classification.multiqcTask.lint">
+        <b>Classification.multiqcTask.lint</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to MultiQC's `--lint` flag.
+</p>
+<p name="Classification.multiqcTask.megaQCUpload">
+        <b>Classification.multiqcTask.megaQCUpload</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Opposite to MultiQC's `--no-megaqc-upload` flag.
+</p>
+<p name="Classification.multiqcTask.memory">
+        <b>Classification.multiqcTask.memory</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        The amount of memory this job will use.
+</p>
+<p name="Classification.multiqcTask.module">
+        <b>Classification.multiqcTask.module</b><br />
+        <i>Array[String]+? &mdash; Default: None</i><br />
+        Equivalent to MultiQC's `--module` option.
+</p>
+<p name="Classification.multiqcTask.pdf">
+        <b>Classification.multiqcTask.pdf</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to MultiQC's `--pdf` flag.
+</p>
+<p name="Classification.multiqcTask.sampleNames">
+        <b>Classification.multiqcTask.sampleNames</b><br />
+        <i>File? &mdash; Default: None</i><br />
+        Equivalent to MultiQC's `--sample-names` option.
+</p>
+<p name="Classification.multiqcTask.tag">
+        <b>Classification.multiqcTask.tag</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to MultiQC's `--tag` option.
+</p>
+<p name="Classification.multiqcTask.template">
+        <b>Classification.multiqcTask.template</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to MultiQC's `--template` option.
+</p>
+<p name="Classification.multiqcTask.timeMinutes">
+        <b>Classification.multiqcTask.timeMinutes</b><br />
+        <i>Int &mdash; Default: 2 + ceil((size(reports,"G") * 8))</i><br />
+        The maximum amount of time the job will run in minutes.
+</p>
+<p name="Classification.multiqcTask.title">
+        <b>Classification.multiqcTask.title</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to MultiQC's `--title` option.
+</p>
+<p name="Classification.multiqcTask.zipDataDir">
+        <b>Classification.multiqcTask.zipDataDir</b><br />
+        <i>Boolean &mdash; Default: true</i><br />
+        Equivalent to MultiQC's `--zip-data-dir` flag.
+</p>
+<p name="Classification.sampleWorkflow.centrifuge.memory">
+        <b>Classification.sampleWorkflow.centrifuge.memory</b><br />
+        <i>String &mdash; Default: "16G"</i><br />
+        The amount of memory available to the job.
+</p>
+<p name="Classification.sampleWorkflow.centrifuge.threads">
+        <b>Classification.sampleWorkflow.centrifuge.threads</b><br />
+        <i>Int &mdash; Default: 4</i><br />
+        The number of threads to be used.
+</p>
+<p name="Classification.sampleWorkflow.kReport.isCountTable">
+        <b>Classification.sampleWorkflow.kReport.isCountTable</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        The format of the file is taxID<tab>COUNT.
+</p>
+<p name="Classification.sampleWorkflow.kReport.memory">
+        <b>Classification.sampleWorkflow.kReport.memory</b><br />
+        <i>String &mdash; Default: "4G"</i><br />
+        The amount of memory available to the job.
+</p>
+<p name="Classification.sampleWorkflow.kReport.minimumLength">
+        <b>Classification.sampleWorkflow.kReport.minimumLength</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Require a minimum alignment length to the read.
+</p>
+<p name="Classification.sampleWorkflow.kReport.minimumScore">
+        <b>Classification.sampleWorkflow.kReport.minimumScore</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Require a minimum score for reads to be counted.
+</p>
+<p name="Classification.sampleWorkflow.kReport.noLCA">
+        <b>Classification.sampleWorkflow.kReport.noLCA</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Do not report the lca of multiple assignments, but report count fractions at the taxa.
+</p>
+<p name="Classification.sampleWorkflow.kReport.showZeros">
+        <b>Classification.sampleWorkflow.kReport.showZeros</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Show clades that have zero reads.
+</p>
+<p name="Classification.sampleWorkflow.kReport.timeMinutes">
+        <b>Classification.sampleWorkflow.kReport.timeMinutes</b><br />
+        <i>Int &mdash; Default: 10</i><br />
+        The maximum amount of time the job will run in minutes.
+</p>
+<p name="Classification.sampleWorkflow.krona.memory">
+        <b>Classification.sampleWorkflow.krona.memory</b><br />
+        <i>String &mdash; Default: "4G"</i><br />
+        The amount of memory available to the job.
+</p>
+<p name="Classification.sampleWorkflow.krona.timeMinutes">
+        <b>Classification.sampleWorkflow.krona.timeMinutes</b><br />
+        <i>Int &mdash; Default: 1</i><br />
+        The maximum amount of time the job will run in minutes.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.bwa">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.bwa</b><br />
+        <i>Boolean? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --bwa flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.colorspace">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.colorspace</b><br />
+        <i>Boolean? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --colorspace flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.compressionLevel">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.compressionLevel</b><br />
+        <i>Int &mdash; Default: 1</i><br />
+        The compression level if gzipped output is used.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.cores">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.cores</b><br />
+        <i>Int &mdash; Default: 4</i><br />
+        The number of cores to use.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.cut">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.cut</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --cut option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.discardTrimmed">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.discardTrimmed</b><br />
+        <i>Boolean? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --quality-cutoff option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.discardUntrimmed">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.discardUntrimmed</b><br />
+        <i>Boolean? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --discard-untrimmed option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.doubleEncode">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.doubleEncode</b><br />
+        <i>Boolean? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --double-encode flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.errorRate">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.errorRate</b><br />
+        <i>Float? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --error-rate option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.front">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.front</b><br />
+        <i>Array[String] &mdash; Default: []</i><br />
+        A list of 5' ligated adapter sequences to be cut from the given first or single end fastq file.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.frontRead2">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.frontRead2</b><br />
+        <i>Array[String] &mdash; Default: []</i><br />
+        A list of 5' ligated adapter sequences to be cut from the given second end fastq file.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.infoFilePath">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.infoFilePath</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --info-file option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.interleaved">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.interleaved</b><br />
+        <i>Boolean? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --interleaved flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.length">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.length</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --length option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.lengthTag">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.lengthTag</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --length-tag option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.maq">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.maq</b><br />
+        <i>Boolean? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --maq flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.maskAdapter">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.maskAdapter</b><br />
+        <i>Boolean? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --mask-adapter flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.matchReadWildcards">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.matchReadWildcards</b><br />
+        <i>Boolean? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --match-read-wildcards flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.maximumLength">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.maximumLength</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --maximum-length option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.maxN">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.maxN</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --max-n option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.memory">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.memory</b><br />
+        <i>String &mdash; Default: "~{300 + 100 * cores}M"</i><br />
+        The amount of memory this job will use.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.minimumLength">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.minimumLength</b><br />
+        <i>Int? &mdash; Default: 2</i><br />
+        Equivalent to cutadapt's --minimum-length option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.nextseqTrim">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.nextseqTrim</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --nextseq-trim option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.noIndels">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.noIndels</b><br />
+        <i>Boolean? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --no-indels flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.noMatchAdapterWildcards">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.noMatchAdapterWildcards</b><br />
+        <i>Boolean? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --no-match-adapter-wildcards flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.noTrim">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.noTrim</b><br />
+        <i>Boolean? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --no-trim flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.noZeroCap">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.noZeroCap</b><br />
+        <i>Boolean? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --no-zero-cap flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.overlap">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.overlap</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --overlap option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.pairFilter">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.pairFilter</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --pair-filter option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.prefix">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.prefix</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --prefix option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.qualityBase">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.qualityBase</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --quality-base option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.qualityCutoff">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.qualityCutoff</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --quality-cutoff option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.restFilePath">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.restFilePath</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --rest-file option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.stripF3">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.stripF3</b><br />
+        <i>Boolean? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --strip-f3 flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.stripSuffix">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.stripSuffix</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --strip-suffix option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.suffix">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.suffix</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --suffix option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.timeMinutes">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.timeMinutes</b><br />
+        <i>Int &mdash; Default: 1 + ceil((size([read1, read2],"G") * 12.0 / cores))</i><br />
+        The maximum amount of time the job will run in minutes.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.times">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.times</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --times option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.tooLongOutputPath">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.tooLongOutputPath</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --too-long-output option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.tooLongPairedOutputPath">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.tooLongPairedOutputPath</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --too-long-paired-output option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.tooShortOutputPath">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.tooShortOutputPath</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --too-short-output option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.tooShortPairedOutputPath">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.tooShortPairedOutputPath</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --too-short-paired-output option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.trimN">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.trimN</b><br />
+        <i>Boolean? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --trim-n flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.untrimmedOutputPath">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.untrimmedOutputPath</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --untrimmed-output option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.untrimmedPairedOutputPath">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.untrimmedPairedOutputPath</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --untrimmed-paired-output option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.wildcardFilePath">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.wildcardFilePath</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --wildcard-file option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.Cutadapt.zeroCap">
+        <b>Classification.sampleWorkflow.qualityControl.Cutadapt.zeroCap</b><br />
+        <i>Boolean? &mdash; Default: None</i><br />
+        Equivalent to cutadapt's --zero-cap flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.extractFastqcZip">
+        <b>Classification.sampleWorkflow.qualityControl.extractFastqcZip</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Whether to extract Fastqc's report zip files
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1.adapters">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1.adapters</b><br />
+        <i>File? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --adapters option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1.casava">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1.casava</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to fastqc's --casava flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1.contaminants">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1.contaminants</b><br />
+        <i>File? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --contaminants option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1.dir">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1.dir</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --dir option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1.format">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1.format</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --format option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1.javaXmx">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1.javaXmx</b><br />
+        <i>String &mdash; Default: "1750M"</i><br />
+        The maximum memory available to the program. Should be lower than `memory` to accommodate JVM overhead.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1.kmers">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1.kmers</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --kmers option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1.limits">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1.limits</b><br />
+        <i>File? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --limits option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1.memory">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1.memory</b><br />
+        <i>String &mdash; Default: "2G"</i><br />
+        The amount of memory this job will use.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1.minLength">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1.minLength</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --min_length option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1.nano">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1.nano</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to fastqc's --nano flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1.noFilter">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1.noFilter</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to fastqc's --nofilter flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1.nogroup">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1.nogroup</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to fastqc's --nogroup flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1.threads">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1.threads</b><br />
+        <i>Int &mdash; Default: 1</i><br />
+        The number of cores to use.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1.timeMinutes">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1.timeMinutes</b><br />
+        <i>Int &mdash; Default: 1 + ceil(size(seqFile,"G")) * 4</i><br />
+        The maximum amount of time the job will run in minutes.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1After.adapters">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1After.adapters</b><br />
+        <i>File? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --adapters option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1After.casava">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1After.casava</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to fastqc's --casava flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1After.contaminants">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1After.contaminants</b><br />
+        <i>File? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --contaminants option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1After.dir">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1After.dir</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --dir option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1After.format">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1After.format</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --format option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1After.javaXmx">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1After.javaXmx</b><br />
+        <i>String &mdash; Default: "1750M"</i><br />
+        The maximum memory available to the program. Should be lower than `memory` to accommodate JVM overhead.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1After.kmers">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1After.kmers</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --kmers option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1After.limits">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1After.limits</b><br />
+        <i>File? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --limits option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1After.memory">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1After.memory</b><br />
+        <i>String &mdash; Default: "2G"</i><br />
+        The amount of memory this job will use.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1After.minLength">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1After.minLength</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --min_length option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1After.nano">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1After.nano</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to fastqc's --nano flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1After.noFilter">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1After.noFilter</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to fastqc's --nofilter flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1After.nogroup">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1After.nogroup</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to fastqc's --nogroup flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1After.threads">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1After.threads</b><br />
+        <i>Int &mdash; Default: 1</i><br />
+        The number of cores to use.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead1After.timeMinutes">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead1After.timeMinutes</b><br />
+        <i>Int &mdash; Default: 1 + ceil(size(seqFile,"G")) * 4</i><br />
+        The maximum amount of time the job will run in minutes.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2.adapters">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2.adapters</b><br />
+        <i>File? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --adapters option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2.casava">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2.casava</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to fastqc's --casava flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2.contaminants">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2.contaminants</b><br />
+        <i>File? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --contaminants option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2.dir">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2.dir</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --dir option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2.format">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2.format</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --format option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2.javaXmx">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2.javaXmx</b><br />
+        <i>String &mdash; Default: "1750M"</i><br />
+        The maximum memory available to the program. Should be lower than `memory` to accommodate JVM overhead.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2.kmers">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2.kmers</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --kmers option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2.limits">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2.limits</b><br />
+        <i>File? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --limits option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2.memory">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2.memory</b><br />
+        <i>String &mdash; Default: "2G"</i><br />
+        The amount of memory this job will use.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2.minLength">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2.minLength</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --min_length option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2.nano">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2.nano</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to fastqc's --nano flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2.noFilter">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2.noFilter</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to fastqc's --nofilter flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2.nogroup">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2.nogroup</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to fastqc's --nogroup flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2.threads">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2.threads</b><br />
+        <i>Int &mdash; Default: 1</i><br />
+        The number of cores to use.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2.timeMinutes">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2.timeMinutes</b><br />
+        <i>Int &mdash; Default: 1 + ceil(size(seqFile,"G")) * 4</i><br />
+        The maximum amount of time the job will run in minutes.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2After.adapters">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2After.adapters</b><br />
+        <i>File? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --adapters option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2After.casava">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2After.casava</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to fastqc's --casava flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2After.contaminants">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2After.contaminants</b><br />
+        <i>File? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --contaminants option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2After.dir">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2After.dir</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --dir option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2After.format">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2After.format</b><br />
+        <i>String? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --format option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2After.javaXmx">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2After.javaXmx</b><br />
+        <i>String &mdash; Default: "1750M"</i><br />
+        The maximum memory available to the program. Should be lower than `memory` to accommodate JVM overhead.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2After.kmers">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2After.kmers</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --kmers option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2After.limits">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2After.limits</b><br />
+        <i>File? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --limits option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2After.memory">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2After.memory</b><br />
+        <i>String &mdash; Default: "2G"</i><br />
+        The amount of memory this job will use.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2After.minLength">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2After.minLength</b><br />
+        <i>Int? &mdash; Default: None</i><br />
+        Equivalent to fastqc's --min_length option.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2After.nano">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2After.nano</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to fastqc's --nano flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2After.noFilter">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2After.noFilter</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to fastqc's --nofilter flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2After.nogroup">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2After.nogroup</b><br />
+        <i>Boolean &mdash; Default: false</i><br />
+        Equivalent to fastqc's --nogroup flag.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2After.threads">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2After.threads</b><br />
+        <i>Int &mdash; Default: 1</i><br />
+        The number of cores to use.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.FastqcRead2After.timeMinutes">
+        <b>Classification.sampleWorkflow.qualityControl.FastqcRead2After.timeMinutes</b><br />
+        <i>Int &mdash; Default: 1 + ceil(size(seqFile,"G")) * 4</i><br />
+        The maximum amount of time the job will run in minutes.
+</p>
+<p name="Classification.sampleWorkflow.qualityControl.runAdapterClipping">
+        <b>Classification.sampleWorkflow.qualityControl.runAdapterClipping</b><br />
+        <i>Boolean &mdash; Default: defined(adapterForward) || defined(adapterReverse) || length(select_first([contaminations, []])) > 0</i><br />
+        Whether or not adapters should be removed from the reads.
+</p>
 </details>
 
 
 
 
 
-## Do not set these inputs!
-The following inputs should ***not*** be set, even though womtool may
-show them as being available inputs.
 
-* Classification.sampleWorkflow.qualityControl.FastqcRead1.NoneFile
-* Classification.sampleWorkflow.qualityControl.FastqcRead1.NoneArray
-* Classification.sampleWorkflow.qualityControl.FastqcRead2.NoneFile
-* Classification.sampleWorkflow.qualityControl.FastqcRead2.NoneArray
-* Classification.sampleWorkflow.qualityControl.FastqcRead1After.NoneFile
-* Classification.sampleWorkflow.qualityControl.FastqcRead1After.NoneArray
-* Classification.sampleWorkflow.qualityControl.FastqcRead2After.NoneFile
-* Classification.sampleWorkflow.qualityControl.FastqcRead2After.NoneArray
-* Classification.multiqcTask.finished
-* Classification.multiqcTask.dependencies
+
+
+<hr />
+
+> Generated using WDL AID (0.1.1)
