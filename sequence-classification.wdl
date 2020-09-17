@@ -30,6 +30,7 @@ workflow Classification {
     input {
         File sampleConfigFile
         String outputDirectory = "."
+        Boolean runQc = true
         File dockerImagesFile
     }
 
@@ -58,16 +59,19 @@ workflow Classification {
             input:
                 sample = sample,
                 outputDirectory = outputDirectory + "/" + sample.id,
+                runQc = runQc,
                 dockerImages = dockerImages
         }
     }
 
-    call multiqc.MultiQC as multiqcTask {
-        input:
-            reports = flatten(sampleWorkflow.workflowReports),
-            outDir = outputDirectory + "/multiqc",
-            dataDir = true,
-            dockerImage = dockerImages["multiqc"]
+    if (runQc) {
+        call multiqc.MultiQC as multiqcTask {
+            input:
+                reports = flatten(sampleWorkflow.workflowReports),
+                outDir = outputDirectory + "/multiqc",
+                dataDir = true,
+                dockerImage = dockerImages["multiqc"]
+        }
     }
 
     output {
@@ -77,7 +81,7 @@ workflow Classification {
         Array[File] centrifugeReport = sampleWorkflow.centrifugeReport
         Array[File] centrifugeKReport = sampleWorkflow.centrifugeKReport
         Array[File] kronaPlot = sampleWorkflow.kronaPlot
-        File multiqcReport = multiqcTask.multiqcReport
+        File? multiqcReport = multiqcTask.multiqcReport
         File? multiqcZip = multiqcTask.multiqcDataDirZip
     }
 
@@ -85,6 +89,7 @@ workflow Classification {
         # inputs
         sampleConfigFile: {description: "Samplesheet describing input fasta/fastq files.", category: "required"}
         outputDirectory: {description: "The directory to which the outputs will be written.", category: "common"}
+        runQc: {description: "Run the QC pipeline when the input is fastq.", category: "common"}
         dockerImagesFile: {description: "The docker image used for this workflow. Changing this may result in errors which the developers may choose not to address.", category: "required"}
 
         # outputs

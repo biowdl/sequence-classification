@@ -29,6 +29,7 @@ workflow SampleWorkflow {
         Sample sample
         Array[File]+ centrifugeIndex
         String outputDirectory = "."
+        Boolean runQc = true
         Map[String, String] dockerImages
     }
 
@@ -39,22 +40,28 @@ workflow SampleWorkflow {
     scatter (readgroup in readgroups) {
         String readgroupName = "~{sample.id}-~{readgroup.lib_id}-~{readgroup.id}"
         String readgroupIdentifier = readgroup.lib_id + "-" + readgroup.id
-        call qc.QC as qualityControl {
-            input:
-                read1 = readgroup.R1,
-                read2 = readgroup.R2,
-                readgroupName = readgroupName,
-                outputDir = outputDirectory + "/" + readgroupIdentifier,
-                dockerImages = dockerImages
+        if (runQc) {
+            call qc.QC as qualityControl {
+                input:
+                    read1 = readgroup.R1,
+                    read2 = readgroup.R2,
+                    readgroupName = readgroupName,
+                    outputDir = outputDirectory + "/" + readgroupIdentifier,
+                    dockerImages = dockerImages
+            }
         }
+
+        File firstSequenceFile = select_first([qualityControl.qcRead1, readgroup.R1])
+        File? secondSequenceFile = select_first([qualityControl.qcRead2, readgroup.R2])
+        Array[File] qualityReports = select_first([qualityControl.reports, []])
     }
 
     call centrifuge.Classify as centrifuge {
         input:
             outputPrefix = outputDirectory + "/" + sample.id,
             indexFiles = centrifugeIndex,
-            read1 = qualityControl.qcRead1,
-            read2 = select_all(qualityControl.qcRead2),
+            read1 = firstSequenceFile,
+            read2 = select_all(secondSequenceFile),
             dockerImage = dockerImages["centrifuge"]
     }
 
@@ -74,7 +81,7 @@ workflow SampleWorkflow {
     }
 
     output {
-        Array[File] workflowReports = flatten(qualityControl.reports)
+        Array[File] workflowReports = flatten(qualityReports)
         File centrifugeMetrics = centrifuge.metrics
         File centrifugeClassification = centrifuge.classification
         File centrifugeReport = centrifuge.report
@@ -87,6 +94,7 @@ workflow SampleWorkflow {
         sample: {description: "The sample data.", category: "required"}
         centrifugeIndex: {description: "The files of the index for the reference genomes.", category: "required"}
         outputDirectory: {description: "The directory to which the outputs will be written.", category: "common"}
+        runQc: {description: "Run the QC pipeline when the input is fastq.", category: "common"}
         dockerImages: {description: "The docker image used for this workflow. Changing this may result in errors which the developers may choose not to address.", category: "advanced"}
 
         # outputs

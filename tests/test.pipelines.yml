@@ -3,7 +3,7 @@
     - integration
   command: >-
     cromwell run -o tests/cromwell.options.json
-    -i tests/integration/single.end.json sequence-classification.wdl
+    -i tests/integration/single.end.fastq.json sequence-classification.wdl
   files:
     - path: test-output/multiqc/multiqc_data.zip
     - path: test-output/multiqc/multiqc_report.html
@@ -49,7 +49,7 @@
     - integration
   command: >-
     cromwell run -o tests/cromwell.options.json
-    -i tests/integration/paired.end.json sequence-classification.wdl
+    -i tests/integration/paired.end.fastq.json sequence-classification.wdl
   files:
     - path: test-output/multiqc/multiqc_data.zip
     - path: test-output/multiqc/multiqc_report.html
