@@ -49,10 +49,11 @@ workflow SampleWorkflow {
                     outputDir = outputDirectory + "/" + readgroupIdentifier,
                     dockerImages = dockerImages
             }
+
+            File? secondSequenceFile = select_first([qualityControl.qcRead2, readgroup.R2])
         }
 
         File firstSequenceFile = select_first([qualityControl.qcRead1, readgroup.R1])
-        File secondSequenceFile = select_first([qualityControl.qcRead2, readgroup.R2, []])
         Array[File] qualityReports = select_first([qualityControl.reports, []])
     }
 
@@ -61,7 +62,7 @@ workflow SampleWorkflow {
             outputPrefix = outputDirectory + "/" + sample.id,
             indexFiles = centrifugeIndex,
             read1 = firstSequenceFile,
-            read2 = secondSequenceFile,
+            read2 = select_all(secondSequenceFile),
             dockerImage = dockerImages["centrifuge"]
     }
 
