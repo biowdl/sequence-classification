@@ -15,11 +15,6 @@
         <i>File &mdash; Default: None</i><br />
         Samplesheet describing input fasta/fastq files.
 </p>
-<p name="Classification.sampleWorkflow.centrifuge.inputFormat">
-        <b>Classification.sampleWorkflow.centrifuge.inputFormat</b><br />
-        <i>String &mdash; Default: "fastq"</i><br />
-        The format of the read file(s).
-</p>
 <p name="Classification.sampleWorkflow.centrifuge.minHitLength">
         <b>Classification.sampleWorkflow.centrifuge.minHitLength</b><br />
         <i>Int &mdash; Default: 22</i><br />
@@ -41,6 +36,11 @@
         <b>Classification.outputDirectory</b><br />
         <i>String &mdash; Default: "."</i><br />
         The directory to which the outputs will be written.
+</p>
+<p name="Classification.runQc">
+        <b>Classification.runQc</b><br />
+        <i>Boolean &mdash; Default: true</i><br />
+        Run the QC pipeline when the input is fastq.
 </p>
 <p name="Classification.sampleWorkflow.centrifuge.excludeTaxIDs">
         <b>Classification.sampleWorkflow.centrifuge.excludeTaxIDs</b><br />
@@ -265,6 +265,11 @@
         <b>Classification.sampleWorkflow.centrifuge.threads</b><br />
         <i>Int &mdash; Default: 4</i><br />
         The number of threads to be used.
+</p>
+<p name="Classification.sampleWorkflow.centrifuge.timeMinutes">
+        <b>Classification.sampleWorkflow.centrifuge.timeMinutes</b><br />
+        <i>Int &mdash; Default: 2880</i><br />
+        The maximum amount of time the job will run in minutes.
 </p>
 <p name="Classification.sampleWorkflow.kReport.isCountTable">
         <b>Classification.sampleWorkflow.kReport.isCountTable</b><br />
