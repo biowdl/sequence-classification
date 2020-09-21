@@ -63,6 +63,7 @@ workflow SampleWorkflow {
     call centrifuge.Classify as centrifuge {
         input:
             outputPrefix = outputDirectory + "/" + sample.id,
+            inputFormat = if (runQc) then "fastq" else "fasta",
             indexFiles = centrifugeIndex,
             read1 = firstSequenceFile,
             read2 = select_all(secondSequenceFile),
