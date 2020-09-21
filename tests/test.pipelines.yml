@@ -82,7 +82,7 @@
     - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_krona.html
     - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_output_report.tsv
 
-- name: single.end.fastq
+- name: single.end.fasta
   tags:
     - integration
   command: >-
@@ -100,7 +100,7 @@
     - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_krona.html
     - path: test-output/Norovirus-Paired-End-2/Norovirus-Paired-End-2_output_report.tsv
 
-- name: paired.end.fastq
+- name: paired.end.fasta
   tags:
     - integration
   command: >-
