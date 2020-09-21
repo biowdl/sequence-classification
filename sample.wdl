@@ -40,6 +40,8 @@ workflow SampleWorkflow {
     scatter (readgroup in readgroups) {
         String readgroupName = "~{sample.id}-~{readgroup.lib_id}-~{readgroup.id}"
         String readgroupIdentifier = readgroup.lib_id + "-" + readgroup.id
+        Boolean pairedEnd = defined(readgroup.R2)
+
         if (runQc) {
             call qc.QC as qualityControl {
                 input:
@@ -49,11 +51,12 @@ workflow SampleWorkflow {
                     outputDir = outputDirectory + "/" + readgroupIdentifier,
                     dockerImages = dockerImages
             }
-
-            File? secondSequenceFile = select_first([qualityControl.qcRead2, readgroup.R2])
         }
 
         File firstSequenceFile = select_first([qualityControl.qcRead1, readgroup.R1])
+        if (pairedEnd) {
+            File? secondSequenceFile = select_first([qualityControl.qcRead2, readgroup.R2])
+        }
         Array[File] qualityReports = select_first([qualityControl.reports, []])
     }
 
