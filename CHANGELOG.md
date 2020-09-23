@@ -10,7 +10,7 @@ that users understand how the changes affect the new version.
 
 version 1.1.0
 ---------------------------
-+ Centrifuge: Remove metrics file from classification (which causes the
++ Remove metrics file from classification (which causes the
   summary report to be empty).
   https://github.com/DaehwanKimLab/centrifuge/issues/83
 + Adapt the pipeline so it can also handle fasta files.
