@@ -76,7 +76,6 @@ workflow Classification {
 
     output {
         Array[File] workflowReports = flatten(sampleWorkflow.workflowReports)
-        Array[File] centrifugeMetrics = sampleWorkflow.centrifugeMetrics
         Array[File] centrifugeClassification = sampleWorkflow.centrifugeClassification
         Array[File] centrifugeReport = sampleWorkflow.centrifugeReport
         Array[File] centrifugeKReport = sampleWorkflow.centrifugeKReport
@@ -94,7 +93,6 @@ workflow Classification {
 
         # outputs
         workflowReports: {description: "The qc workflow file(s)."}
-        centrifugeMetrics: {description: "File(s) with centrifuge metrics."}
         centrifugeClassification: {description: "File(s) with the classification results."}
         centrifugeReport: {description: "File(s) with a classification summary."}
         centrifugeKReport: {description: "File(s) with kraken style report(s)."}
