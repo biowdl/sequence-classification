@@ -85,7 +85,6 @@
     cromwell run -o tests/cromwell.options.json
     -i tests/integration/single.end.fasta.json sequence-classification.wdl
   files:
-
     - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_classification.tsv
     - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_kreport.tsv
     - path: test-output/Norovirus-Paired-End-1/Norovirus-Paired-End-1_krona.html
