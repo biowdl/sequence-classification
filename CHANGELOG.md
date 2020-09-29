@@ -15,7 +15,6 @@ version 1.1.0
   https://github.com/DaehwanKimLab/centrifuge/issues/83
 + Adapt the pipeline so it can also handle fasta files.
 
-
 version 1.0.0
 ---------------------------
 + Update tasks and the input/output names.
