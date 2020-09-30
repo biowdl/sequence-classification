@@ -8,6 +8,13 @@ This document is user facing. Please word the changes in such a way
 that users understand how the changes affect the new version.
 -->
 
+version 1.1.0
+---------------------------
++ Remove metrics file from classification (which causes the
+  summary report to be empty).
+  https://github.com/DaehwanKimLab/centrifuge/issues/83
++ Adapt the pipeline so it can also handle fasta files.
+
 version 1.0.0
 ---------------------------
 + Update tasks and the input/output names.

@@ -1,10 +1,11 @@
 {
-    "Classification.sampleConfigFile": "tests/samplesheets/paired.end.csv",
+    "Classification.sampleConfigFile": "tests/samplesheets/paired.end.fastq.csv",
     "Classification.dockerImagesFile": "dockerImages.yml",
     "Classification.sampleWorkflow.centrifugeIndex": [
         "tests/data/index/norovirus.1.cf",
         "tests/data/index/norovirus.2.cf",
         "tests/data/index/norovirus.3.cf",
         "tests/data/index/norovirus.4.cf"
-    ]
+    ],
+    "Classification.runQc": true
 }

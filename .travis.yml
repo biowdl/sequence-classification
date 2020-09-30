@@ -45,6 +45,10 @@ matrix:
       after_failure:
         - echo "Linting failed"
     - env:
-      - TEST="single.end"
+      - TEST="single.end.fastq"
     - env:
-      - TEST="paired.end"
+      - TEST="paired.end.fastq"
+    - env:
+      - TEST="single.end.fasta"
+    - env:
+      - TEST="paired.end.fasta"

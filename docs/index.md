@@ -14,12 +14,26 @@ at [Leiden University Medical Center](https://www.lumc.nl/).
 You can run this pipeline using
 [Cromwell](http://cromwell.readthedocs.io/en/stable/):
 
+First download the latest version of the pipeline wdl file(s)
+from the
+[releases page](https://github.com/biowdl/sequence-classification/releases).
+
 ```bash
 java \
     -jar cromwell-<version>.jar \
     run \
+    -o options.json \
     -i inputs.json \
-    talon-wdl.wdl
+    sequence-classification.wdl
+```
+
+Where `options.json` contains the following json:
+```json
+{
+    "final_workflow_outputs_dir": "/path/to/outputs",
+    "use_relative_output_paths": true,
+    "final_workflow_log_dir": "/path/to/logs/folder"
+}
 ```
 
 ### Inputs
@@ -35,7 +49,8 @@ For an overview of all available inputs, see [this page](./inputs.html).
     "Classification.sampleConfigFile": "A sample configuration file (see below).",
     "Classification.outputDirectory": "The path to the output directory.",
     "Classification.dockerImagesFile": "A file listing the used docker images.",
-    "Classification.sampleWorkflow.centrifugeIndex": "The files of the centrifuge index for the reference genomes."
+    "Classification.sampleWorkflow.centrifugeIndex": "The files of the centrifuge index for the reference genomes.",
+    "Classification.runQc": "Based on the input files (fastq/fasta), run the QC pipeline."
 }
 ```
 
@@ -87,14 +102,15 @@ The following is an example of what an inputs JSON might look like:
 ```json
 {
     "Classification.sampleConfigFile": "tests/samplesheets/paired.end.csv",
-    "Classification.outputDirectory": "tests/test-output",
     "Classification.dockerImagesFile": "dockerImages.yml",
     "Classification.sampleWorkflow.centrifugeIndex": [
         "tests/data/index/norovirus.1.cf",
         "tests/data/index/norovirus.2.cf",
         "tests/data/index/norovirus.3.cf",
         "tests/data/index/norovirus.4.cf"
-    ]
+    ],
+    "Classification.outputDirectory": "tests/test-output",
+    "Classification.runQc": true
 }
 ```
 
