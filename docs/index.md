@@ -3,8 +3,9 @@ layout: default
 title: Home
 ---
 
-This pipeline uses centrifuge for microbial classification and enables rapid,
-accurate, and sensitive labeling of reads and quantification of species.
+This pipeline uses centrifuge for rapid, accurate and sensitive classification
+and labeling of reads in either fasta or fastq files. It will also provide a
+quantification of species in those fasta or fastq files.
 
 This pipeline is part of [BioWDL](https://biowdl.github.io/)
 developed by the SASC team
@@ -16,7 +17,7 @@ You can run this pipeline using
 
 First download the latest version of the pipeline wdl file(s)
 from the
-[releases page](https://github.com/biowdl/sequence-classification/releases).
+[github page](https://github.com/biowdl/sequence-classification).
 
 ```bash
 java \
@@ -47,10 +48,10 @@ For an overview of all available inputs, see [this page](./inputs.html).
 ```json
 {
     "Classification.sampleConfigFile": "A sample configuration file (see below).",
-    "Classification.outputDirectory": "The path to the output directory.",
     "Classification.dockerImagesFile": "A file listing the used docker images.",
     "Classification.sampleWorkflow.centrifugeIndex": "The files of the centrifuge index for the reference genomes.",
-    "Classification.runQc": "Based on the input files (fastq/fasta), run the QC pipeline."
+    "Classification.runQc": "This setting can only be true if the input files are in fastq format.",
+    "Classification.outputDirectory": "The path to the output directory.",
 }
 ```
 
@@ -101,7 +102,7 @@ The following is an example of what an inputs JSON might look like:
 
 ```json
 {
-    "Classification.sampleConfigFile": "tests/samplesheets/paired.end.csv",
+    "Classification.sampleConfigFile": "tests/samplesheets/paired.end.fastq.csv",
     "Classification.dockerImagesFile": "dockerImages.yml",
     "Classification.sampleWorkflow.centrifugeIndex": [
         "tests/data/index/norovirus.1.cf",
@@ -109,8 +110,8 @@ The following is an example of what an inputs JSON might look like:
         "tests/data/index/norovirus.3.cf",
         "tests/data/index/norovirus.4.cf"
     ],
+    "Classification.runQc": true,
     "Classification.outputDirectory": "tests/test-output",
-    "Classification.runQc": true
 }
 ```
 
@@ -128,9 +129,9 @@ biowdl pipelines. The list of default images for this pipeline can be
 found in the default for the `dockerImages` input.
 
 ### Output
-The workflow will output trimmed reads from the QC pipeline, a centrifuge
-classification file, a alignment metrics file, a report file per sample and
-a krona plot per sample.
+The workflow will output trimmed reads from the QC pipeline (if input is
+fastq). A centrifuge classification file, a alignment metrics file, a report
+file per sample, a kraken style report and a krona plot per sample.
 
 ## Contact
 <p>
