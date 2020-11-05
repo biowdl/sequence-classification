@@ -1,5 +1,4 @@
 # Test data
-
 * Build centrifuge [index](https://ccb.jhu.edu/software/centrifuge/manual.shtml#database-download-and-index-building):
   * `centrifuge-download -o taxonomy taxonomy`
   * `centrifuge-download -o library -m -d "viral" refseq > seqid2taxid.map`

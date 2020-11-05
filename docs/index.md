@@ -12,7 +12,7 @@ developed by the SASC team
 at [Leiden University Medical Center](https://www.lumc.nl/).
 
 ## Usage
-You can run this pipeline using
+This workflow can be run using
 [Cromwell](http://cromwell.readthedocs.io/en/stable/):
 
 First download the latest version of the pipeline wdl file(s)
@@ -115,7 +115,7 @@ The following is an example of what an inputs JSON might look like:
 }
 ```
 
-### Dependency requirements and tool versions
+## Dependency requirements and tool versions
 Biowdl pipelines use docker images to ensure  reproducibility. This
 means that biowdl pipelines will run on any system that has docker
 installed. Alternatively they can be run with singularity.
@@ -128,7 +128,7 @@ Images from [biocontainers](https://biocontainers.pro) are preferred for
 biowdl pipelines. The list of default images for this pipeline can be
 found in the default for the `dockerImages` input.
 
-### Output
+## Output
 The workflow will output trimmed reads from the QC pipeline (if input is
 fastq). A centrifuge classification file, a alignment metrics file, a report
 file per sample, a kraken style report and a krona plot per sample.
@@ -136,7 +136,7 @@ file per sample, a kraken style report and a krona plot per sample.
 ## Contact
 <p>
   <!-- Obscure e-mail address for spammers -->
-For any questions about running this pipeline and feature request (such as
+For any questions about running this workflow and feature request (such as
 adding additional tools and options), please use the
 <a href='https://github.com/biowdl/sequence-classification/issues'>github issue tracker</a>
 or contact the SASC team directly at: 
