@@ -42,11 +42,7 @@ matrix:
       script: bash scripts/biowdl_lint.sh
       after_failure:
         - echo "Linting failed"
-    - env:
-      - TEST="single.end.fastq"
-    - env:
-      - TEST="paired.end.fastq"
-    - env:
-      - TEST="single.end.fasta"
-    - env:
-      - TEST="paired.end.fasta"
+    - env: TEST="single.end.fastq"
+    - env: TEST="paired.end.fastq"
+    - env: TEST="single.end.fasta"
+    - env: TEST="paired.end.fasta"
