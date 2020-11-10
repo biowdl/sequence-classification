@@ -23,7 +23,7 @@ version 1.0.0
   of nested inputs.
 + Remove `execute` from the naming structure for calls of tasks and workflows.
 + Add centrifuge kreport to the pipeline.
-+ Make the multiqc task suitable for use with a `final_workflow_outputs_dir` 
++ Make the multiqc task suitable for use with a `final_workflow_outputs_dir`
   so it can be used on all of cromwell's supported backends.
 + Tasks were updated to contain the `time_minutes` runtime attribute and
   associated `timeMinutes` input, describing the maximum time the task will

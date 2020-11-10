@@ -1,11 +1,11 @@
 # sequence-classification
-This repository contains the [Biowdl](https://github.com/biowdl) pipeline
+This repository contains the [Biowdl](https://github.com/biowdl) workflow
 usable for processing metagenomics data sets
 using [centrifuge](https://github.com/infphilo/centrifuge) and
 [krona](https://github.com/marbl/Krona).
 
 ## Documentation
-Documentation for this pipeline can be
+Documentation for this workflow can be
 found [here](https://biowdl.github.io/sequence-classification).
 
 ## About

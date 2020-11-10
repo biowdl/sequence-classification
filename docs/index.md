@@ -3,11 +3,11 @@ layout: default
 title: Home
 ---
 
-This pipeline uses centrifuge for rapid, accurate and sensitive classification
+This workflow uses centrifuge for rapid, accurate and sensitive classification
 and labeling of reads in either fasta or fastq files. It will also provide a
 quantification of species in those fasta or fastq files.
 
-This pipeline is part of [BioWDL](https://biowdl.github.io/)
+This workflow is part of [BioWDL](https://biowdl.github.io/)
 developed by the SASC team
 at [Leiden University Medical Center](https://www.lumc.nl/).
 
@@ -15,11 +15,11 @@ at [Leiden University Medical Center](https://www.lumc.nl/).
 This workflow can be run using
 [Cromwell](http://cromwell.readthedocs.io/en/stable/):
 
-First download the latest version of the pipeline wdl file(s)
+First download the latest version of the workflow wdl file(s)
 from the
 [github page](https://github.com/biowdl/sequence-classification).
 
-The pipeline can then be run with the following command:
+The workflow can then be run with the following command:
 ```bash
 java \
     -jar cromwell-<version>.jar \
@@ -93,7 +93,7 @@ Sample2|lib1|rg1|tests/data/norovirus.paired.end.2.R1.fastq.gz|8d8d01381a3578771
 
 NOTE: R1_md5, R2 and R2_md5 are optional do not have to be filled. And
 additional fields may be added (eg. for documentation purposes), these will be
-ignored by the pipeline.
+ignored by the workflow.
 
 After creating the table in a spreadsheet program it can be saved in 
 csv format.
@@ -116,8 +116,8 @@ The following is an example of what an inputs JSON might look like:
 ```
 
 ## Dependency requirements and tool versions
-Biowdl pipelines use docker images to ensure  reproducibility. This
-means that biowdl pipelines will run on any system that has docker
+Biowdl workflows use docker images to ensure  reproducibility. This
+means that biowdl workflows will run on any system that has docker
 installed. Alternatively they can be run with singularity.
 
 For more advanced configuration of docker or singularity please check
@@ -125,11 +125,11 @@ the [cromwell documentation on containers](
 https://cromwell.readthedocs.io/en/stable/tutorials/Containers/).
 
 Images from [biocontainers](https://biocontainers.pro) are preferred for
-biowdl pipelines. The list of default images for this pipeline can be
+biowdl workflows. The list of default images for this workflow can be
 found in the default for the `dockerImages` input.
 
 ## Output
-The workflow will output trimmed reads from the QC pipeline (if input is
+The workflow will output trimmed reads from the QC workflow (if input is
 fastq). A centrifuge classification file, a alignment metrics file, a report
 file per sample, a kraken style report and a krona plot per sample.
 
