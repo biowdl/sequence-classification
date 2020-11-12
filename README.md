@@ -6,7 +6,7 @@ using [centrifuge](https://github.com/infphilo/centrifuge) and
 
 ## Documentation
 Documentation for this workflow can be
-found [here](https://biowdl.github.io/sequence-classification).
+found [here](https://biowdl.github.io/sequence-classification/).
 
 ## About
 This workflow is part of [Biowdl](https://github.com/biowdl) developed by the
