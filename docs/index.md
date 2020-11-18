@@ -19,7 +19,7 @@ First download the latest version of the workflow wdl file(s)
 from the
 [github page](https://github.com/biowdl/sequence-classification).
 
-The workflow can then be run with the following command:
+The workflow can then be started with the following command:
 ```bash
 java \
     -jar cromwell-<version>.jar \
@@ -116,7 +116,7 @@ The following is an example of what an inputs JSON might look like:
 ```
 
 ## Dependency requirements and tool versions
-Biowdl workflows use docker images to ensure  reproducibility. This
+Biowdl workflows use docker images to ensure reproducibility. This
 means that biowdl workflows will run on any system that has docker
 installed. Alternatively they can be run with singularity.
 
@@ -136,7 +136,7 @@ file per sample, a kraken style report and a krona plot per sample.
 ## Contact
 <p>
   <!-- Obscure e-mail address for spammers -->
-For any questions about running this workflow and feature request (such as
+For any questions about running this workflow and feature requests (such as
 adding additional tools and options), please use the
 <a href='https://github.com/biowdl/sequence-classification/issues'>github issue tracker</a>
 or contact the SASC team directly at: 
