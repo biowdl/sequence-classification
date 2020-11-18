@@ -10,6 +10,7 @@ that users understand how the changes affect the new version.
 
 version 1.1.0
 ---------------------------
++ Update CutAdapt to version 3.0.0.
 + Remove metrics file from classification (which causes the
   summary report to be empty).
   https://github.com/DaehwanKimLab/centrifuge/issues/83
