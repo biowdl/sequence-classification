@@ -76,6 +76,7 @@ workflow Classification {
     }
 
     output {
+        File dockerImagesList = convertDockerImagesFile.json
         Array[File] workflowReports = flatten(sampleWorkflow.workflowReports)
         Array[File] centrifugeClassification = sampleWorkflow.centrifugeClassification
         Array[File] centrifugeReport = sampleWorkflow.centrifugeReport
@@ -93,6 +94,7 @@ workflow Classification {
         dockerImagesFile: {description: "The docker image used for this workflow. Changing this may result in errors which the developers may choose not to address.", category: "required"}
 
         # outputs
+        dockerImagesList: {description: "Json file describing the docker images used by the pipeline."}
         workflowReports: {description: "The qc workflow file(s)."}
         centrifugeClassification: {description: "File(s) with the classification results."}
         centrifugeReport: {description: "File(s) with a classification summary."}
