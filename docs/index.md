@@ -52,7 +52,7 @@ For an overview of all available inputs, see [this page](./inputs.html).
     "Classification.dockerImagesFile": "A file listing the used docker images.",
     "Classification.sampleWorkflow.centrifugeIndex": "The files of the centrifuge index for the reference genomes.",
     "Classification.runQc": "This setting can only be true if the input files are in fastq format.",
-    "Classification.outputDirectory": "The path to the output directory.",
+    "Classification.outputDirectory": "The path to the output directory."
 }
 ```
 
@@ -114,7 +114,7 @@ The following is an example of what an inputs JSON might look like:
         "tests/data/index/norovirus.4.cf"
     ],
     "Classification.runQc": true,
-    "Classification.outputDirectory": "tests/test-output",
+    "Classification.outputDirectory": "tests/test-output"
 }
 ```
 
