@@ -3,21 +3,23 @@ layout: default
 title: Home
 ---
 
-This pipeline uses centrifuge for microbial classification and enables rapid,
-accurate, and sensitive labeling of reads and quantification of species.
+This workflow uses centrifuge for rapid, accurate and sensitive classification
+and labeling of reads in either fasta or fastq files. It will also provide a
+quantification of species in those fasta or fastq files.
 
-This pipeline is part of [BioWDL](https://biowdl.github.io/)
+This workflow is part of [BioWDL](https://biowdl.github.io/)
 developed by the SASC team
 at [Leiden University Medical Center](https://www.lumc.nl/).
 
 ## Usage
-You can run this pipeline using
+This workflow can be run using
 [Cromwell](http://cromwell.readthedocs.io/en/stable/):
 
-First download the latest version of the pipeline wdl file(s)
+First download the latest version of the workflow wdl file(s)
 from the
-[releases page](https://github.com/biowdl/sequence-classification/releases).
+[github page](https://github.com/biowdl/sequence-classification).
 
+The workflow can then be started with the following command:
 ```bash
 java \
     -jar cromwell-<version>.jar \
@@ -47,18 +49,18 @@ For an overview of all available inputs, see [this page](./inputs.html).
 ```json
 {
     "Classification.sampleConfigFile": "A sample configuration file (see below).",
-    "Classification.outputDirectory": "The path to the output directory.",
     "Classification.dockerImagesFile": "A file listing the used docker images.",
     "Classification.sampleWorkflow.centrifugeIndex": "The files of the centrifuge index for the reference genomes.",
-    "Classification.runQc": "Based on the input files (fastq/fasta), run the QC pipeline."
+    "Classification.runQc": "This setting can only be true if the input files are in fastq format.",
+    "Classification.outputDirectory": "The path to the output directory."
 }
 ```
 
 #### Sample configuration
 ##### Verification
-All samplesheet formats can be verified using `biowdl-input-converter`. 
-It can be installed with `pip install biowdl-input-converter` or 
-`conda install biowdl-input-converter` (from the bioconda channel). 
+All samplesheet formats can be verified using `biowdl-input-converter`.
+It can be installed with `pip install biowdl-input-converter` or
+`conda install biowdl-input-converter` (from the bioconda channel).
 Python 3.7 or higher is required.
 
 With `biowdl-input-converter --validate samplesheet.csv` The file
@@ -68,14 +70,17 @@ information check out the [biowdl-input-converter readthedocs page](
 https://biowdl-input-converter.readthedocs.io).
 
 ##### CSV format
-The sample configuration can be given as a csv file with the following 
+The sample configuration can be given as a csv file with the following
 columns: sample, library, readgroup, R1, R1_md5, R2, R2_md5.
 
 column name | function
 ---|---
 sample | sample ID
-library | library ID. These are the libraries that are sequenced. Usually there is only one library per sample.
-readgroup | readgroup ID. Usually a library is sequenced on multiple lanes in the sequencer, which gives multiple fastq files (referred to as readgroups). Each readgroup pair should have an ID.
+library | library ID. These are the libraries that are sequenced. Usually
+there is only one library per sample.
+readgroup | readgroup ID. Usually a library is sequenced on multiple lanes in
+the sequencer, which gives multiple fastq files (referred to as readgroups).
+Each readgroup pair should have an ID.
 R1| The fastq file containing the first reads of the read pairs.
 R1_md5 | Optional: md5sum for the R1 file.
 R2| Optional: The fastq file containing the reverse reads.
@@ -91,17 +96,16 @@ Sample2|lib1|rg1|tests/data/norovirus.paired.end.2.R1.fastq.gz|8d8d01381a3578771
 
 NOTE: R1_md5, R2 and R2_md5 are optional do not have to be filled. And
 additional fields may be added (eg. for documentation purposes), these will be
-ignored by the pipeline.
+ignored by the workflow.
 
 After creating the table in a spreadsheet program it can be saved in 
 csv format.
 
 #### Example
 The following is an example of what an inputs JSON might look like:
-
 ```json
 {
-    "Classification.sampleConfigFile": "tests/samplesheets/paired.end.csv",
+    "Classification.sampleConfigFile": "tests/samplesheets/paired.end.fastq.csv",
     "Classification.dockerImagesFile": "dockerImages.yml",
     "Classification.sampleWorkflow.centrifugeIndex": [
         "tests/data/index/norovirus.1.cf",
@@ -109,14 +113,14 @@ The following is an example of what an inputs JSON might look like:
         "tests/data/index/norovirus.3.cf",
         "tests/data/index/norovirus.4.cf"
     ],
-    "Classification.outputDirectory": "tests/test-output",
-    "Classification.runQc": true
+    "Classification.runQc": true,
+    "Classification.outputDirectory": "tests/test-output"
 }
 ```
 
-### Dependency requirements and tool versions
-Biowdl pipelines use docker images to ensure  reproducibility. This
-means that biowdl pipelines will run on any system that has docker
+## Dependency requirements and tool versions
+Biowdl workflows use docker images to ensure reproducibility. This
+means that biowdl workflows will run on any system that has docker
 installed. Alternatively they can be run with singularity.
 
 For more advanced configuration of docker or singularity please check
@@ -124,21 +128,21 @@ the [cromwell documentation on containers](
 https://cromwell.readthedocs.io/en/stable/tutorials/Containers/).
 
 Images from [biocontainers](https://biocontainers.pro) are preferred for
-biowdl pipelines. The list of default images for this pipeline can be
+biowdl workflows. The list of default images for this workflow can be
 found in the default for the `dockerImages` input.
 
-### Output
-The workflow will output trimmed reads from the QC pipeline, a centrifuge
-classification file, a alignment metrics file, a report file per sample and
-a krona plot per sample.
+## Output
+The workflow will output trimmed reads from the QC workflow (if input is
+fastq). A centrifuge classification file, a alignment metrics file, a report
+file per sample, a kraken style report and a krona plot per sample.
 
 ## Contact
 <p>
   <!-- Obscure e-mail address for spammers -->
-For any questions about running this pipeline and feature request (such as
+For any questions about running this workflow and feature requests (such as
 adding additional tools and options), please use the
-<a href='https://github.com/biowdl/sequence-classification/issues'>github issue tracker</a>
+<a href="https://github.com/biowdl/sequence-classification/issues">github issue tracker</a>
 or contact the SASC team directly at: 
-<a href='&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#97;&#115;&#99;&#64;&#108;&#117;&#109;&#99;&#46;&#110;&#108;'>
+<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#97;&#115;&#99;&#64;&#108;&#117;&#109;&#99;&#46;&#110;&#108;">
 &#115;&#97;&#115;&#99;&#64;&#108;&#117;&#109;&#99;&#46;&#110;&#108;</a>.
 </p>

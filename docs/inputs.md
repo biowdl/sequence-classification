@@ -106,6 +106,11 @@
         <i>Boolean &mdash; Default: false</i><br />
         Whether or not the MD5 sums of the files mentioned in the samplesheet should be checked.
 </p>
+<p name="Classification.convertSampleConfig.memory">
+        <b>Classification.convertSampleConfig.memory</b><br />
+        <i>String &mdash; Default: "128M"</i><br />
+        The amount of memory needed for the job.
+</p>
 <p name="Classification.convertSampleConfig.old">
         <b>Classification.convertSampleConfig.old</b><br />
         <i>Boolean &mdash; Default: false</i><br />
@@ -554,7 +559,7 @@
 <p name="Classification.sampleWorkflow.qualityControl.extractFastqcZip">
         <b>Classification.sampleWorkflow.qualityControl.extractFastqcZip</b><br />
         <i>Boolean &mdash; Default: false</i><br />
-        Whether to extract Fastqc's report zip files
+        Whether to extract Fastqc's report zip files.
 </p>
 <p name="Classification.sampleWorkflow.qualityControl.FastqcRead1.adapters">
         <b>Classification.sampleWorkflow.qualityControl.FastqcRead1.adapters</b><br />

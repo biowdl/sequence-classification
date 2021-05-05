@@ -1,6 +1,6 @@
 version 1.0
 
-# Copyright (c) 2020 Sequencing Analysis Support Core - Leiden University Medical Center
+# Copyright (c) 2020 Leiden University Medical Center
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -8,10 +8,10 @@ version 1.0
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 # copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
-
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -31,6 +31,7 @@ workflow Classification {
         File sampleConfigFile
         String outputDirectory = "."
         Boolean runQc = true
+
         File dockerImagesFile
     }
 
@@ -75,6 +76,7 @@ workflow Classification {
     }
 
     output {
+        File dockerImagesList = convertDockerImagesFile.json
         Array[File] workflowReports = flatten(sampleWorkflow.workflowReports)
         Array[File] centrifugeClassification = sampleWorkflow.centrifugeClassification
         Array[File] centrifugeReport = sampleWorkflow.centrifugeReport
@@ -92,6 +94,7 @@ workflow Classification {
         dockerImagesFile: {description: "The docker image used for this workflow. Changing this may result in errors which the developers may choose not to address.", category: "required"}
 
         # outputs
+        dockerImagesList: {description: "Json file describing the docker images used by the pipeline."}
         workflowReports: {description: "The qc workflow file(s)."}
         centrifugeClassification: {description: "File(s) with the classification results."}
         centrifugeReport: {description: "File(s) with a classification summary."}
