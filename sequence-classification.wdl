@@ -35,7 +35,9 @@ workflow Classification {
         File dockerImagesFile
     }
 
-    meta {allowNestedInputs: true}
+    meta {
+        allowNestedInputs: true
+    }
 
     call common.YamlToJson as convertDockerImagesFile {
         input:
