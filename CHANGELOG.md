@@ -10,6 +10,9 @@ that users understand how the changes affect the new version.
 
 version 1.1.0
 ---------------------------
++ Update multiqc to version 1.10.
++ Update CutAdapt to version 3.4.
++ Update biowdl-input-converter to version 0.3.
 + Add the dockerImages to the output section.
 + Replace travis with github CI.
 + Update CutAdapt to version 3.0.0.
